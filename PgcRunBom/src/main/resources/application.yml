@@ -1,0 +1,19 @@
+
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@10.228.202.73:80/PCC2
+    username: system
+    password: init1234
+  application:
+    name: PgcRunBom
+  thymeleaf:
+    cache: false
+  jpa:
+    show-sql: true
+server:
+  address: localhost
+  port: 8081
+  tomcat:
+    uri-encoding: utf-8
+

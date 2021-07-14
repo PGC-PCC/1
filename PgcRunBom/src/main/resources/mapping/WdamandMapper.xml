@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.runbom.demo.dao.WdamandMapper">
+  <resultMap id="BaseResultMap" type="com.runbom.demo.model.Wdamand">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="DOCUMENTID" jdbcType="VARCHAR" property="documentid" />
+    <result column="ISDEL" jdbcType="NUMERIC" property="isdel" />
+    <result column="EXECID" jdbcType="VARCHAR" property="execid" />
+    <result column="WERKS" jdbcType="VARCHAR" property="werks" />
+    <result column="SPJ" jdbcType="VARCHAR" property="spj" />
+    <result column="KANR" jdbcType="VARCHAR" property="kanr" />
+    <result column="WORKSHOP" jdbcType="VARCHAR" property="workshop" />
+    <result column="NUMBER1" jdbcType="VARCHAR" property="number1" />
+    <result column="FANLAGE2" jdbcType="VARCHAR" property="fanlage2" />
+    <result column="CARTYPE" jdbcType="VARCHAR" property="cartype" />
+    <result column="DELIVERY_SITE" jdbcType="VARCHAR" property="deliverySite" />
+    <result column="PATH" jdbcType="VARCHAR" property="path" />
+    <result column="SITE" jdbcType="VARCHAR" property="site" />
+    <result column="GWQJ" jdbcType="VARCHAR" property="gwqj" />
+    <result column="QJSL" jdbcType="NUMERIC" property="qjsl" />
+    <result column="TP" jdbcType="VARCHAR" property="tp" />
+    <result column="TPSL" jdbcType="NUMERIC" property="tpsl" />
+    <result column="LJSL" jdbcType="NUMERIC" property="ljsl" />
+    <result column="BZSL" jdbcType="NUMERIC" property="bzsl" />
+    <result column="QUANTITY" jdbcType="NUMERIC" property="quantity" />
+    <result column="CCID" jdbcType="VARCHAR" property="ccid" />
+    <result column="LJID" jdbcType="VARCHAR" property="ljid" />
+    <result column="XHDID" jdbcType="VARCHAR" property="xhdid" />
+    <result column="LJGWID" jdbcType="VARCHAR" property="ljgwid" />
+    <result column="STATUS" jdbcType="NUMERIC" property="status" />
+    <result column="CREATORID" jdbcType="VARCHAR" property="creatorid" />
+    <result column="CREATORNAME" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="MODIFIERID" jdbcType="VARCHAR" property="modifierid" />
+    <result column="MODIFIERNAME" jdbcType="VARCHAR" property="modifiername" />
+    <result column="MODIFYTIME" jdbcType="TIMESTAMP" property="modifytime" />
+    <result column="ZPTYPE" jdbcType="CHAR" property="zptype" />
+    <result column="XZPRIORITY" jdbcType="NUMERIC" property="xzpriority" />
+    <result column="HK" jdbcType="VARCHAR" property="hk" />
+    <result column="SXWZ" jdbcType="VARCHAR" property="sxwz" />
+    <result column="DELIVERY_LGORT" jdbcType="VARCHAR" property="deliveryLgort" />
+    <result column="AREA" jdbcType="VARCHAR" property="area" />
+    <result column="STOREHOUSE" jdbcType="VARCHAR" property="storehouse" />
+    <result column="GWLJSL" jdbcType="NUMERIC" property="gwljsl" />
+    <result column="TBLJSL" jdbcType="NUMERIC" property="tbljsl" />
+    <result column="WISDRIFT" jdbcType="CHAR" property="wisdrift" />
+    <result column="WSERIALNUM" jdbcType="NUMERIC" property="wserialnum" />
+    <result column="FLAG" jdbcType="NUMERIC" property="flag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.runbom.demo.model.Wdamand">
+    insert into PCC_W_DEMAND (ID, DOCUMENTID, ISDEL, 
+      EXECID, WERKS, SPJ, 
+      KANR, WORKSHOP, NUMBER1, 
+      FANLAGE2, CARTYPE, DELIVERY_SITE, 
+      PATH, SITE, GWQJ, QJSL, 
+      TP, TPSL, LJSL, BZSL, 
+      QUANTITY, CCID, LJID, 
+      XHDID, LJGWID, STATUS, 
+      CREATORID, CREATORNAME, CREATETIME, 
+      MODIFIERID, MODIFIERNAME, MODIFYTIME, 
+      ZPTYPE, XZPRIORITY, HK, 
+      SXWZ, DELIVERY_LGORT, AREA, 
+      STOREHOUSE, GWLJSL, TBLJSL, 
+      WISDRIFT, WSERIALNUM, FLAG
+      )
+    values (#{id,jdbcType=VARCHAR}, #{documentid,jdbcType=VARCHAR}, #{isdel,jdbcType=NUMERIC}, 
+      #{execid,jdbcType=VARCHAR}, #{werks,jdbcType=VARCHAR}, #{spj,jdbcType=VARCHAR}, 
+      #{kanr,jdbcType=VARCHAR}, #{workshop,jdbcType=VARCHAR}, #{number1,jdbcType=VARCHAR}, 
+      #{fanlage2,jdbcType=VARCHAR}, #{cartype,jdbcType=VARCHAR}, #{deliverySite,jdbcType=VARCHAR}, 
+      #{path,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, #{gwqj,jdbcType=VARCHAR}, #{qjsl,jdbcType=NUMERIC}, 
+      #{tp,jdbcType=VARCHAR}, #{tpsl,jdbcType=NUMERIC}, #{ljsl,jdbcType=NUMERIC}, #{bzsl,jdbcType=NUMERIC}, 
+      #{quantity,jdbcType=NUMERIC}, #{ccid,jdbcType=VARCHAR}, #{ljid,jdbcType=VARCHAR}, 
+      #{xhdid,jdbcType=VARCHAR}, #{ljgwid,jdbcType=VARCHAR}, #{status,jdbcType=NUMERIC}, 
+      #{creatorid,jdbcType=VARCHAR}, #{creatorname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{modifierid,jdbcType=VARCHAR}, #{modifiername,jdbcType=VARCHAR}, #{modifytime,jdbcType=TIMESTAMP}, 
+      #{zptype,jdbcType=CHAR}, #{xzpriority,jdbcType=NUMERIC}, #{hk,jdbcType=VARCHAR}, 
+      #{sxwz,jdbcType=VARCHAR}, #{deliveryLgort,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, 
+      #{storehouse,jdbcType=VARCHAR}, #{gwljsl,jdbcType=NUMERIC}, #{tbljsl,jdbcType=NUMERIC}, 
+      #{wisdrift,jdbcType=CHAR}, #{wserialnum,jdbcType=NUMERIC}, #{flag,jdbcType=NUMERIC}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.runbom.demo.model.Wdamand">
+    insert into PCC_W_DEMAND
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="documentid != null">
+        DOCUMENTID,
+      </if>
+      <if test="isdel != null">
+        ISDEL,
+      </if>
+      <if test="execid != null">
+        EXECID,
+      </if>
+      <if test="werks != null">
+        WERKS,
+      </if>
+      <if test="spj != null">
+        SPJ,
+      </if>
+      <if test="kanr != null">
+        KANR,
+      </if>
+      <if test="workshop != null">
+        WORKSHOP,
+      </if>
+      <if test="number1 != null">
+        NUMBER1,
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2,
+      </if>
+      <if test="cartype != null">
+        CARTYPE,
+      </if>
+      <if test="deliverySite != null">
+        DELIVERY_SITE,
+      </if>
+      <if test="path != null">
+        PATH,
+      </if>
+      <if test="site != null">
+        SITE,
+      </if>
+      <if test="gwqj != null">
+        GWQJ,
+      </if>
+      <if test="qjsl != null">
+        QJSL,
+      </if>
+      <if test="tp != null">
+        TP,
+      </if>
+      <if test="tpsl != null">
+        TPSL,
+      </if>
+      <if test="ljsl != null">
+        LJSL,
+      </if>
+      <if test="bzsl != null">
+        BZSL,
+      </if>
+      <if test="quantity != null">
+        QUANTITY,
+      </if>
+      <if test="ccid != null">
+        CCID,
+      </if>
+      <if test="ljid != null">
+        LJID,
+      </if>
+      <if test="xhdid != null">
+        XHDID,
+      </if>
+      <if test="ljgwid != null">
+        LJGWID,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="creatorid != null">
+        CREATORID,
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID,
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME,
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME,
+      </if>
+      <if test="zptype != null">
+        ZPTYPE,
+      </if>
+      <if test="xzpriority != null">
+        XZPRIORITY,
+      </if>
+      <if test="hk != null">
+        HK,
+      </if>
+      <if test="sxwz != null">
+        SXWZ,
+      </if>
+      <if test="deliveryLgort != null">
+        DELIVERY_LGORT,
+      </if>
+      <if test="area != null">
+        AREA,
+      </if>
+      <if test="storehouse != null">
+        STOREHOUSE,
+      </if>
+      <if test="gwljsl != null">
+        GWLJSL,
+      </if>
+      <if test="tbljsl != null">
+        TBLJSL,
+      </if>
+      <if test="wisdrift != null">
+        WISDRIFT,
+      </if>
+      <if test="wserialnum != null">
+        WSERIALNUM,
+      </if>
+      <if test="flag != null">
+        FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="documentid != null">
+        #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="execid != null">
+        #{execid,jdbcType=VARCHAR},
+      </if>
+      <if test="werks != null">
+        #{werks,jdbcType=VARCHAR},
+      </if>
+      <if test="spj != null">
+        #{spj,jdbcType=VARCHAR},
+      </if>
+      <if test="kanr != null">
+        #{kanr,jdbcType=VARCHAR},
+      </if>
+      <if test="workshop != null">
+        #{workshop,jdbcType=VARCHAR},
+      </if>
+      <if test="number1 != null">
+        #{number1,jdbcType=VARCHAR},
+      </if>
+      <if test="fanlage2 != null">
+        #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="cartype != null">
+        #{cartype,jdbcType=VARCHAR},
+      </if>
+      <if test="deliverySite != null">
+        #{deliverySite,jdbcType=VARCHAR},
+      </if>
+      <if test="path != null">
+        #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="site != null">
+        #{site,jdbcType=VARCHAR},
+      </if>
+      <if test="gwqj != null">
+        #{gwqj,jdbcType=VARCHAR},
+      </if>
+      <if test="qjsl != null">
+        #{qjsl,jdbcType=NUMERIC},
+      </if>
+      <if test="tp != null">
+        #{tp,jdbcType=VARCHAR},
+      </if>
+      <if test="tpsl != null">
+        #{tpsl,jdbcType=NUMERIC},
+      </if>
+      <if test="ljsl != null">
+        #{ljsl,jdbcType=NUMERIC},
+      </if>
+      <if test="bzsl != null">
+        #{bzsl,jdbcType=NUMERIC},
+      </if>
+      <if test="quantity != null">
+        #{quantity,jdbcType=NUMERIC},
+      </if>
+      <if test="ccid != null">
+        #{ccid,jdbcType=VARCHAR},
+      </if>
+      <if test="ljid != null">
+        #{ljid,jdbcType=VARCHAR},
+      </if>
+      <if test="xhdid != null">
+        #{xhdid,jdbcType=VARCHAR},
+      </if>
+      <if test="ljgwid != null">
+        #{ljgwid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=NUMERIC},
+      </if>
+      <if test="creatorid != null">
+        #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zptype != null">
+        #{zptype,jdbcType=CHAR},
+      </if>
+      <if test="xzpriority != null">
+        #{xzpriority,jdbcType=NUMERIC},
+      </if>
+      <if test="hk != null">
+        #{hk,jdbcType=VARCHAR},
+      </if>
+      <if test="sxwz != null">
+        #{sxwz,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryLgort != null">
+        #{deliveryLgort,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="storehouse != null">
+        #{storehouse,jdbcType=VARCHAR},
+      </if>
+      <if test="gwljsl != null">
+        #{gwljsl,jdbcType=NUMERIC},
+      </if>
+      <if test="tbljsl != null">
+        #{tbljsl,jdbcType=NUMERIC},
+      </if>
+      <if test="wisdrift != null">
+        #{wisdrift,jdbcType=CHAR},
+      </if>
+      <if test="wserialnum != null">
+        #{wserialnum,jdbcType=NUMERIC},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.runbom.demo.model.Wdamand">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="DOCUMENTID" jdbcType="VARCHAR" property="documentid" />
+    <result column="ISDEL" jdbcType="NUMERIC" property="isdel" />
+    <result column="EXECID" jdbcType="VARCHAR" property="execid" />
+    <result column="WERKS" jdbcType="VARCHAR" property="werks" />
+    <result column="SPJ" jdbcType="VARCHAR" property="spj" />
+    <result column="KANR" jdbcType="VARCHAR" property="kanr" />
+    <result column="WORKSHOP" jdbcType="VARCHAR" property="workshop" />
+    <result column="NUMBER1" jdbcType="VARCHAR" property="number1" />
+    <result column="FANLAGE2" jdbcType="VARCHAR" property="fanlage2" />
+    <result column="CARTYPE" jdbcType="VARCHAR" property="cartype" />
+    <result column="DELIVERY_SITE" jdbcType="VARCHAR" property="deliverySite" />
+    <result column="PATH" jdbcType="VARCHAR" property="path" />
+    <result column="SITE" jdbcType="VARCHAR" property="site" />
+    <result column="GWQJ" jdbcType="VARCHAR" property="gwqj" />
+    <result column="QJSL" jdbcType="NUMERIC" property="qjsl" />
+    <result column="TP" jdbcType="VARCHAR" property="tp" />
+    <result column="TPSL" jdbcType="NUMERIC" property="tpsl" />
+    <result column="LJSL" jdbcType="NUMERIC" property="ljsl" />
+    <result column="BZSL" jdbcType="NUMERIC" property="bzsl" />
+    <result column="QUANTITY" jdbcType="NUMERIC" property="quantity" />
+    <result column="CCID" jdbcType="VARCHAR" property="ccid" />
+    <result column="LJID" jdbcType="VARCHAR" property="ljid" />
+    <result column="XHDID" jdbcType="VARCHAR" property="xhdid" />
+    <result column="LJGWID" jdbcType="VARCHAR" property="ljgwid" />
+    <result column="STATUS" jdbcType="NUMERIC" property="status" />
+    <result column="CREATORID" jdbcType="VARCHAR" property="creatorid" />
+    <result column="CREATORNAME" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="MODIFIERID" jdbcType="VARCHAR" property="modifierid" />
+    <result column="MODIFIERNAME" jdbcType="VARCHAR" property="modifiername" />
+    <result column="MODIFYTIME" jdbcType="TIMESTAMP" property="modifytime" />
+    <result column="ZPTYPE" jdbcType="CHAR" property="zptype" />
+    <result column="XZPRIORITY" jdbcType="NUMERIC" property="xzpriority" />
+    <result column="HK" jdbcType="VARCHAR" property="hk" />
+    <result column="SXWZ" jdbcType="VARCHAR" property="sxwz" />
+    <result column="DELIVERY_LGORT" jdbcType="VARCHAR" property="deliveryLgort" />
+    <result column="AREA" jdbcType="VARCHAR" property="area" />
+    <result column="STOREHOUSE" jdbcType="VARCHAR" property="storehouse" />
+    <result column="GWLJSL" jdbcType="NUMERIC" property="gwljsl" />
+    <result column="TBLJSL" jdbcType="NUMERIC" property="tbljsl" />
+    <result column="WISDRIFT" jdbcType="CHAR" property="wisdrift" />
+    <result column="WSERIALNUM" jdbcType="NUMERIC" property="wserialnum" />
+    <result column="FLAG" jdbcType="NUMERIC" property="flag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.runbom.demo.model.Wdamand">
+    insert into PCC_W_DEMAND (ID, DOCUMENTID, ISDEL, 
+      EXECID, WERKS, SPJ, 
+      KANR, WORKSHOP, NUMBER1, 
+      FANLAGE2, CARTYPE, DELIVERY_SITE, 
+      PATH, SITE, GWQJ, QJSL, 
+      TP, TPSL, LJSL, BZSL, 
+      QUANTITY, CCID, LJID, 
+      XHDID, LJGWID, STATUS, 
+      CREATORID, CREATORNAME, CREATETIME, 
+      MODIFIERID, MODIFIERNAME, MODIFYTIME, 
+      ZPTYPE, XZPRIORITY, HK, 
+      SXWZ, DELIVERY_LGORT, AREA, 
+      STOREHOUSE, GWLJSL, TBLJSL, 
+      WISDRIFT, WSERIALNUM, FLAG
+      )
+    values (#{id,jdbcType=VARCHAR}, #{documentid,jdbcType=VARCHAR}, #{isdel,jdbcType=NUMERIC}, 
+      #{execid,jdbcType=VARCHAR}, #{werks,jdbcType=VARCHAR}, #{spj,jdbcType=VARCHAR}, 
+      #{kanr,jdbcType=VARCHAR}, #{workshop,jdbcType=VARCHAR}, #{number1,jdbcType=VARCHAR}, 
+      #{fanlage2,jdbcType=VARCHAR}, #{cartype,jdbcType=VARCHAR}, #{deliverySite,jdbcType=VARCHAR}, 
+      #{path,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, #{gwqj,jdbcType=VARCHAR}, #{qjsl,jdbcType=NUMERIC}, 
+      #{tp,jdbcType=VARCHAR}, #{tpsl,jdbcType=NUMERIC}, #{ljsl,jdbcType=NUMERIC}, #{bzsl,jdbcType=NUMERIC}, 
+      #{quantity,jdbcType=NUMERIC}, #{ccid,jdbcType=VARCHAR}, #{ljid,jdbcType=VARCHAR}, 
+      #{xhdid,jdbcType=VARCHAR}, #{ljgwid,jdbcType=VARCHAR}, #{status,jdbcType=NUMERIC}, 
+      #{creatorid,jdbcType=VARCHAR}, #{creatorname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{modifierid,jdbcType=VARCHAR}, #{modifiername,jdbcType=VARCHAR}, #{modifytime,jdbcType=TIMESTAMP}, 
+      #{zptype,jdbcType=CHAR}, #{xzpriority,jdbcType=NUMERIC}, #{hk,jdbcType=VARCHAR}, 
+      #{sxwz,jdbcType=VARCHAR}, #{deliveryLgort,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, 
+      #{storehouse,jdbcType=VARCHAR}, #{gwljsl,jdbcType=NUMERIC}, #{tbljsl,jdbcType=NUMERIC}, 
+      #{wisdrift,jdbcType=CHAR}, #{wserialnum,jdbcType=NUMERIC}, #{flag,jdbcType=NUMERIC}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.runbom.demo.model.Wdamand">
+    insert into PCC_W_DEMAND
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="documentid != null">
+        DOCUMENTID,
+      </if>
+      <if test="isdel != null">
+        ISDEL,
+      </if>
+      <if test="execid != null">
+        EXECID,
+      </if>
+      <if test="werks != null">
+        WERKS,
+      </if>
+      <if test="spj != null">
+        SPJ,
+      </if>
+      <if test="kanr != null">
+        KANR,
+      </if>
+      <if test="workshop != null">
+        WORKSHOP,
+      </if>
+      <if test="number1 != null">
+        NUMBER1,
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2,
+      </if>
+      <if test="cartype != null">
+        CARTYPE,
+      </if>
+      <if test="deliverySite != null">
+        DELIVERY_SITE,
+      </if>
+      <if test="path != null">
+        PATH,
+      </if>
+      <if test="site != null">
+        SITE,
+      </if>
+      <if test="gwqj != null">
+        GWQJ,
+      </if>
+      <if test="qjsl != null">
+        QJSL,
+      </if>
+      <if test="tp != null">
+        TP,
+      </if>
+      <if test="tpsl != null">
+        TPSL,
+      </if>
+      <if test="ljsl != null">
+        LJSL,
+      </if>
+      <if test="bzsl != null">
+        BZSL,
+      </if>
+      <if test="quantity != null">
+        QUANTITY,
+      </if>
+      <if test="ccid != null">
+        CCID,
+      </if>
+      <if test="ljid != null">
+        LJID,
+      </if>
+      <if test="xhdid != null">
+        XHDID,
+      </if>
+      <if test="ljgwid != null">
+        LJGWID,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="creatorid != null">
+        CREATORID,
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID,
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME,
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME,
+      </if>
+      <if test="zptype != null">
+        ZPTYPE,
+      </if>
+      <if test="xzpriority != null">
+        XZPRIORITY,
+      </if>
+      <if test="hk != null">
+        HK,
+      </if>
+      <if test="sxwz != null">
+        SXWZ,
+      </if>
+      <if test="deliveryLgort != null">
+        DELIVERY_LGORT,
+      </if>
+      <if test="area != null">
+        AREA,
+      </if>
+      <if test="storehouse != null">
+        STOREHOUSE,
+      </if>
+      <if test="gwljsl != null">
+        GWLJSL,
+      </if>
+      <if test="tbljsl != null">
+        TBLJSL,
+      </if>
+      <if test="wisdrift != null">
+        WISDRIFT,
+      </if>
+      <if test="wserialnum != null">
+        WSERIALNUM,
+      </if>
+      <if test="flag != null">
+        FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="documentid != null">
+        #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="execid != null">
+        #{execid,jdbcType=VARCHAR},
+      </if>
+      <if test="werks != null">
+        #{werks,jdbcType=VARCHAR},
+      </if>
+      <if test="spj != null">
+        #{spj,jdbcType=VARCHAR},
+      </if>
+      <if test="kanr != null">
+        #{kanr,jdbcType=VARCHAR},
+      </if>
+      <if test="workshop != null">
+        #{workshop,jdbcType=VARCHAR},
+      </if>
+      <if test="number1 != null">
+        #{number1,jdbcType=VARCHAR},
+      </if>
+      <if test="fanlage2 != null">
+        #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="cartype != null">
+        #{cartype,jdbcType=VARCHAR},
+      </if>
+      <if test="deliverySite != null">
+        #{deliverySite,jdbcType=VARCHAR},
+      </if>
+      <if test="path != null">
+        #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="site != null">
+        #{site,jdbcType=VARCHAR},
+      </if>
+      <if test="gwqj != null">
+        #{gwqj,jdbcType=VARCHAR},
+      </if>
+      <if test="qjsl != null">
+        #{qjsl,jdbcType=NUMERIC},
+      </if>
+      <if test="tp != null">
+        #{tp,jdbcType=VARCHAR},
+      </if>
+      <if test="tpsl != null">
+        #{tpsl,jdbcType=NUMERIC},
+      </if>
+      <if test="ljsl != null">
+        #{ljsl,jdbcType=NUMERIC},
+      </if>
+      <if test="bzsl != null">
+        #{bzsl,jdbcType=NUMERIC},
+      </if>
+      <if test="quantity != null">
+        #{quantity,jdbcType=NUMERIC},
+      </if>
+      <if test="ccid != null">
+        #{ccid,jdbcType=VARCHAR},
+      </if>
+      <if test="ljid != null">
+        #{ljid,jdbcType=VARCHAR},
+      </if>
+      <if test="xhdid != null">
+        #{xhdid,jdbcType=VARCHAR},
+      </if>
+      <if test="ljgwid != null">
+        #{ljgwid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=NUMERIC},
+      </if>
+      <if test="creatorid != null">
+        #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zptype != null">
+        #{zptype,jdbcType=CHAR},
+      </if>
+      <if test="xzpriority != null">
+        #{xzpriority,jdbcType=NUMERIC},
+      </if>
+      <if test="hk != null">
+        #{hk,jdbcType=VARCHAR},
+      </if>
+      <if test="sxwz != null">
+        #{sxwz,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryLgort != null">
+        #{deliveryLgort,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="storehouse != null">
+        #{storehouse,jdbcType=VARCHAR},
+      </if>
+      <if test="gwljsl != null">
+        #{gwljsl,jdbcType=NUMERIC},
+      </if>
+      <if test="tbljsl != null">
+        #{tbljsl,jdbcType=NUMERIC},
+      </if>
+      <if test="wisdrift != null">
+        #{wisdrift,jdbcType=CHAR},
+      </if>
+      <if test="wserialnum != null">
+        #{wserialnum,jdbcType=NUMERIC},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+</mapper>

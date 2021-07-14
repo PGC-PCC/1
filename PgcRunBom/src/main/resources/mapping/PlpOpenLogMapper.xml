@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.runbom.demo.dao.PlpOpenLogMapper">
+  <resultMap id="BaseResultMap" type="com.runbom.demo.model.PlpOpenLog">
+    <id column="EXECID" jdbcType="VARCHAR" property="execid" />
+    <result column="DOCUMENTID" jdbcType="VARCHAR" property="documentid" />
+    <result column="ISDEL" jdbcType="NUMERIC" property="isdel" />
+    <result column="RQUESTTIME" jdbcType="TIMESTAMP" property="rquesttime" />
+    <result column="RESPONSETIME" jdbcType="TIMESTAMP" property="responsetime" />
+    <result column="CLOSETIME" jdbcType="TIMESTAMP" property="closetime" />
+    <result column="CNUM" jdbcType="NUMERIC" property="cnum" />
+    <result column="SCNUM" jdbcType="NUMERIC" property="scnum" />
+    <result column="DFNUM" jdbcType="NUMERIC" property="dfnum" />
+    <result column="ERRORMESSAGE" jdbcType="VARCHAR" property="errormessage" />
+    <result column="STATUS" jdbcType="NUMERIC" property="status" />
+    <result column="CREATORID" jdbcType="VARCHAR" property="creatorid" />
+    <result column="CREATORNAME" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="MODIFIERID" jdbcType="VARCHAR" property="modifierid" />
+    <result column="MODIFIERNAME" jdbcType="VARCHAR" property="modifiername" />
+    <result column="MODIFYTIME" jdbcType="TIMESTAMP" property="modifytime" />
+    <result column="SERVICENAME" jdbcType="VARCHAR" property="servicename" />
+    <result column="KBTYPE" jdbcType="VARCHAR" property="kbtype" />
+    <result column="NEWNUM" jdbcType="VARCHAR" property="newnum" />
+    <result column="RENUM" jdbcType="VARCHAR" property="renum" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    EXECID, DOCUMENTID, ISDEL, RQUESTTIME, RESPONSETIME, CLOSETIME, CNUM, SCNUM, DFNUM, 
+    ERRORMESSAGE, STATUS, CREATORID, CREATORNAME, CREATETIME, MODIFIERID, MODIFIERNAME, 
+    MODIFYTIME, SERVICENAME, KBTYPE, NEWNUM, RENUM
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PCC_PLP_OPEN_LOG
+    where EXECID = #{execid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PCC_PLP_OPEN_LOG
+    where EXECID = #{execid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.runbom.demo.model.PlpOpenLog">
+    insert into PCC_PLP_OPEN_LOG (EXECID, DOCUMENTID, ISDEL, 
+      RQUESTTIME, RESPONSETIME, CLOSETIME, 
+      CNUM, SCNUM, DFNUM, 
+      ERRORMESSAGE, STATUS, CREATORID, 
+      CREATORNAME, CREATETIME, MODIFIERID, 
+      MODIFIERNAME, MODIFYTIME, SERVICENAME, 
+      KBTYPE, NEWNUM, RENUM
+      )
+    values (#{execid,jdbcType=VARCHAR}, #{documentid,jdbcType=VARCHAR}, #{isdel,jdbcType=NUMERIC}, 
+      #{rquesttime,jdbcType=TIMESTAMP}, #{responsetime,jdbcType=TIMESTAMP}, #{closetime,jdbcType=TIMESTAMP}, 
+      #{cnum,jdbcType=NUMERIC}, #{scnum,jdbcType=NUMERIC}, #{dfnum,jdbcType=NUMERIC}, 
+      #{errormessage,jdbcType=VARCHAR}, #{status,jdbcType=NUMERIC}, #{creatorid,jdbcType=VARCHAR}, 
+      #{creatorname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{modifierid,jdbcType=VARCHAR}, 
+      #{modifiername,jdbcType=VARCHAR}, #{modifytime,jdbcType=TIMESTAMP}, #{servicename,jdbcType=VARCHAR}, 
+      #{kbtype,jdbcType=VARCHAR}, #{newnum,jdbcType=VARCHAR}, #{renum,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.runbom.demo.model.PlpOpenLog">
+    insert into PCC_PLP_OPEN_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="execid != null">
+        EXECID,
+      </if>
+      <if test="documentid != null">
+        DOCUMENTID,
+      </if>
+      <if test="isdel != null">
+        ISDEL,
+      </if>
+      <if test="rquesttime != null">
+        RQUESTTIME,
+      </if>
+      <if test="responsetime != null">
+        RESPONSETIME,
+      </if>
+      <if test="closetime != null">
+        CLOSETIME,
+      </if>
+      <if test="cnum != null">
+        CNUM,
+      </if>
+      <if test="scnum != null">
+        SCNUM,
+      </if>
+      <if test="dfnum != null">
+        DFNUM,
+      </if>
+      <if test="errormessage != null">
+        ERRORMESSAGE,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="creatorid != null">
+        CREATORID,
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID,
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME,
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME,
+      </if>
+      <if test="servicename != null">
+        SERVICENAME,
+      </if>
+      <if test="kbtype != null">
+        KBTYPE,
+      </if>
+      <if test="newnum != null">
+        NEWNUM,
+      </if>
+      <if test="renum != null">
+        RENUM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="execid != null">
+        #{execid,jdbcType=VARCHAR},
+      </if>
+      <if test="documentid != null">
+        #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="rquesttime != null">
+        #{rquesttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="responsetime != null">
+        #{responsetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="closetime != null">
+        #{closetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cnum != null">
+        #{cnum,jdbcType=NUMERIC},
+      </if>
+      <if test="scnum != null">
+        #{scnum,jdbcType=NUMERIC},
+      </if>
+      <if test="dfnum != null">
+        #{dfnum,jdbcType=NUMERIC},
+      </if>
+      <if test="errormessage != null">
+        #{errormessage,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=NUMERIC},
+      </if>
+      <if test="creatorid != null">
+        #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="servicename != null">
+        #{servicename,jdbcType=VARCHAR},
+      </if>
+      <if test="kbtype != null">
+        #{kbtype,jdbcType=VARCHAR},
+      </if>
+      <if test="newnum != null">
+        #{newnum,jdbcType=VARCHAR},
+      </if>
+      <if test="renum != null">
+        #{renum,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.runbom.demo.model.PlpOpenLog">
+    update PCC_PLP_OPEN_LOG
+    <set>
+      <if test="documentid != null">
+        DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        ISDEL = #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="rquesttime != null">
+        RQUESTTIME = #{rquesttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="responsetime != null">
+        RESPONSETIME = #{responsetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="closetime != null">
+        CLOSETIME = #{closetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cnum != null">
+        CNUM = #{cnum,jdbcType=NUMERIC},
+      </if>
+      <if test="scnum != null">
+        SCNUM = #{scnum,jdbcType=NUMERIC},
+      </if>
+      <if test="dfnum != null">
+        DFNUM = #{dfnum,jdbcType=NUMERIC},
+      </if>
+      <if test="errormessage != null">
+        ERRORMESSAGE = #{errormessage,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=NUMERIC},
+      </if>
+      <if test="creatorid != null">
+        CREATORID = #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="servicename != null">
+        SERVICENAME = #{servicename,jdbcType=VARCHAR},
+      </if>
+      <if test="kbtype != null">
+        KBTYPE = #{kbtype,jdbcType=VARCHAR},
+      </if>
+      <if test="newnum != null">
+        NEWNUM = #{newnum,jdbcType=VARCHAR},
+      </if>
+      <if test="renum != null">
+        RENUM = #{renum,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where EXECID = #{execid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.runbom.demo.model.PlpOpenLog">
+    update PCC_PLP_OPEN_LOG
+    set DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      ISDEL = #{isdel,jdbcType=NUMERIC},
+      RQUESTTIME = #{rquesttime,jdbcType=TIMESTAMP},
+      RESPONSETIME = #{responsetime,jdbcType=TIMESTAMP},
+      CLOSETIME = #{closetime,jdbcType=TIMESTAMP},
+      CNUM = #{cnum,jdbcType=NUMERIC},
+      SCNUM = #{scnum,jdbcType=NUMERIC},
+      DFNUM = #{dfnum,jdbcType=NUMERIC},
+      ERRORMESSAGE = #{errormessage,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=NUMERIC},
+      CREATORID = #{creatorid,jdbcType=VARCHAR},
+      CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      SERVICENAME = #{servicename,jdbcType=VARCHAR},
+      KBTYPE = #{kbtype,jdbcType=VARCHAR},
+      NEWNUM = #{newnum,jdbcType=VARCHAR},
+      RENUM = #{renum,jdbcType=VARCHAR}
+    where EXECID = #{execid,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.runbom.demo.model.PlpOpenLog">
+    <id column="EXECID" jdbcType="VARCHAR" property="execid" />
+    <result column="DOCUMENTID" jdbcType="VARCHAR" property="documentid" />
+    <result column="ISDEL" jdbcType="NUMERIC" property="isdel" />
+    <result column="RQUESTTIME" jdbcType="TIMESTAMP" property="rquesttime" />
+    <result column="RESPONSETIME" jdbcType="TIMESTAMP" property="responsetime" />
+    <result column="CLOSETIME" jdbcType="TIMESTAMP" property="closetime" />
+    <result column="CNUM" jdbcType="NUMERIC" property="cnum" />
+    <result column="SCNUM" jdbcType="NUMERIC" property="scnum" />
+    <result column="DFNUM" jdbcType="NUMERIC" property="dfnum" />
+    <result column="ERRORMESSAGE" jdbcType="VARCHAR" property="errormessage" />
+    <result column="STATUS" jdbcType="NUMERIC" property="status" />
+    <result column="CREATORID" jdbcType="VARCHAR" property="creatorid" />
+    <result column="CREATORNAME" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="MODIFIERID" jdbcType="VARCHAR" property="modifierid" />
+    <result column="MODIFIERNAME" jdbcType="VARCHAR" property="modifiername" />
+    <result column="MODIFYTIME" jdbcType="TIMESTAMP" property="modifytime" />
+    <result column="SERVICENAME" jdbcType="VARCHAR" property="servicename" />
+    <result column="KBTYPE" jdbcType="VARCHAR" property="kbtype" />
+    <result column="NEWNUM" jdbcType="VARCHAR" property="newnum" />
+    <result column="RENUM" jdbcType="VARCHAR" property="renum" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    EXECID, DOCUMENTID, ISDEL, RQUESTTIME, RESPONSETIME, CLOSETIME, CNUM, SCNUM, DFNUM, 
+    ERRORMESSAGE, STATUS, CREATORID, CREATORNAME, CREATETIME, MODIFIERID, MODIFIERNAME, 
+    MODIFYTIME, SERVICENAME, KBTYPE, NEWNUM, RENUM
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PCC_PLP_OPEN_LOG
+    where EXECID = #{execid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PCC_PLP_OPEN_LOG
+    where EXECID = #{execid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.runbom.demo.model.PlpOpenLog">
+    insert into PCC_PLP_OPEN_LOG (EXECID, DOCUMENTID, ISDEL, 
+      RQUESTTIME, RESPONSETIME, CLOSETIME, 
+      CNUM, SCNUM, DFNUM, 
+      ERRORMESSAGE, STATUS, CREATORID, 
+      CREATORNAME, CREATETIME, MODIFIERID, 
+      MODIFIERNAME, MODIFYTIME, SERVICENAME, 
+      KBTYPE, NEWNUM, RENUM
+      )
+    values (#{execid,jdbcType=VARCHAR}, #{documentid,jdbcType=VARCHAR}, #{isdel,jdbcType=NUMERIC}, 
+      #{rquesttime,jdbcType=TIMESTAMP}, #{responsetime,jdbcType=TIMESTAMP}, #{closetime,jdbcType=TIMESTAMP}, 
+      #{cnum,jdbcType=NUMERIC}, #{scnum,jdbcType=NUMERIC}, #{dfnum,jdbcType=NUMERIC}, 
+      #{errormessage,jdbcType=VARCHAR}, #{status,jdbcType=NUMERIC}, #{creatorid,jdbcType=VARCHAR}, 
+      #{creatorname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{modifierid,jdbcType=VARCHAR}, 
+      #{modifiername,jdbcType=VARCHAR}, #{modifytime,jdbcType=TIMESTAMP}, #{servicename,jdbcType=VARCHAR}, 
+      #{kbtype,jdbcType=VARCHAR}, #{newnum,jdbcType=VARCHAR}, #{renum,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.runbom.demo.model.PlpOpenLog">
+    insert into PCC_PLP_OPEN_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="execid != null">
+        EXECID,
+      </if>
+      <if test="documentid != null">
+        DOCUMENTID,
+      </if>
+      <if test="isdel != null">
+        ISDEL,
+      </if>
+      <if test="rquesttime != null">
+        RQUESTTIME,
+      </if>
+      <if test="responsetime != null">
+        RESPONSETIME,
+      </if>
+      <if test="closetime != null">
+        CLOSETIME,
+      </if>
+      <if test="cnum != null">
+        CNUM,
+      </if>
+      <if test="scnum != null">
+        SCNUM,
+      </if>
+      <if test="dfnum != null">
+        DFNUM,
+      </if>
+      <if test="errormessage != null">
+        ERRORMESSAGE,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="creatorid != null">
+        CREATORID,
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID,
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME,
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME,
+      </if>
+      <if test="servicename != null">
+        SERVICENAME,
+      </if>
+      <if test="kbtype != null">
+        KBTYPE,
+      </if>
+      <if test="newnum != null">
+        NEWNUM,
+      </if>
+      <if test="renum != null">
+        RENUM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="execid != null">
+        #{execid,jdbcType=VARCHAR},
+      </if>
+      <if test="documentid != null">
+        #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="rquesttime != null">
+        #{rquesttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="responsetime != null">
+        #{responsetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="closetime != null">
+        #{closetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cnum != null">
+        #{cnum,jdbcType=NUMERIC},
+      </if>
+      <if test="scnum != null">
+        #{scnum,jdbcType=NUMERIC},
+      </if>
+      <if test="dfnum != null">
+        #{dfnum,jdbcType=NUMERIC},
+      </if>
+      <if test="errormessage != null">
+        #{errormessage,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=NUMERIC},
+      </if>
+      <if test="creatorid != null">
+        #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="servicename != null">
+        #{servicename,jdbcType=VARCHAR},
+      </if>
+      <if test="kbtype != null">
+        #{kbtype,jdbcType=VARCHAR},
+      </if>
+      <if test="newnum != null">
+        #{newnum,jdbcType=VARCHAR},
+      </if>
+      <if test="renum != null">
+        #{renum,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.runbom.demo.model.PlpOpenLog">
+    update PCC_PLP_OPEN_LOG
+    <set>
+      <if test="documentid != null">
+        DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        ISDEL = #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="rquesttime != null">
+        RQUESTTIME = #{rquesttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="responsetime != null">
+        RESPONSETIME = #{responsetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="closetime != null">
+        CLOSETIME = #{closetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cnum != null">
+        CNUM = #{cnum,jdbcType=NUMERIC},
+      </if>
+      <if test="scnum != null">
+        SCNUM = #{scnum,jdbcType=NUMERIC},
+      </if>
+      <if test="dfnum != null">
+        DFNUM = #{dfnum,jdbcType=NUMERIC},
+      </if>
+      <if test="errormessage != null">
+        ERRORMESSAGE = #{errormessage,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=NUMERIC},
+      </if>
+      <if test="creatorid != null">
+        CREATORID = #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="servicename != null">
+        SERVICENAME = #{servicename,jdbcType=VARCHAR},
+      </if>
+      <if test="kbtype != null">
+        KBTYPE = #{kbtype,jdbcType=VARCHAR},
+      </if>
+      <if test="newnum != null">
+        NEWNUM = #{newnum,jdbcType=VARCHAR},
+      </if>
+      <if test="renum != null">
+        RENUM = #{renum,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where EXECID = #{execid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.runbom.demo.model.PlpOpenLog">
+    update PCC_PLP_OPEN_LOG
+    set DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      ISDEL = #{isdel,jdbcType=NUMERIC},
+      RQUESTTIME = #{rquesttime,jdbcType=TIMESTAMP},
+      RESPONSETIME = #{responsetime,jdbcType=TIMESTAMP},
+      CLOSETIME = #{closetime,jdbcType=TIMESTAMP},
+      CNUM = #{cnum,jdbcType=NUMERIC},
+      SCNUM = #{scnum,jdbcType=NUMERIC},
+      DFNUM = #{dfnum,jdbcType=NUMERIC},
+      ERRORMESSAGE = #{errormessage,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=NUMERIC},
+      CREATORID = #{creatorid,jdbcType=VARCHAR},
+      CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      SERVICENAME = #{servicename,jdbcType=VARCHAR},
+      KBTYPE = #{kbtype,jdbcType=VARCHAR},
+      NEWNUM = #{newnum,jdbcType=VARCHAR},
+      RENUM = #{renum,jdbcType=VARCHAR}
+    where EXECID = #{execid,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,1172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.runbom.demo.dao.NkanbanMapper">
+  <resultMap id="BaseResultMap" type="com.runbom.demo.model.Nkanban">
+    <id column="KBNO" jdbcType="VARCHAR" property="kbno" />
+    <result column="DOCUMENTID" jdbcType="VARCHAR" property="documentid" />
+    <result column="ISDEL" jdbcType="NUMERIC" property="isdel" />
+    <result column="TYPE" jdbcType="VARCHAR" property="type" />
+    <result column="NUMBER1" jdbcType="VARCHAR" property="number1" />
+    <result column="WERKS" jdbcType="VARCHAR" property="werks" />
+    <result column="SITE" jdbcType="VARCHAR" property="site" />
+    <result column="PATH" jdbcType="VARCHAR" property="path" />
+    <result column="TOSITETIME" jdbcType="TIMESTAMP" property="tositetime" />
+    <result column="SPJ" jdbcType="VARCHAR" property="spj" />
+    <result column="KANR" jdbcType="VARCHAR" property="kanr" />
+    <result column="QUANTITY" jdbcType="NUMERIC" property="quantity" />
+    <result column="REQUESTUSER" jdbcType="VARCHAR" property="requestuser" />
+    <result column="REQUESTTIME" jdbcType="TIMESTAMP" property="requesttime" />
+    <result column="TODATE" jdbcType="TIMESTAMP" property="todate" />
+    <result column="KBSTATUS" jdbcType="NUMERIC" property="kbstatus" />
+    <result column="KBEXECPTION" jdbcType="VARCHAR" property="kbexecption" />
+    <result column="GETDATE" jdbcType="TIMESTAMP" property="getdate" />
+    <result column="FROMNUMER" jdbcType="VARCHAR" property="fromnumer" />
+    <result column="ENUMBER1" jdbcType="VARCHAR" property="enumber1" />
+    <result column="EWERKS" jdbcType="VARCHAR" property="ewerks" />
+    <result column="DELIVERY_SITE" jdbcType="VARCHAR" property="deliverySite" />
+    <result column="ESITE" jdbcType="VARCHAR" property="esite" />
+    <result column="EQUANTITY" jdbcType="NUMERIC" property="equantity" />
+    <result column="EBATH" jdbcType="VARCHAR" property="ebath" />
+    <result column="EPATH" jdbcType="VARCHAR" property="epath" />
+    <result column="EDATE" jdbcType="TIMESTAMP" property="edate" />
+    <result column="ETIME" jdbcType="TIMESTAMP" property="etime" />
+    <result column="STATUS" jdbcType="NUMERIC" property="status" />
+    <result column="EXECEPTION" jdbcType="VARCHAR" property="exeception" />
+    <result column="CREATORID" jdbcType="VARCHAR" property="creatorid" />
+    <result column="CREATORNAME" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="MODIFIERID" jdbcType="VARCHAR" property="modifierid" />
+    <result column="MODIFIERNAME" jdbcType="VARCHAR" property="modifiername" />
+    <result column="MODIFYTIME" jdbcType="TIMESTAMP" property="modifytime" />
+    <result column="EXECID" jdbcType="VARCHAR" property="execid" />
+    <result column="SERIALNUM" jdbcType="NUMERIC" property="serialnum" />
+    <result column="PDELIVERY_SITE" jdbcType="VARCHAR" property="pdeliverySite" />
+    <result column="SERIALNUMMOVE" jdbcType="NUMERIC" property="serialnummove" />
+    <result column="LJGWID" jdbcType="VARCHAR" property="ljgwid" />
+    <result column="SERIALNUMOLD" jdbcType="NUMERIC" property="serialnumold" />
+    <result column="COUNTCANUSE" jdbcType="NUMERIC" property="countcanuse" />
+    <result column="JBARCODE" jdbcType="VARCHAR" property="jbarcode" />
+    <result column="MATSORT" jdbcType="VARCHAR" property="matsort" />
+    <result column="FANLAGE2" jdbcType="VARCHAR" property="fanlage2" />
+    <result column="TOSITETIMEEARLYIEST" jdbcType="TIMESTAMP" property="tositetimeearlyiest" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    KBNO, DOCUMENTID, ISDEL, TYPE, NUMBER1, WERKS, SITE, PATH, TOSITETIME, SPJ, KANR, 
+    QUANTITY, REQUESTUSER, REQUESTTIME, TODATE, KBSTATUS, KBEXECPTION, GETDATE, FROMNUMER, 
+    ENUMBER1, EWERKS, DELIVERY_SITE, ESITE, EQUANTITY, EBATH, EPATH, EDATE, ETIME, STATUS, 
+    EXECEPTION, CREATORID, CREATORNAME, CREATETIME, MODIFIERID, MODIFIERNAME, MODIFYTIME, 
+    EXECID, SERIALNUM, PDELIVERY_SITE, SERIALNUMMOVE, LJGWID, SERIALNUMOLD, COUNTCANUSE, 
+    JBARCODE, MATSORT, FANLAGE2, TOSITETIMEEARLYIEST
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PCC_N_KANBAN
+    where KBNO = #{kbno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PCC_N_KANBAN
+    where KBNO = #{kbno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.runbom.demo.model.Nkanban">
+    insert into PCC_N_KANBAN (KBNO, DOCUMENTID, ISDEL, 
+      TYPE, NUMBER1, WERKS, 
+      SITE, PATH, TOSITETIME, 
+      SPJ, KANR, QUANTITY, 
+      REQUESTUSER, REQUESTTIME, TODATE, 
+      KBSTATUS, KBEXECPTION, GETDATE, 
+      FROMNUMER, ENUMBER1, EWERKS, 
+      DELIVERY_SITE, ESITE, EQUANTITY, 
+      EBATH, EPATH, EDATE, 
+      ETIME, STATUS, EXECEPTION, 
+      CREATORID, CREATORNAME, CREATETIME, 
+      MODIFIERID, MODIFIERNAME, MODIFYTIME, 
+      EXECID, SERIALNUM, PDELIVERY_SITE, 
+      SERIALNUMMOVE, LJGWID, SERIALNUMOLD, 
+      COUNTCANUSE, JBARCODE, MATSORT, 
+      FANLAGE2, TOSITETIMEEARLYIEST)
+    values (#{kbno,jdbcType=VARCHAR}, #{documentid,jdbcType=VARCHAR}, #{isdel,jdbcType=NUMERIC}, 
+      #{type,jdbcType=VARCHAR}, #{number1,jdbcType=VARCHAR}, #{werks,jdbcType=VARCHAR}, 
+      #{site,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR}, #{tositetime,jdbcType=TIMESTAMP}, 
+      #{spj,jdbcType=VARCHAR}, #{kanr,jdbcType=VARCHAR}, #{quantity,jdbcType=NUMERIC}, 
+      #{requestuser,jdbcType=VARCHAR}, #{requesttime,jdbcType=TIMESTAMP}, #{todate,jdbcType=TIMESTAMP}, 
+      #{kbstatus,jdbcType=NUMERIC}, #{kbexecption,jdbcType=VARCHAR}, #{getdate,jdbcType=TIMESTAMP}, 
+      #{fromnumer,jdbcType=VARCHAR}, #{enumber1,jdbcType=VARCHAR}, #{ewerks,jdbcType=VARCHAR}, 
+      #{deliverySite,jdbcType=VARCHAR}, #{esite,jdbcType=VARCHAR}, #{equantity,jdbcType=NUMERIC}, 
+      #{ebath,jdbcType=VARCHAR}, #{epath,jdbcType=VARCHAR}, #{edate,jdbcType=TIMESTAMP}, 
+      #{etime,jdbcType=TIMESTAMP}, #{status,jdbcType=NUMERIC}, #{exeception,jdbcType=VARCHAR}, 
+      #{creatorid,jdbcType=VARCHAR}, #{creatorname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{modifierid,jdbcType=VARCHAR}, #{modifiername,jdbcType=VARCHAR}, #{modifytime,jdbcType=TIMESTAMP}, 
+      #{execid,jdbcType=VARCHAR}, #{serialnum,jdbcType=NUMERIC}, #{pdeliverySite,jdbcType=VARCHAR}, 
+      #{serialnummove,jdbcType=NUMERIC}, #{ljgwid,jdbcType=VARCHAR}, #{serialnumold,jdbcType=NUMERIC}, 
+      #{countcanuse,jdbcType=NUMERIC}, #{jbarcode,jdbcType=VARCHAR}, #{matsort,jdbcType=VARCHAR}, 
+      #{fanlage2,jdbcType=VARCHAR}, #{tositetimeearlyiest,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.runbom.demo.model.Nkanban">
+    insert into PCC_N_KANBAN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="kbno != null">
+        KBNO,
+      </if>
+      <if test="documentid != null">
+        DOCUMENTID,
+      </if>
+      <if test="isdel != null">
+        ISDEL,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="number1 != null">
+        NUMBER1,
+      </if>
+      <if test="werks != null">
+        WERKS,
+      </if>
+      <if test="site != null">
+        SITE,
+      </if>
+      <if test="path != null">
+        PATH,
+      </if>
+      <if test="tositetime != null">
+        TOSITETIME,
+      </if>
+      <if test="spj != null">
+        SPJ,
+      </if>
+      <if test="kanr != null">
+        KANR,
+      </if>
+      <if test="quantity != null">
+        QUANTITY,
+      </if>
+      <if test="requestuser != null">
+        REQUESTUSER,
+      </if>
+      <if test="requesttime != null">
+        REQUESTTIME,
+      </if>
+      <if test="todate != null">
+        TODATE,
+      </if>
+      <if test="kbstatus != null">
+        KBSTATUS,
+      </if>
+      <if test="kbexecption != null">
+        KBEXECPTION,
+      </if>
+      <if test="getdate != null">
+        GETDATE,
+      </if>
+      <if test="fromnumer != null">
+        FROMNUMER,
+      </if>
+      <if test="enumber1 != null">
+        ENUMBER1,
+      </if>
+      <if test="ewerks != null">
+        EWERKS,
+      </if>
+      <if test="deliverySite != null">
+        DELIVERY_SITE,
+      </if>
+      <if test="esite != null">
+        ESITE,
+      </if>
+      <if test="equantity != null">
+        EQUANTITY,
+      </if>
+      <if test="ebath != null">
+        EBATH,
+      </if>
+      <if test="epath != null">
+        EPATH,
+      </if>
+      <if test="edate != null">
+        EDATE,
+      </if>
+      <if test="etime != null">
+        ETIME,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="exeception != null">
+        EXECEPTION,
+      </if>
+      <if test="creatorid != null">
+        CREATORID,
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID,
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME,
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME,
+      </if>
+      <if test="execid != null">
+        EXECID,
+      </if>
+      <if test="serialnum != null">
+        SERIALNUM,
+      </if>
+      <if test="pdeliverySite != null">
+        PDELIVERY_SITE,
+      </if>
+      <if test="serialnummove != null">
+        SERIALNUMMOVE,
+      </if>
+      <if test="ljgwid != null">
+        LJGWID,
+      </if>
+      <if test="serialnumold != null">
+        SERIALNUMOLD,
+      </if>
+      <if test="countcanuse != null">
+        COUNTCANUSE,
+      </if>
+      <if test="jbarcode != null">
+        JBARCODE,
+      </if>
+      <if test="matsort != null">
+        MATSORT,
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2,
+      </if>
+      <if test="tositetimeearlyiest != null">
+        TOSITETIMEEARLYIEST,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="kbno != null">
+        #{kbno,jdbcType=VARCHAR},
+      </if>
+      <if test="documentid != null">
+        #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="number1 != null">
+        #{number1,jdbcType=VARCHAR},
+      </if>
+      <if test="werks != null">
+        #{werks,jdbcType=VARCHAR},
+      </if>
+      <if test="site != null">
+        #{site,jdbcType=VARCHAR},
+      </if>
+      <if test="path != null">
+        #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="tositetime != null">
+        #{tositetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="spj != null">
+        #{spj,jdbcType=VARCHAR},
+      </if>
+      <if test="kanr != null">
+        #{kanr,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity != null">
+        #{quantity,jdbcType=NUMERIC},
+      </if>
+      <if test="requestuser != null">
+        #{requestuser,jdbcType=VARCHAR},
+      </if>
+      <if test="requesttime != null">
+        #{requesttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="todate != null">
+        #{todate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="kbstatus != null">
+        #{kbstatus,jdbcType=NUMERIC},
+      </if>
+      <if test="kbexecption != null">
+        #{kbexecption,jdbcType=VARCHAR},
+      </if>
+      <if test="getdate != null">
+        #{getdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fromnumer != null">
+        #{fromnumer,jdbcType=VARCHAR},
+      </if>
+      <if test="enumber1 != null">
+        #{enumber1,jdbcType=VARCHAR},
+      </if>
+      <if test="ewerks != null">
+        #{ewerks,jdbcType=VARCHAR},
+      </if>
+      <if test="deliverySite != null">
+        #{deliverySite,jdbcType=VARCHAR},
+      </if>
+      <if test="esite != null">
+        #{esite,jdbcType=VARCHAR},
+      </if>
+      <if test="equantity != null">
+        #{equantity,jdbcType=NUMERIC},
+      </if>
+      <if test="ebath != null">
+        #{ebath,jdbcType=VARCHAR},
+      </if>
+      <if test="epath != null">
+        #{epath,jdbcType=VARCHAR},
+      </if>
+      <if test="edate != null">
+        #{edate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="etime != null">
+        #{etime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=NUMERIC},
+      </if>
+      <if test="exeception != null">
+        #{exeception,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorid != null">
+        #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="execid != null">
+        #{execid,jdbcType=VARCHAR},
+      </if>
+      <if test="serialnum != null">
+        #{serialnum,jdbcType=NUMERIC},
+      </if>
+      <if test="pdeliverySite != null">
+        #{pdeliverySite,jdbcType=VARCHAR},
+      </if>
+      <if test="serialnummove != null">
+        #{serialnummove,jdbcType=NUMERIC},
+      </if>
+      <if test="ljgwid != null">
+        #{ljgwid,jdbcType=VARCHAR},
+      </if>
+      <if test="serialnumold != null">
+        #{serialnumold,jdbcType=NUMERIC},
+      </if>
+      <if test="countcanuse != null">
+        #{countcanuse,jdbcType=NUMERIC},
+      </if>
+      <if test="jbarcode != null">
+        #{jbarcode,jdbcType=VARCHAR},
+      </if>
+      <if test="matsort != null">
+        #{matsort,jdbcType=VARCHAR},
+      </if>
+      <if test="fanlage2 != null">
+        #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="tositetimeearlyiest != null">
+        #{tositetimeearlyiest,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.runbom.demo.model.Nkanban">
+    update PCC_N_KANBAN
+    <set>
+      <if test="documentid != null">
+        DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        ISDEL = #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="type != null">
+        TYPE = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="number1 != null">
+        NUMBER1 = #{number1,jdbcType=VARCHAR},
+      </if>
+      <if test="werks != null">
+        WERKS = #{werks,jdbcType=VARCHAR},
+      </if>
+      <if test="site != null">
+        SITE = #{site,jdbcType=VARCHAR},
+      </if>
+      <if test="path != null">
+        PATH = #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="tositetime != null">
+        TOSITETIME = #{tositetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="spj != null">
+        SPJ = #{spj,jdbcType=VARCHAR},
+      </if>
+      <if test="kanr != null">
+        KANR = #{kanr,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity != null">
+        QUANTITY = #{quantity,jdbcType=NUMERIC},
+      </if>
+      <if test="requestuser != null">
+        REQUESTUSER = #{requestuser,jdbcType=VARCHAR},
+      </if>
+      <if test="requesttime != null">
+        REQUESTTIME = #{requesttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="todate != null">
+        TODATE = #{todate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="kbstatus != null">
+        KBSTATUS = #{kbstatus,jdbcType=NUMERIC},
+      </if>
+      <if test="kbexecption != null">
+        KBEXECPTION = #{kbexecption,jdbcType=VARCHAR},
+      </if>
+      <if test="getdate != null">
+        GETDATE = #{getdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fromnumer != null">
+        FROMNUMER = #{fromnumer,jdbcType=VARCHAR},
+      </if>
+      <if test="enumber1 != null">
+        ENUMBER1 = #{enumber1,jdbcType=VARCHAR},
+      </if>
+      <if test="ewerks != null">
+        EWERKS = #{ewerks,jdbcType=VARCHAR},
+      </if>
+      <if test="deliverySite != null">
+        DELIVERY_SITE = #{deliverySite,jdbcType=VARCHAR},
+      </if>
+      <if test="esite != null">
+        ESITE = #{esite,jdbcType=VARCHAR},
+      </if>
+      <if test="equantity != null">
+        EQUANTITY = #{equantity,jdbcType=NUMERIC},
+      </if>
+      <if test="ebath != null">
+        EBATH = #{ebath,jdbcType=VARCHAR},
+      </if>
+      <if test="epath != null">
+        EPATH = #{epath,jdbcType=VARCHAR},
+      </if>
+      <if test="edate != null">
+        EDATE = #{edate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="etime != null">
+        ETIME = #{etime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=NUMERIC},
+      </if>
+      <if test="exeception != null">
+        EXECEPTION = #{exeception,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorid != null">
+        CREATORID = #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="execid != null">
+        EXECID = #{execid,jdbcType=VARCHAR},
+      </if>
+      <if test="serialnum != null">
+        SERIALNUM = #{serialnum,jdbcType=NUMERIC},
+      </if>
+      <if test="pdeliverySite != null">
+        PDELIVERY_SITE = #{pdeliverySite,jdbcType=VARCHAR},
+      </if>
+      <if test="serialnummove != null">
+        SERIALNUMMOVE = #{serialnummove,jdbcType=NUMERIC},
+      </if>
+      <if test="ljgwid != null">
+        LJGWID = #{ljgwid,jdbcType=VARCHAR},
+      </if>
+      <if test="serialnumold != null">
+        SERIALNUMOLD = #{serialnumold,jdbcType=NUMERIC},
+      </if>
+      <if test="countcanuse != null">
+        COUNTCANUSE = #{countcanuse,jdbcType=NUMERIC},
+      </if>
+      <if test="jbarcode != null">
+        JBARCODE = #{jbarcode,jdbcType=VARCHAR},
+      </if>
+      <if test="matsort != null">
+        MATSORT = #{matsort,jdbcType=VARCHAR},
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2 = #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="tositetimeearlyiest != null">
+        TOSITETIMEEARLYIEST = #{tositetimeearlyiest,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where KBNO = #{kbno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.runbom.demo.model.Nkanban">
+    update PCC_N_KANBAN
+    set DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      ISDEL = #{isdel,jdbcType=NUMERIC},
+      TYPE = #{type,jdbcType=VARCHAR},
+      NUMBER1 = #{number1,jdbcType=VARCHAR},
+      WERKS = #{werks,jdbcType=VARCHAR},
+      SITE = #{site,jdbcType=VARCHAR},
+      PATH = #{path,jdbcType=VARCHAR},
+      TOSITETIME = #{tositetime,jdbcType=TIMESTAMP},
+      SPJ = #{spj,jdbcType=VARCHAR},
+      KANR = #{kanr,jdbcType=VARCHAR},
+      QUANTITY = #{quantity,jdbcType=NUMERIC},
+      REQUESTUSER = #{requestuser,jdbcType=VARCHAR},
+      REQUESTTIME = #{requesttime,jdbcType=TIMESTAMP},
+      TODATE = #{todate,jdbcType=TIMESTAMP},
+      KBSTATUS = #{kbstatus,jdbcType=NUMERIC},
+      KBEXECPTION = #{kbexecption,jdbcType=VARCHAR},
+      GETDATE = #{getdate,jdbcType=TIMESTAMP},
+      FROMNUMER = #{fromnumer,jdbcType=VARCHAR},
+      ENUMBER1 = #{enumber1,jdbcType=VARCHAR},
+      EWERKS = #{ewerks,jdbcType=VARCHAR},
+      DELIVERY_SITE = #{deliverySite,jdbcType=VARCHAR},
+      ESITE = #{esite,jdbcType=VARCHAR},
+      EQUANTITY = #{equantity,jdbcType=NUMERIC},
+      EBATH = #{ebath,jdbcType=VARCHAR},
+      EPATH = #{epath,jdbcType=VARCHAR},
+      EDATE = #{edate,jdbcType=TIMESTAMP},
+      ETIME = #{etime,jdbcType=TIMESTAMP},
+      STATUS = #{status,jdbcType=NUMERIC},
+      EXECEPTION = #{exeception,jdbcType=VARCHAR},
+      CREATORID = #{creatorid,jdbcType=VARCHAR},
+      CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      EXECID = #{execid,jdbcType=VARCHAR},
+      SERIALNUM = #{serialnum,jdbcType=NUMERIC},
+      PDELIVERY_SITE = #{pdeliverySite,jdbcType=VARCHAR},
+      SERIALNUMMOVE = #{serialnummove,jdbcType=NUMERIC},
+      LJGWID = #{ljgwid,jdbcType=VARCHAR},
+      SERIALNUMOLD = #{serialnumold,jdbcType=NUMERIC},
+      COUNTCANUSE = #{countcanuse,jdbcType=NUMERIC},
+      JBARCODE = #{jbarcode,jdbcType=VARCHAR},
+      MATSORT = #{matsort,jdbcType=VARCHAR},
+      FANLAGE2 = #{fanlage2,jdbcType=VARCHAR},
+      TOSITETIMEEARLYIEST = #{tositetimeearlyiest,jdbcType=TIMESTAMP}
+    where KBNO = #{kbno,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.runbom.demo.model.Nkanban">
+    <id column="KBNO" jdbcType="VARCHAR" property="kbno" />
+    <result column="DOCUMENTID" jdbcType="VARCHAR" property="documentid" />
+    <result column="ISDEL" jdbcType="NUMERIC" property="isdel" />
+    <result column="TYPE" jdbcType="VARCHAR" property="type" />
+    <result column="NUMBER1" jdbcType="VARCHAR" property="number1" />
+    <result column="WERKS" jdbcType="VARCHAR" property="werks" />
+    <result column="SITE" jdbcType="VARCHAR" property="site" />
+    <result column="PATH" jdbcType="VARCHAR" property="path" />
+    <result column="TOSITETIME" jdbcType="TIMESTAMP" property="tositetime" />
+    <result column="SPJ" jdbcType="VARCHAR" property="spj" />
+    <result column="KANR" jdbcType="VARCHAR" property="kanr" />
+    <result column="QUANTITY" jdbcType="NUMERIC" property="quantity" />
+    <result column="REQUESTUSER" jdbcType="VARCHAR" property="requestuser" />
+    <result column="REQUESTTIME" jdbcType="TIMESTAMP" property="requesttime" />
+    <result column="TODATE" jdbcType="TIMESTAMP" property="todate" />
+    <result column="KBSTATUS" jdbcType="NUMERIC" property="kbstatus" />
+    <result column="KBEXECPTION" jdbcType="VARCHAR" property="kbexecption" />
+    <result column="GETDATE" jdbcType="TIMESTAMP" property="getdate" />
+    <result column="FROMNUMER" jdbcType="VARCHAR" property="fromnumer" />
+    <result column="ENUMBER1" jdbcType="VARCHAR" property="enumber1" />
+    <result column="EWERKS" jdbcType="VARCHAR" property="ewerks" />
+    <result column="DELIVERY_SITE" jdbcType="VARCHAR" property="deliverySite" />
+    <result column="ESITE" jdbcType="VARCHAR" property="esite" />
+    <result column="EQUANTITY" jdbcType="NUMERIC" property="equantity" />
+    <result column="EBATH" jdbcType="VARCHAR" property="ebath" />
+    <result column="EPATH" jdbcType="VARCHAR" property="epath" />
+    <result column="EDATE" jdbcType="TIMESTAMP" property="edate" />
+    <result column="ETIME" jdbcType="TIMESTAMP" property="etime" />
+    <result column="STATUS" jdbcType="NUMERIC" property="status" />
+    <result column="EXECEPTION" jdbcType="VARCHAR" property="exeception" />
+    <result column="CREATORID" jdbcType="VARCHAR" property="creatorid" />
+    <result column="CREATORNAME" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="MODIFIERID" jdbcType="VARCHAR" property="modifierid" />
+    <result column="MODIFIERNAME" jdbcType="VARCHAR" property="modifiername" />
+    <result column="MODIFYTIME" jdbcType="TIMESTAMP" property="modifytime" />
+    <result column="EXECID" jdbcType="VARCHAR" property="execid" />
+    <result column="SERIALNUM" jdbcType="NUMERIC" property="serialnum" />
+    <result column="PDELIVERY_SITE" jdbcType="VARCHAR" property="pdeliverySite" />
+    <result column="SERIALNUMMOVE" jdbcType="NUMERIC" property="serialnummove" />
+    <result column="LJGWID" jdbcType="VARCHAR" property="ljgwid" />
+    <result column="SERIALNUMOLD" jdbcType="NUMERIC" property="serialnumold" />
+    <result column="COUNTCANUSE" jdbcType="NUMERIC" property="countcanuse" />
+    <result column="JBARCODE" jdbcType="VARCHAR" property="jbarcode" />
+    <result column="MATSORT" jdbcType="VARCHAR" property="matsort" />
+    <result column="FANLAGE2" jdbcType="VARCHAR" property="fanlage2" />
+    <result column="TOSITETIMEEARLYIEST" jdbcType="TIMESTAMP" property="tositetimeearlyiest" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    KBNO, DOCUMENTID, ISDEL, TYPE, NUMBER1, WERKS, SITE, PATH, TOSITETIME, SPJ, KANR, 
+    QUANTITY, REQUESTUSER, REQUESTTIME, TODATE, KBSTATUS, KBEXECPTION, GETDATE, FROMNUMER, 
+    ENUMBER1, EWERKS, DELIVERY_SITE, ESITE, EQUANTITY, EBATH, EPATH, EDATE, ETIME, STATUS, 
+    EXECEPTION, CREATORID, CREATORNAME, CREATETIME, MODIFIERID, MODIFIERNAME, MODIFYTIME, 
+    EXECID, SERIALNUM, PDELIVERY_SITE, SERIALNUMMOVE, LJGWID, SERIALNUMOLD, COUNTCANUSE, 
+    JBARCODE, MATSORT, FANLAGE2, TOSITETIMEEARLYIEST
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PCC_N_KANBAN
+    where KBNO = #{kbno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PCC_N_KANBAN
+    where KBNO = #{kbno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.runbom.demo.model.Nkanban">
+    insert into PCC_N_KANBAN (KBNO, DOCUMENTID, ISDEL, 
+      TYPE, NUMBER1, WERKS, 
+      SITE, PATH, TOSITETIME, 
+      SPJ, KANR, QUANTITY, 
+      REQUESTUSER, REQUESTTIME, TODATE, 
+      KBSTATUS, KBEXECPTION, GETDATE, 
+      FROMNUMER, ENUMBER1, EWERKS, 
+      DELIVERY_SITE, ESITE, EQUANTITY, 
+      EBATH, EPATH, EDATE, 
+      ETIME, STATUS, EXECEPTION, 
+      CREATORID, CREATORNAME, CREATETIME, 
+      MODIFIERID, MODIFIERNAME, MODIFYTIME, 
+      EXECID, SERIALNUM, PDELIVERY_SITE, 
+      SERIALNUMMOVE, LJGWID, SERIALNUMOLD, 
+      COUNTCANUSE, JBARCODE, MATSORT, 
+      FANLAGE2, TOSITETIMEEARLYIEST)
+    values (#{kbno,jdbcType=VARCHAR}, #{documentid,jdbcType=VARCHAR}, #{isdel,jdbcType=NUMERIC}, 
+      #{type,jdbcType=VARCHAR}, #{number1,jdbcType=VARCHAR}, #{werks,jdbcType=VARCHAR}, 
+      #{site,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR}, #{tositetime,jdbcType=TIMESTAMP}, 
+      #{spj,jdbcType=VARCHAR}, #{kanr,jdbcType=VARCHAR}, #{quantity,jdbcType=NUMERIC}, 
+      #{requestuser,jdbcType=VARCHAR}, #{requesttime,jdbcType=TIMESTAMP}, #{todate,jdbcType=TIMESTAMP}, 
+      #{kbstatus,jdbcType=NUMERIC}, #{kbexecption,jdbcType=VARCHAR}, #{getdate,jdbcType=TIMESTAMP}, 
+      #{fromnumer,jdbcType=VARCHAR}, #{enumber1,jdbcType=VARCHAR}, #{ewerks,jdbcType=VARCHAR}, 
+      #{deliverySite,jdbcType=VARCHAR}, #{esite,jdbcType=VARCHAR}, #{equantity,jdbcType=NUMERIC}, 
+      #{ebath,jdbcType=VARCHAR}, #{epath,jdbcType=VARCHAR}, #{edate,jdbcType=TIMESTAMP}, 
+      #{etime,jdbcType=TIMESTAMP}, #{status,jdbcType=NUMERIC}, #{exeception,jdbcType=VARCHAR}, 
+      #{creatorid,jdbcType=VARCHAR}, #{creatorname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{modifierid,jdbcType=VARCHAR}, #{modifiername,jdbcType=VARCHAR}, #{modifytime,jdbcType=TIMESTAMP}, 
+      #{execid,jdbcType=VARCHAR}, #{serialnum,jdbcType=NUMERIC}, #{pdeliverySite,jdbcType=VARCHAR}, 
+      #{serialnummove,jdbcType=NUMERIC}, #{ljgwid,jdbcType=VARCHAR}, #{serialnumold,jdbcType=NUMERIC}, 
+      #{countcanuse,jdbcType=NUMERIC}, #{jbarcode,jdbcType=VARCHAR}, #{matsort,jdbcType=VARCHAR}, 
+      #{fanlage2,jdbcType=VARCHAR}, #{tositetimeearlyiest,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.runbom.demo.model.Nkanban">
+    insert into PCC_N_KANBAN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="kbno != null">
+        KBNO,
+      </if>
+      <if test="documentid != null">
+        DOCUMENTID,
+      </if>
+      <if test="isdel != null">
+        ISDEL,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="number1 != null">
+        NUMBER1,
+      </if>
+      <if test="werks != null">
+        WERKS,
+      </if>
+      <if test="site != null">
+        SITE,
+      </if>
+      <if test="path != null">
+        PATH,
+      </if>
+      <if test="tositetime != null">
+        TOSITETIME,
+      </if>
+      <if test="spj != null">
+        SPJ,
+      </if>
+      <if test="kanr != null">
+        KANR,
+      </if>
+      <if test="quantity != null">
+        QUANTITY,
+      </if>
+      <if test="requestuser != null">
+        REQUESTUSER,
+      </if>
+      <if test="requesttime != null">
+        REQUESTTIME,
+      </if>
+      <if test="todate != null">
+        TODATE,
+      </if>
+      <if test="kbstatus != null">
+        KBSTATUS,
+      </if>
+      <if test="kbexecption != null">
+        KBEXECPTION,
+      </if>
+      <if test="getdate != null">
+        GETDATE,
+      </if>
+      <if test="fromnumer != null">
+        FROMNUMER,
+      </if>
+      <if test="enumber1 != null">
+        ENUMBER1,
+      </if>
+      <if test="ewerks != null">
+        EWERKS,
+      </if>
+      <if test="deliverySite != null">
+        DELIVERY_SITE,
+      </if>
+      <if test="esite != null">
+        ESITE,
+      </if>
+      <if test="equantity != null">
+        EQUANTITY,
+      </if>
+      <if test="ebath != null">
+        EBATH,
+      </if>
+      <if test="epath != null">
+        EPATH,
+      </if>
+      <if test="edate != null">
+        EDATE,
+      </if>
+      <if test="etime != null">
+        ETIME,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="exeception != null">
+        EXECEPTION,
+      </if>
+      <if test="creatorid != null">
+        CREATORID,
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID,
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME,
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME,
+      </if>
+      <if test="execid != null">
+        EXECID,
+      </if>
+      <if test="serialnum != null">
+        SERIALNUM,
+      </if>
+      <if test="pdeliverySite != null">
+        PDELIVERY_SITE,
+      </if>
+      <if test="serialnummove != null">
+        SERIALNUMMOVE,
+      </if>
+      <if test="ljgwid != null">
+        LJGWID,
+      </if>
+      <if test="serialnumold != null">
+        SERIALNUMOLD,
+      </if>
+      <if test="countcanuse != null">
+        COUNTCANUSE,
+      </if>
+      <if test="jbarcode != null">
+        JBARCODE,
+      </if>
+      <if test="matsort != null">
+        MATSORT,
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2,
+      </if>
+      <if test="tositetimeearlyiest != null">
+        TOSITETIMEEARLYIEST,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="kbno != null">
+        #{kbno,jdbcType=VARCHAR},
+      </if>
+      <if test="documentid != null">
+        #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="number1 != null">
+        #{number1,jdbcType=VARCHAR},
+      </if>
+      <if test="werks != null">
+        #{werks,jdbcType=VARCHAR},
+      </if>
+      <if test="site != null">
+        #{site,jdbcType=VARCHAR},
+      </if>
+      <if test="path != null">
+        #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="tositetime != null">
+        #{tositetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="spj != null">
+        #{spj,jdbcType=VARCHAR},
+      </if>
+      <if test="kanr != null">
+        #{kanr,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity != null">
+        #{quantity,jdbcType=NUMERIC},
+      </if>
+      <if test="requestuser != null">
+        #{requestuser,jdbcType=VARCHAR},
+      </if>
+      <if test="requesttime != null">
+        #{requesttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="todate != null">
+        #{todate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="kbstatus != null">
+        #{kbstatus,jdbcType=NUMERIC},
+      </if>
+      <if test="kbexecption != null">
+        #{kbexecption,jdbcType=VARCHAR},
+      </if>
+      <if test="getdate != null">
+        #{getdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fromnumer != null">
+        #{fromnumer,jdbcType=VARCHAR},
+      </if>
+      <if test="enumber1 != null">
+        #{enumber1,jdbcType=VARCHAR},
+      </if>
+      <if test="ewerks != null">
+        #{ewerks,jdbcType=VARCHAR},
+      </if>
+      <if test="deliverySite != null">
+        #{deliverySite,jdbcType=VARCHAR},
+      </if>
+      <if test="esite != null">
+        #{esite,jdbcType=VARCHAR},
+      </if>
+      <if test="equantity != null">
+        #{equantity,jdbcType=NUMERIC},
+      </if>
+      <if test="ebath != null">
+        #{ebath,jdbcType=VARCHAR},
+      </if>
+      <if test="epath != null">
+        #{epath,jdbcType=VARCHAR},
+      </if>
+      <if test="edate != null">
+        #{edate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="etime != null">
+        #{etime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=NUMERIC},
+      </if>
+      <if test="exeception != null">
+        #{exeception,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorid != null">
+        #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="execid != null">
+        #{execid,jdbcType=VARCHAR},
+      </if>
+      <if test="serialnum != null">
+        #{serialnum,jdbcType=NUMERIC},
+      </if>
+      <if test="pdeliverySite != null">
+        #{pdeliverySite,jdbcType=VARCHAR},
+      </if>
+      <if test="serialnummove != null">
+        #{serialnummove,jdbcType=NUMERIC},
+      </if>
+      <if test="ljgwid != null">
+        #{ljgwid,jdbcType=VARCHAR},
+      </if>
+      <if test="serialnumold != null">
+        #{serialnumold,jdbcType=NUMERIC},
+      </if>
+      <if test="countcanuse != null">
+        #{countcanuse,jdbcType=NUMERIC},
+      </if>
+      <if test="jbarcode != null">
+        #{jbarcode,jdbcType=VARCHAR},
+      </if>
+      <if test="matsort != null">
+        #{matsort,jdbcType=VARCHAR},
+      </if>
+      <if test="fanlage2 != null">
+        #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="tositetimeearlyiest != null">
+        #{tositetimeearlyiest,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.runbom.demo.model.Nkanban">
+    update PCC_N_KANBAN
+    <set>
+      <if test="documentid != null">
+        DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        ISDEL = #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="type != null">
+        TYPE = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="number1 != null">
+        NUMBER1 = #{number1,jdbcType=VARCHAR},
+      </if>
+      <if test="werks != null">
+        WERKS = #{werks,jdbcType=VARCHAR},
+      </if>
+      <if test="site != null">
+        SITE = #{site,jdbcType=VARCHAR},
+      </if>
+      <if test="path != null">
+        PATH = #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="tositetime != null">
+        TOSITETIME = #{tositetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="spj != null">
+        SPJ = #{spj,jdbcType=VARCHAR},
+      </if>
+      <if test="kanr != null">
+        KANR = #{kanr,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity != null">
+        QUANTITY = #{quantity,jdbcType=NUMERIC},
+      </if>
+      <if test="requestuser != null">
+        REQUESTUSER = #{requestuser,jdbcType=VARCHAR},
+      </if>
+      <if test="requesttime != null">
+        REQUESTTIME = #{requesttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="todate != null">
+        TODATE = #{todate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="kbstatus != null">
+        KBSTATUS = #{kbstatus,jdbcType=NUMERIC},
+      </if>
+      <if test="kbexecption != null">
+        KBEXECPTION = #{kbexecption,jdbcType=VARCHAR},
+      </if>
+      <if test="getdate != null">
+        GETDATE = #{getdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fromnumer != null">
+        FROMNUMER = #{fromnumer,jdbcType=VARCHAR},
+      </if>
+      <if test="enumber1 != null">
+        ENUMBER1 = #{enumber1,jdbcType=VARCHAR},
+      </if>
+      <if test="ewerks != null">
+        EWERKS = #{ewerks,jdbcType=VARCHAR},
+      </if>
+      <if test="deliverySite != null">
+        DELIVERY_SITE = #{deliverySite,jdbcType=VARCHAR},
+      </if>
+      <if test="esite != null">
+        ESITE = #{esite,jdbcType=VARCHAR},
+      </if>
+      <if test="equantity != null">
+        EQUANTITY = #{equantity,jdbcType=NUMERIC},
+      </if>
+      <if test="ebath != null">
+        EBATH = #{ebath,jdbcType=VARCHAR},
+      </if>
+      <if test="epath != null">
+        EPATH = #{epath,jdbcType=VARCHAR},
+      </if>
+      <if test="edate != null">
+        EDATE = #{edate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="etime != null">
+        ETIME = #{etime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=NUMERIC},
+      </if>
+      <if test="exeception != null">
+        EXECEPTION = #{exeception,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorid != null">
+        CREATORID = #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="execid != null">
+        EXECID = #{execid,jdbcType=VARCHAR},
+      </if>
+      <if test="serialnum != null">
+        SERIALNUM = #{serialnum,jdbcType=NUMERIC},
+      </if>
+      <if test="pdeliverySite != null">
+        PDELIVERY_SITE = #{pdeliverySite,jdbcType=VARCHAR},
+      </if>
+      <if test="serialnummove != null">
+        SERIALNUMMOVE = #{serialnummove,jdbcType=NUMERIC},
+      </if>
+      <if test="ljgwid != null">
+        LJGWID = #{ljgwid,jdbcType=VARCHAR},
+      </if>
+      <if test="serialnumold != null">
+        SERIALNUMOLD = #{serialnumold,jdbcType=NUMERIC},
+      </if>
+      <if test="countcanuse != null">
+        COUNTCANUSE = #{countcanuse,jdbcType=NUMERIC},
+      </if>
+      <if test="jbarcode != null">
+        JBARCODE = #{jbarcode,jdbcType=VARCHAR},
+      </if>
+      <if test="matsort != null">
+        MATSORT = #{matsort,jdbcType=VARCHAR},
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2 = #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="tositetimeearlyiest != null">
+        TOSITETIMEEARLYIEST = #{tositetimeearlyiest,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where KBNO = #{kbno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.runbom.demo.model.Nkanban">
+    update PCC_N_KANBAN
+    set DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      ISDEL = #{isdel,jdbcType=NUMERIC},
+      TYPE = #{type,jdbcType=VARCHAR},
+      NUMBER1 = #{number1,jdbcType=VARCHAR},
+      WERKS = #{werks,jdbcType=VARCHAR},
+      SITE = #{site,jdbcType=VARCHAR},
+      PATH = #{path,jdbcType=VARCHAR},
+      TOSITETIME = #{tositetime,jdbcType=TIMESTAMP},
+      SPJ = #{spj,jdbcType=VARCHAR},
+      KANR = #{kanr,jdbcType=VARCHAR},
+      QUANTITY = #{quantity,jdbcType=NUMERIC},
+      REQUESTUSER = #{requestuser,jdbcType=VARCHAR},
+      REQUESTTIME = #{requesttime,jdbcType=TIMESTAMP},
+      TODATE = #{todate,jdbcType=TIMESTAMP},
+      KBSTATUS = #{kbstatus,jdbcType=NUMERIC},
+      KBEXECPTION = #{kbexecption,jdbcType=VARCHAR},
+      GETDATE = #{getdate,jdbcType=TIMESTAMP},
+      FROMNUMER = #{fromnumer,jdbcType=VARCHAR},
+      ENUMBER1 = #{enumber1,jdbcType=VARCHAR},
+      EWERKS = #{ewerks,jdbcType=VARCHAR},
+      DELIVERY_SITE = #{deliverySite,jdbcType=VARCHAR},
+      ESITE = #{esite,jdbcType=VARCHAR},
+      EQUANTITY = #{equantity,jdbcType=NUMERIC},
+      EBATH = #{ebath,jdbcType=VARCHAR},
+      EPATH = #{epath,jdbcType=VARCHAR},
+      EDATE = #{edate,jdbcType=TIMESTAMP},
+      ETIME = #{etime,jdbcType=TIMESTAMP},
+      STATUS = #{status,jdbcType=NUMERIC},
+      EXECEPTION = #{exeception,jdbcType=VARCHAR},
+      CREATORID = #{creatorid,jdbcType=VARCHAR},
+      CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      EXECID = #{execid,jdbcType=VARCHAR},
+      SERIALNUM = #{serialnum,jdbcType=NUMERIC},
+      PDELIVERY_SITE = #{pdeliverySite,jdbcType=VARCHAR},
+      SERIALNUMMOVE = #{serialnummove,jdbcType=NUMERIC},
+      LJGWID = #{ljgwid,jdbcType=VARCHAR},
+      SERIALNUMOLD = #{serialnumold,jdbcType=NUMERIC},
+      COUNTCANUSE = #{countcanuse,jdbcType=NUMERIC},
+      JBARCODE = #{jbarcode,jdbcType=VARCHAR},
+      MATSORT = #{matsort,jdbcType=VARCHAR},
+      FANLAGE2 = #{fanlage2,jdbcType=VARCHAR},
+      TOSITETIMEEARLYIEST = #{tositetimeearlyiest,jdbcType=TIMESTAMP}
+    where KBNO = #{kbno,jdbcType=VARCHAR}
+  </update>
+</mapper>

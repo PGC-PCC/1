@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.runbom.demo.dao.M100Mapper">
+  <resultMap id="BaseResultMap" type="com.runbom.demo.model.M100">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="DOCUMENTID" jdbcType="VARCHAR" property="documentid" />
+    <result column="ISDEL" jdbcType="NUMERIC" property="isdel" />
+    <result column="SPJ" jdbcType="VARCHAR" property="spj" />
+    <result column="KANR" jdbcType="VARCHAR" property="kanr" />
+    <result column="WERK" jdbcType="VARCHAR" property="werk" />
+    <result column="FANLAGE2" jdbcType="VARCHAR" property="fanlage2" />
+    <result column="CARTYPE" jdbcType="VARCHAR" property="cartype" />
+    <result column="CHASSIS" jdbcType="VARCHAR" property="chassis" />
+    <result column="SERIAL" jdbcType="NUMERIC" property="serial" />
+    <result column="M100TIMR" jdbcType="TIMESTAMP" property="m100timr" />
+    <result column="LENDTIME" jdbcType="TIMESTAMP" property="lendtime" />
+    <result column="EXECID" jdbcType="VARCHAR" property="execid" />
+    <result column="CREATORID" jdbcType="VARCHAR" property="creatorid" />
+    <result column="CREATORNAME" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="MODIFIERID" jdbcType="VARCHAR" property="modifierid" />
+    <result column="MODIFIERNAME" jdbcType="VARCHAR" property="modifiername" />
+    <result column="MODIFYTIME" jdbcType="TIMESTAMP" property="modifytime" />
+    <result column="MARK" jdbcType="NUMERIC" property="mark" />
+    <result column="MJ" jdbcType="VARCHAR" property="mj" />
+    <result column="CCKANR" jdbcType="VARCHAR" property="cckanr" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, DOCUMENTID, ISDEL, SPJ, KANR, WERK, FANLAGE2, CARTYPE, CHASSIS, SERIAL, M100TIMR, 
+    LENDTIME, EXECID, CREATORID, CREATORNAME, CREATETIME, MODIFIERID, MODIFIERNAME, MODIFYTIME, 
+    MARK, MJ, CCKANR
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PCC_M100
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PCC_M100
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.runbom.demo.model.M100">
+    insert into PCC_M100 (ID, DOCUMENTID, ISDEL, 
+      SPJ, KANR, WERK, FANLAGE2, 
+      CARTYPE, CHASSIS, SERIAL, 
+      M100TIMR, LENDTIME, EXECID, 
+      CREATORID, CREATORNAME, CREATETIME, 
+      MODIFIERID, MODIFIERNAME, MODIFYTIME, 
+      MARK, MJ, CCKANR)
+    values (#{id,jdbcType=VARCHAR}, #{documentid,jdbcType=VARCHAR}, #{isdel,jdbcType=NUMERIC}, 
+      #{spj,jdbcType=VARCHAR}, #{kanr,jdbcType=VARCHAR}, #{werk,jdbcType=VARCHAR}, #{fanlage2,jdbcType=VARCHAR}, 
+      #{cartype,jdbcType=VARCHAR}, #{chassis,jdbcType=VARCHAR}, #{serial,jdbcType=NUMERIC}, 
+      #{m100timr,jdbcType=TIMESTAMP}, #{lendtime,jdbcType=TIMESTAMP}, #{execid,jdbcType=VARCHAR}, 
+      #{creatorid,jdbcType=VARCHAR}, #{creatorname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{modifierid,jdbcType=VARCHAR}, #{modifiername,jdbcType=VARCHAR}, #{modifytime,jdbcType=TIMESTAMP}, 
+      #{mark,jdbcType=NUMERIC}, #{mj,jdbcType=VARCHAR}, #{cckanr,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.runbom.demo.model.M100">
+    insert into PCC_M100
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="documentid != null">
+        DOCUMENTID,
+      </if>
+      <if test="isdel != null">
+        ISDEL,
+      </if>
+      <if test="spj != null">
+        SPJ,
+      </if>
+      <if test="kanr != null">
+        KANR,
+      </if>
+      <if test="werk != null">
+        WERK,
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2,
+      </if>
+      <if test="cartype != null">
+        CARTYPE,
+      </if>
+      <if test="chassis != null">
+        CHASSIS,
+      </if>
+      <if test="serial != null">
+        SERIAL,
+      </if>
+      <if test="m100timr != null">
+        M100TIMR,
+      </if>
+      <if test="lendtime != null">
+        LENDTIME,
+      </if>
+      <if test="execid != null">
+        EXECID,
+      </if>
+      <if test="creatorid != null">
+        CREATORID,
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID,
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME,
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME,
+      </if>
+      <if test="mark != null">
+        MARK,
+      </if>
+      <if test="mj != null">
+        MJ,
+      </if>
+      <if test="cckanr != null">
+        CCKANR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="documentid != null">
+        #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="spj != null">
+        #{spj,jdbcType=VARCHAR},
+      </if>
+      <if test="kanr != null">
+        #{kanr,jdbcType=VARCHAR},
+      </if>
+      <if test="werk != null">
+        #{werk,jdbcType=VARCHAR},
+      </if>
+      <if test="fanlage2 != null">
+        #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="cartype != null">
+        #{cartype,jdbcType=VARCHAR},
+      </if>
+      <if test="chassis != null">
+        #{chassis,jdbcType=VARCHAR},
+      </if>
+      <if test="serial != null">
+        #{serial,jdbcType=NUMERIC},
+      </if>
+      <if test="m100timr != null">
+        #{m100timr,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lendtime != null">
+        #{lendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="execid != null">
+        #{execid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorid != null">
+        #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=NUMERIC},
+      </if>
+      <if test="mj != null">
+        #{mj,jdbcType=VARCHAR},
+      </if>
+      <if test="cckanr != null">
+        #{cckanr,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.runbom.demo.model.M100">
+    update PCC_M100
+    <set>
+      <if test="documentid != null">
+        DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        ISDEL = #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="spj != null">
+        SPJ = #{spj,jdbcType=VARCHAR},
+      </if>
+      <if test="kanr != null">
+        KANR = #{kanr,jdbcType=VARCHAR},
+      </if>
+      <if test="werk != null">
+        WERK = #{werk,jdbcType=VARCHAR},
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2 = #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="cartype != null">
+        CARTYPE = #{cartype,jdbcType=VARCHAR},
+      </if>
+      <if test="chassis != null">
+        CHASSIS = #{chassis,jdbcType=VARCHAR},
+      </if>
+      <if test="serial != null">
+        SERIAL = #{serial,jdbcType=NUMERIC},
+      </if>
+      <if test="m100timr != null">
+        M100TIMR = #{m100timr,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lendtime != null">
+        LENDTIME = #{lendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="execid != null">
+        EXECID = #{execid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorid != null">
+        CREATORID = #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mark != null">
+        MARK = #{mark,jdbcType=NUMERIC},
+      </if>
+      <if test="mj != null">
+        MJ = #{mj,jdbcType=VARCHAR},
+      </if>
+      <if test="cckanr != null">
+        CCKANR = #{cckanr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.runbom.demo.model.M100">
+    update PCC_M100
+    set DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      ISDEL = #{isdel,jdbcType=NUMERIC},
+      SPJ = #{spj,jdbcType=VARCHAR},
+      KANR = #{kanr,jdbcType=VARCHAR},
+      WERK = #{werk,jdbcType=VARCHAR},
+      FANLAGE2 = #{fanlage2,jdbcType=VARCHAR},
+      CARTYPE = #{cartype,jdbcType=VARCHAR},
+      CHASSIS = #{chassis,jdbcType=VARCHAR},
+      SERIAL = #{serial,jdbcType=NUMERIC},
+      M100TIMR = #{m100timr,jdbcType=TIMESTAMP},
+      LENDTIME = #{lendtime,jdbcType=TIMESTAMP},
+      EXECID = #{execid,jdbcType=VARCHAR},
+      CREATORID = #{creatorid,jdbcType=VARCHAR},
+      CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      MARK = #{mark,jdbcType=NUMERIC},
+      MJ = #{mj,jdbcType=VARCHAR},
+      CCKANR = #{cckanr,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.runbom.demo.model.M100">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="DOCUMENTID" jdbcType="VARCHAR" property="documentid" />
+    <result column="ISDEL" jdbcType="NUMERIC" property="isdel" />
+    <result column="SPJ" jdbcType="VARCHAR" property="spj" />
+    <result column="KANR" jdbcType="VARCHAR" property="kanr" />
+    <result column="WERK" jdbcType="VARCHAR" property="werk" />
+    <result column="FANLAGE2" jdbcType="VARCHAR" property="fanlage2" />
+    <result column="CARTYPE" jdbcType="VARCHAR" property="cartype" />
+    <result column="CHASSIS" jdbcType="VARCHAR" property="chassis" />
+    <result column="SERIAL" jdbcType="NUMERIC" property="serial" />
+    <result column="M100TIMR" jdbcType="TIMESTAMP" property="m100timr" />
+    <result column="LENDTIME" jdbcType="TIMESTAMP" property="lendtime" />
+    <result column="EXECID" jdbcType="VARCHAR" property="execid" />
+    <result column="CREATORID" jdbcType="VARCHAR" property="creatorid" />
+    <result column="CREATORNAME" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="MODIFIERID" jdbcType="VARCHAR" property="modifierid" />
+    <result column="MODIFIERNAME" jdbcType="VARCHAR" property="modifiername" />
+    <result column="MODIFYTIME" jdbcType="TIMESTAMP" property="modifytime" />
+    <result column="MARK" jdbcType="NUMERIC" property="mark" />
+    <result column="MJ" jdbcType="VARCHAR" property="mj" />
+    <result column="CCKANR" jdbcType="VARCHAR" property="cckanr" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, DOCUMENTID, ISDEL, SPJ, KANR, WERK, FANLAGE2, CARTYPE, CHASSIS, SERIAL, M100TIMR, 
+    LENDTIME, EXECID, CREATORID, CREATORNAME, CREATETIME, MODIFIERID, MODIFIERNAME, MODIFYTIME, 
+    MARK, MJ, CCKANR
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PCC_M100
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PCC_M100
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.runbom.demo.model.M100">
+    insert into PCC_M100 (ID, DOCUMENTID, ISDEL, 
+      SPJ, KANR, WERK, FANLAGE2, 
+      CARTYPE, CHASSIS, SERIAL, 
+      M100TIMR, LENDTIME, EXECID, 
+      CREATORID, CREATORNAME, CREATETIME, 
+      MODIFIERID, MODIFIERNAME, MODIFYTIME, 
+      MARK, MJ, CCKANR)
+    values (#{id,jdbcType=VARCHAR}, #{documentid,jdbcType=VARCHAR}, #{isdel,jdbcType=NUMERIC}, 
+      #{spj,jdbcType=VARCHAR}, #{kanr,jdbcType=VARCHAR}, #{werk,jdbcType=VARCHAR}, #{fanlage2,jdbcType=VARCHAR}, 
+      #{cartype,jdbcType=VARCHAR}, #{chassis,jdbcType=VARCHAR}, #{serial,jdbcType=NUMERIC}, 
+      #{m100timr,jdbcType=TIMESTAMP}, #{lendtime,jdbcType=TIMESTAMP}, #{execid,jdbcType=VARCHAR}, 
+      #{creatorid,jdbcType=VARCHAR}, #{creatorname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{modifierid,jdbcType=VARCHAR}, #{modifiername,jdbcType=VARCHAR}, #{modifytime,jdbcType=TIMESTAMP}, 
+      #{mark,jdbcType=NUMERIC}, #{mj,jdbcType=VARCHAR}, #{cckanr,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.runbom.demo.model.M100">
+    insert into PCC_M100
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="documentid != null">
+        DOCUMENTID,
+      </if>
+      <if test="isdel != null">
+        ISDEL,
+      </if>
+      <if test="spj != null">
+        SPJ,
+      </if>
+      <if test="kanr != null">
+        KANR,
+      </if>
+      <if test="werk != null">
+        WERK,
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2,
+      </if>
+      <if test="cartype != null">
+        CARTYPE,
+      </if>
+      <if test="chassis != null">
+        CHASSIS,
+      </if>
+      <if test="serial != null">
+        SERIAL,
+      </if>
+      <if test="m100timr != null">
+        M100TIMR,
+      </if>
+      <if test="lendtime != null">
+        LENDTIME,
+      </if>
+      <if test="execid != null">
+        EXECID,
+      </if>
+      <if test="creatorid != null">
+        CREATORID,
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID,
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME,
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME,
+      </if>
+      <if test="mark != null">
+        MARK,
+      </if>
+      <if test="mj != null">
+        MJ,
+      </if>
+      <if test="cckanr != null">
+        CCKANR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="documentid != null">
+        #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="spj != null">
+        #{spj,jdbcType=VARCHAR},
+      </if>
+      <if test="kanr != null">
+        #{kanr,jdbcType=VARCHAR},
+      </if>
+      <if test="werk != null">
+        #{werk,jdbcType=VARCHAR},
+      </if>
+      <if test="fanlage2 != null">
+        #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="cartype != null">
+        #{cartype,jdbcType=VARCHAR},
+      </if>
+      <if test="chassis != null">
+        #{chassis,jdbcType=VARCHAR},
+      </if>
+      <if test="serial != null">
+        #{serial,jdbcType=NUMERIC},
+      </if>
+      <if test="m100timr != null">
+        #{m100timr,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lendtime != null">
+        #{lendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="execid != null">
+        #{execid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorid != null">
+        #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=NUMERIC},
+      </if>
+      <if test="mj != null">
+        #{mj,jdbcType=VARCHAR},
+      </if>
+      <if test="cckanr != null">
+        #{cckanr,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.runbom.demo.model.M100">
+    update PCC_M100
+    <set>
+      <if test="documentid != null">
+        DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        ISDEL = #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="spj != null">
+        SPJ = #{spj,jdbcType=VARCHAR},
+      </if>
+      <if test="kanr != null">
+        KANR = #{kanr,jdbcType=VARCHAR},
+      </if>
+      <if test="werk != null">
+        WERK = #{werk,jdbcType=VARCHAR},
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2 = #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="cartype != null">
+        CARTYPE = #{cartype,jdbcType=VARCHAR},
+      </if>
+      <if test="chassis != null">
+        CHASSIS = #{chassis,jdbcType=VARCHAR},
+      </if>
+      <if test="serial != null">
+        SERIAL = #{serial,jdbcType=NUMERIC},
+      </if>
+      <if test="m100timr != null">
+        M100TIMR = #{m100timr,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lendtime != null">
+        LENDTIME = #{lendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="execid != null">
+        EXECID = #{execid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorid != null">
+        CREATORID = #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mark != null">
+        MARK = #{mark,jdbcType=NUMERIC},
+      </if>
+      <if test="mj != null">
+        MJ = #{mj,jdbcType=VARCHAR},
+      </if>
+      <if test="cckanr != null">
+        CCKANR = #{cckanr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.runbom.demo.model.M100">
+    update PCC_M100
+    set DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      ISDEL = #{isdel,jdbcType=NUMERIC},
+      SPJ = #{spj,jdbcType=VARCHAR},
+      KANR = #{kanr,jdbcType=VARCHAR},
+      WERK = #{werk,jdbcType=VARCHAR},
+      FANLAGE2 = #{fanlage2,jdbcType=VARCHAR},
+      CARTYPE = #{cartype,jdbcType=VARCHAR},
+      CHASSIS = #{chassis,jdbcType=VARCHAR},
+      SERIAL = #{serial,jdbcType=NUMERIC},
+      M100TIMR = #{m100timr,jdbcType=TIMESTAMP},
+      LENDTIME = #{lendtime,jdbcType=TIMESTAMP},
+      EXECID = #{execid,jdbcType=VARCHAR},
+      CREATORID = #{creatorid,jdbcType=VARCHAR},
+      CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      MARK = #{mark,jdbcType=NUMERIC},
+      MJ = #{mj,jdbcType=VARCHAR},
+      CCKANR = #{cckanr,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

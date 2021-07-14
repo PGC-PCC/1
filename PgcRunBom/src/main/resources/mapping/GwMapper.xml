@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.runbom.demo.dao.GwMapper">
+  <resultMap id="BaseResultMap" type="com.runbom.demo.model.Gw">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="DOCUMENTID" jdbcType="VARCHAR" property="documentid" />
+    <result column="ISDEL" jdbcType="NUMERIC" property="isdel" />
+    <result column="WERKS" jdbcType="VARCHAR" property="werks" />
+    <result column="SITE" jdbcType="VARCHAR" property="site" />
+    <result column="BATCH" jdbcType="NUMERIC" property="batch" />
+    <result column="CREATORID" jdbcType="VARCHAR" property="creatorid" />
+    <result column="CREATORNAME" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="MODIFIERID" jdbcType="VARCHAR" property="modifierid" />
+    <result column="MODIFIERNAME" jdbcType="VARCHAR" property="modifiername" />
+    <result column="MODIFYTIME" jdbcType="TIMESTAMP" property="modifytime" />
+    <result column="FANLAGE2" jdbcType="VARCHAR" property="fanlage2" />
+    <result column="SERIALNUM" jdbcType="NUMERIC" property="serialnum" />
+    <result column="BAND" jdbcType="VARCHAR" property="band" />
+    <result column="FZSITE" jdbcType="VARCHAR" property="fzsite" />
+    <result column="PMODIFIERID" jdbcType="VARCHAR" property="pmodifierid" />
+    <result column="PMODIFIERNAME" jdbcType="VARCHAR" property="pmodifiername" />
+    <result column="PMODIFYTIME" jdbcType="TIMESTAMP" property="pmodifytime" />
+    <result column="SERIALNUM2" jdbcType="NUMERIC" property="serialnum2" />
+    <result column="ISHAND" jdbcType="NUMERIC" property="ishand" />
+    <result column="BANDFANLAGEID" jdbcType="VARCHAR" property="bandfanlageid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, DOCUMENTID, ISDEL, WERKS, SITE, BATCH, CREATORID, CREATORNAME, CREATETIME, MODIFIERID, 
+    MODIFIERNAME, MODIFYTIME, FANLAGE2, SERIALNUM, BAND, FZSITE, PMODIFIERID, PMODIFIERNAME, 
+    PMODIFYTIME, SERIALNUM2, ISHAND, BANDFANLAGEID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PCC_GW
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PCC_GW
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.runbom.demo.model.Gw">
+    insert into PCC_GW (ID, DOCUMENTID, ISDEL, 
+      WERKS, SITE, BATCH, 
+      CREATORID, CREATORNAME, CREATETIME, 
+      MODIFIERID, MODIFIERNAME, MODIFYTIME, 
+      FANLAGE2, SERIALNUM, BAND, 
+      FZSITE, PMODIFIERID, PMODIFIERNAME, 
+      PMODIFYTIME, SERIALNUM2, ISHAND, 
+      BANDFANLAGEID)
+    values (#{id,jdbcType=VARCHAR}, #{documentid,jdbcType=VARCHAR}, #{isdel,jdbcType=NUMERIC}, 
+      #{werks,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, #{batch,jdbcType=NUMERIC}, 
+      #{creatorid,jdbcType=VARCHAR}, #{creatorname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{modifierid,jdbcType=VARCHAR}, #{modifiername,jdbcType=VARCHAR}, #{modifytime,jdbcType=TIMESTAMP}, 
+      #{fanlage2,jdbcType=VARCHAR}, #{serialnum,jdbcType=NUMERIC}, #{band,jdbcType=VARCHAR}, 
+      #{fzsite,jdbcType=VARCHAR}, #{pmodifierid,jdbcType=VARCHAR}, #{pmodifiername,jdbcType=VARCHAR}, 
+      #{pmodifytime,jdbcType=TIMESTAMP}, #{serialnum2,jdbcType=NUMERIC}, #{ishand,jdbcType=NUMERIC}, 
+      #{bandfanlageid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.runbom.demo.model.Gw">
+    insert into PCC_GW
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="documentid != null">
+        DOCUMENTID,
+      </if>
+      <if test="isdel != null">
+        ISDEL,
+      </if>
+      <if test="werks != null">
+        WERKS,
+      </if>
+      <if test="site != null">
+        SITE,
+      </if>
+      <if test="batch != null">
+        BATCH,
+      </if>
+      <if test="creatorid != null">
+        CREATORID,
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID,
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME,
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME,
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2,
+      </if>
+      <if test="serialnum != null">
+        SERIALNUM,
+      </if>
+      <if test="band != null">
+        BAND,
+      </if>
+      <if test="fzsite != null">
+        FZSITE,
+      </if>
+      <if test="pmodifierid != null">
+        PMODIFIERID,
+      </if>
+      <if test="pmodifiername != null">
+        PMODIFIERNAME,
+      </if>
+      <if test="pmodifytime != null">
+        PMODIFYTIME,
+      </if>
+      <if test="serialnum2 != null">
+        SERIALNUM2,
+      </if>
+      <if test="ishand != null">
+        ISHAND,
+      </if>
+      <if test="bandfanlageid != null">
+        BANDFANLAGEID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="documentid != null">
+        #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="werks != null">
+        #{werks,jdbcType=VARCHAR},
+      </if>
+      <if test="site != null">
+        #{site,jdbcType=VARCHAR},
+      </if>
+      <if test="batch != null">
+        #{batch,jdbcType=NUMERIC},
+      </if>
+      <if test="creatorid != null">
+        #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fanlage2 != null">
+        #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="serialnum != null">
+        #{serialnum,jdbcType=NUMERIC},
+      </if>
+      <if test="band != null">
+        #{band,jdbcType=VARCHAR},
+      </if>
+      <if test="fzsite != null">
+        #{fzsite,jdbcType=VARCHAR},
+      </if>
+      <if test="pmodifierid != null">
+        #{pmodifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="pmodifiername != null">
+        #{pmodifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="pmodifytime != null">
+        #{pmodifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serialnum2 != null">
+        #{serialnum2,jdbcType=NUMERIC},
+      </if>
+      <if test="ishand != null">
+        #{ishand,jdbcType=NUMERIC},
+      </if>
+      <if test="bandfanlageid != null">
+        #{bandfanlageid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.runbom.demo.model.Gw">
+    update PCC_GW
+    <set>
+      <if test="documentid != null">
+        DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        ISDEL = #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="werks != null">
+        WERKS = #{werks,jdbcType=VARCHAR},
+      </if>
+      <if test="site != null">
+        SITE = #{site,jdbcType=VARCHAR},
+      </if>
+      <if test="batch != null">
+        BATCH = #{batch,jdbcType=NUMERIC},
+      </if>
+      <if test="creatorid != null">
+        CREATORID = #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2 = #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="serialnum != null">
+        SERIALNUM = #{serialnum,jdbcType=NUMERIC},
+      </if>
+      <if test="band != null">
+        BAND = #{band,jdbcType=VARCHAR},
+      </if>
+      <if test="fzsite != null">
+        FZSITE = #{fzsite,jdbcType=VARCHAR},
+      </if>
+      <if test="pmodifierid != null">
+        PMODIFIERID = #{pmodifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="pmodifiername != null">
+        PMODIFIERNAME = #{pmodifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="pmodifytime != null">
+        PMODIFYTIME = #{pmodifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serialnum2 != null">
+        SERIALNUM2 = #{serialnum2,jdbcType=NUMERIC},
+      </if>
+      <if test="ishand != null">
+        ISHAND = #{ishand,jdbcType=NUMERIC},
+      </if>
+      <if test="bandfanlageid != null">
+        BANDFANLAGEID = #{bandfanlageid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.runbom.demo.model.Gw">
+    update PCC_GW
+    set DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      ISDEL = #{isdel,jdbcType=NUMERIC},
+      WERKS = #{werks,jdbcType=VARCHAR},
+      SITE = #{site,jdbcType=VARCHAR},
+      BATCH = #{batch,jdbcType=NUMERIC},
+      CREATORID = #{creatorid,jdbcType=VARCHAR},
+      CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      FANLAGE2 = #{fanlage2,jdbcType=VARCHAR},
+      SERIALNUM = #{serialnum,jdbcType=NUMERIC},
+      BAND = #{band,jdbcType=VARCHAR},
+      FZSITE = #{fzsite,jdbcType=VARCHAR},
+      PMODIFIERID = #{pmodifierid,jdbcType=VARCHAR},
+      PMODIFIERNAME = #{pmodifiername,jdbcType=VARCHAR},
+      PMODIFYTIME = #{pmodifytime,jdbcType=TIMESTAMP},
+      SERIALNUM2 = #{serialnum2,jdbcType=NUMERIC},
+      ISHAND = #{ishand,jdbcType=NUMERIC},
+      BANDFANLAGEID = #{bandfanlageid,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.runbom.demo.model.Gw">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="DOCUMENTID" jdbcType="VARCHAR" property="documentid" />
+    <result column="ISDEL" jdbcType="NUMERIC" property="isdel" />
+    <result column="WERKS" jdbcType="VARCHAR" property="werks" />
+    <result column="SITE" jdbcType="VARCHAR" property="site" />
+    <result column="BATCH" jdbcType="NUMERIC" property="batch" />
+    <result column="CREATORID" jdbcType="VARCHAR" property="creatorid" />
+    <result column="CREATORNAME" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="MODIFIERID" jdbcType="VARCHAR" property="modifierid" />
+    <result column="MODIFIERNAME" jdbcType="VARCHAR" property="modifiername" />
+    <result column="MODIFYTIME" jdbcType="TIMESTAMP" property="modifytime" />
+    <result column="FANLAGE2" jdbcType="VARCHAR" property="fanlage2" />
+    <result column="SERIALNUM" jdbcType="NUMERIC" property="serialnum" />
+    <result column="BAND" jdbcType="VARCHAR" property="band" />
+    <result column="FZSITE" jdbcType="VARCHAR" property="fzsite" />
+    <result column="PMODIFIERID" jdbcType="VARCHAR" property="pmodifierid" />
+    <result column="PMODIFIERNAME" jdbcType="VARCHAR" property="pmodifiername" />
+    <result column="PMODIFYTIME" jdbcType="TIMESTAMP" property="pmodifytime" />
+    <result column="SERIALNUM2" jdbcType="NUMERIC" property="serialnum2" />
+    <result column="ISHAND" jdbcType="NUMERIC" property="ishand" />
+    <result column="BANDFANLAGEID" jdbcType="VARCHAR" property="bandfanlageid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, DOCUMENTID, ISDEL, WERKS, SITE, BATCH, CREATORID, CREATORNAME, CREATETIME, MODIFIERID, 
+    MODIFIERNAME, MODIFYTIME, FANLAGE2, SERIALNUM, BAND, FZSITE, PMODIFIERID, PMODIFIERNAME, 
+    PMODIFYTIME, SERIALNUM2, ISHAND, BANDFANLAGEID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PCC_GW
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PCC_GW
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.runbom.demo.model.Gw">
+    insert into PCC_GW (ID, DOCUMENTID, ISDEL, 
+      WERKS, SITE, BATCH, 
+      CREATORID, CREATORNAME, CREATETIME, 
+      MODIFIERID, MODIFIERNAME, MODIFYTIME, 
+      FANLAGE2, SERIALNUM, BAND, 
+      FZSITE, PMODIFIERID, PMODIFIERNAME, 
+      PMODIFYTIME, SERIALNUM2, ISHAND, 
+      BANDFANLAGEID)
+    values (#{id,jdbcType=VARCHAR}, #{documentid,jdbcType=VARCHAR}, #{isdel,jdbcType=NUMERIC}, 
+      #{werks,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, #{batch,jdbcType=NUMERIC}, 
+      #{creatorid,jdbcType=VARCHAR}, #{creatorname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{modifierid,jdbcType=VARCHAR}, #{modifiername,jdbcType=VARCHAR}, #{modifytime,jdbcType=TIMESTAMP}, 
+      #{fanlage2,jdbcType=VARCHAR}, #{serialnum,jdbcType=NUMERIC}, #{band,jdbcType=VARCHAR}, 
+      #{fzsite,jdbcType=VARCHAR}, #{pmodifierid,jdbcType=VARCHAR}, #{pmodifiername,jdbcType=VARCHAR}, 
+      #{pmodifytime,jdbcType=TIMESTAMP}, #{serialnum2,jdbcType=NUMERIC}, #{ishand,jdbcType=NUMERIC}, 
+      #{bandfanlageid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.runbom.demo.model.Gw">
+    insert into PCC_GW
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="documentid != null">
+        DOCUMENTID,
+      </if>
+      <if test="isdel != null">
+        ISDEL,
+      </if>
+      <if test="werks != null">
+        WERKS,
+      </if>
+      <if test="site != null">
+        SITE,
+      </if>
+      <if test="batch != null">
+        BATCH,
+      </if>
+      <if test="creatorid != null">
+        CREATORID,
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID,
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME,
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME,
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2,
+      </if>
+      <if test="serialnum != null">
+        SERIALNUM,
+      </if>
+      <if test="band != null">
+        BAND,
+      </if>
+      <if test="fzsite != null">
+        FZSITE,
+      </if>
+      <if test="pmodifierid != null">
+        PMODIFIERID,
+      </if>
+      <if test="pmodifiername != null">
+        PMODIFIERNAME,
+      </if>
+      <if test="pmodifytime != null">
+        PMODIFYTIME,
+      </if>
+      <if test="serialnum2 != null">
+        SERIALNUM2,
+      </if>
+      <if test="ishand != null">
+        ISHAND,
+      </if>
+      <if test="bandfanlageid != null">
+        BANDFANLAGEID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="documentid != null">
+        #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="werks != null">
+        #{werks,jdbcType=VARCHAR},
+      </if>
+      <if test="site != null">
+        #{site,jdbcType=VARCHAR},
+      </if>
+      <if test="batch != null">
+        #{batch,jdbcType=NUMERIC},
+      </if>
+      <if test="creatorid != null">
+        #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fanlage2 != null">
+        #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="serialnum != null">
+        #{serialnum,jdbcType=NUMERIC},
+      </if>
+      <if test="band != null">
+        #{band,jdbcType=VARCHAR},
+      </if>
+      <if test="fzsite != null">
+        #{fzsite,jdbcType=VARCHAR},
+      </if>
+      <if test="pmodifierid != null">
+        #{pmodifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="pmodifiername != null">
+        #{pmodifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="pmodifytime != null">
+        #{pmodifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serialnum2 != null">
+        #{serialnum2,jdbcType=NUMERIC},
+      </if>
+      <if test="ishand != null">
+        #{ishand,jdbcType=NUMERIC},
+      </if>
+      <if test="bandfanlageid != null">
+        #{bandfanlageid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.runbom.demo.model.Gw">
+    update PCC_GW
+    <set>
+      <if test="documentid != null">
+        DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        ISDEL = #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="werks != null">
+        WERKS = #{werks,jdbcType=VARCHAR},
+      </if>
+      <if test="site != null">
+        SITE = #{site,jdbcType=VARCHAR},
+      </if>
+      <if test="batch != null">
+        BATCH = #{batch,jdbcType=NUMERIC},
+      </if>
+      <if test="creatorid != null">
+        CREATORID = #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2 = #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="serialnum != null">
+        SERIALNUM = #{serialnum,jdbcType=NUMERIC},
+      </if>
+      <if test="band != null">
+        BAND = #{band,jdbcType=VARCHAR},
+      </if>
+      <if test="fzsite != null">
+        FZSITE = #{fzsite,jdbcType=VARCHAR},
+      </if>
+      <if test="pmodifierid != null">
+        PMODIFIERID = #{pmodifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="pmodifiername != null">
+        PMODIFIERNAME = #{pmodifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="pmodifytime != null">
+        PMODIFYTIME = #{pmodifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serialnum2 != null">
+        SERIALNUM2 = #{serialnum2,jdbcType=NUMERIC},
+      </if>
+      <if test="ishand != null">
+        ISHAND = #{ishand,jdbcType=NUMERIC},
+      </if>
+      <if test="bandfanlageid != null">
+        BANDFANLAGEID = #{bandfanlageid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.runbom.demo.model.Gw">
+    update PCC_GW
+    set DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      ISDEL = #{isdel,jdbcType=NUMERIC},
+      WERKS = #{werks,jdbcType=VARCHAR},
+      SITE = #{site,jdbcType=VARCHAR},
+      BATCH = #{batch,jdbcType=NUMERIC},
+      CREATORID = #{creatorid,jdbcType=VARCHAR},
+      CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      FANLAGE2 = #{fanlage2,jdbcType=VARCHAR},
+      SERIALNUM = #{serialnum,jdbcType=NUMERIC},
+      BAND = #{band,jdbcType=VARCHAR},
+      FZSITE = #{fzsite,jdbcType=VARCHAR},
+      PMODIFIERID = #{pmodifierid,jdbcType=VARCHAR},
+      PMODIFIERNAME = #{pmodifiername,jdbcType=VARCHAR},
+      PMODIFYTIME = #{pmodifytime,jdbcType=TIMESTAMP},
+      SERIALNUM2 = #{serialnum2,jdbcType=NUMERIC},
+      ISHAND = #{ishand,jdbcType=NUMERIC},
+      BANDFANLAGEID = #{bandfanlageid,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,1194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.runbom.demo.dao.GwqjMapper">
+  <resultMap id="BaseResultMap" type="com.runbom.demo.model.Gwqj">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="DOCUMENTID" jdbcType="VARCHAR" property="documentid" />
+    <result column="ISDEL" jdbcType="NUMERIC" property="isdel" />
+    <result column="NUMBER1" jdbcType="VARCHAR" property="number1" />
+    <result column="WERKS" jdbcType="VARCHAR" property="werks" />
+    <result column="CARTYPE" jdbcType="VARCHAR" property="cartype" />
+    <result column="SXFS" jdbcType="VARCHAR" property="sxfs" />
+    <result column="QJFD" jdbcType="CHAR" property="qjfd" />
+    <result column="HK" jdbcType="VARCHAR" property="hk" />
+    <result column="GWQJ1" jdbcType="VARCHAR" property="gwqj1" />
+    <result column="QJSL1" jdbcType="NUMERIC" property="qjsl1" />
+    <result column="DATAB1" jdbcType="VARCHAR" property="datab1" />
+    <result column="DATBI1" jdbcType="VARCHAR" property="datbi1" />
+    <result column="GWQJ2" jdbcType="VARCHAR" property="gwqj2" />
+    <result column="QJSL2" jdbcType="NUMERIC" property="qjsl2" />
+    <result column="DATAB2" jdbcType="VARCHAR" property="datab2" />
+    <result column="DATBI2" jdbcType="VARCHAR" property="datbi2" />
+    <result column="TP" jdbcType="VARCHAR" property="tp" />
+    <result column="TPSL" jdbcType="NUMERIC" property="tpsl" />
+    <result column="BATCH" jdbcType="NUMERIC" property="batch" />
+    <result column="CREATORID" jdbcType="VARCHAR" property="creatorid" />
+    <result column="CREATORNAME" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="MODIFIERID" jdbcType="VARCHAR" property="modifierid" />
+    <result column="MODIFIERNAME" jdbcType="VARCHAR" property="modifiername" />
+    <result column="MODIFYTIME" jdbcType="TIMESTAMP" property="modifytime" />
+    <result column="WLJSL1" jdbcType="NUMERIC" property="wljsl1" />
+    <result column="WBZSL1" jdbcType="NUMERIC" property="wbzsl1" />
+    <result column="WSTRDATE1" jdbcType="TIMESTAMP" property="wstrdate1" />
+    <result column="WENDDATE1" jdbcType="TIMESTAMP" property="wenddate1" />
+    <result column="WLJSL2" jdbcType="NUMERIC" property="wljsl2" />
+    <result column="WBZSL2" jdbcType="NUMERIC" property="wbzsl2" />
+    <result column="WSTRDATE2" jdbcType="TIMESTAMP" property="wstrdate2" />
+    <result column="WENDDATE2" jdbcType="TIMESTAMP" property="wenddate2" />
+    <result column="WMODIFIERID" jdbcType="VARCHAR" property="wmodifierid" />
+    <result column="WMODIFIERNAME" jdbcType="VARCHAR" property="wmodifiername" />
+    <result column="WMODIFYTIME" jdbcType="TIMESTAMP" property="wmodifytime" />
+    <result column="NLJSL1" jdbcType="NUMERIC" property="nljsl1" />
+    <result column="NBZSL1" jdbcType="NUMERIC" property="nbzsl1" />
+    <result column="NSTRDATE1" jdbcType="TIMESTAMP" property="nstrdate1" />
+    <result column="NENDDATE1" jdbcType="TIMESTAMP" property="nenddate1" />
+    <result column="NLJSL2" jdbcType="NUMERIC" property="nljsl2" />
+    <result column="NBZSL2" jdbcType="NUMERIC" property="nbzsl2" />
+    <result column="NSTRDATE2" jdbcType="TIMESTAMP" property="nstrdate2" />
+    <result column="NENDDATE2" jdbcType="TIMESTAMP" property="nenddate2" />
+    <result column="NMODIFIERID" jdbcType="VARCHAR" property="nmodifierid" />
+    <result column="NMODIFIERNAME" jdbcType="VARCHAR" property="nmodifiername" />
+    <result column="NMODIFYTIME" jdbcType="TIMESTAMP" property="nmodifytime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, DOCUMENTID, ISDEL, NUMBER1, WERKS, CARTYPE, SXFS, QJFD, HK, GWQJ1, QJSL1, DATAB1, 
+    DATBI1, GWQJ2, QJSL2, DATAB2, DATBI2, TP, TPSL, BATCH, CREATORID, CREATORNAME, CREATETIME, 
+    MODIFIERID, MODIFIERNAME, MODIFYTIME, WLJSL1, WBZSL1, WSTRDATE1, WENDDATE1, WLJSL2, 
+    WBZSL2, WSTRDATE2, WENDDATE2, WMODIFIERID, WMODIFIERNAME, WMODIFYTIME, NLJSL1, NBZSL1, 
+    NSTRDATE1, NENDDATE1, NLJSL2, NBZSL2, NSTRDATE2, NENDDATE2, NMODIFIERID, NMODIFIERNAME, 
+    NMODIFYTIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PCC_GWQJ
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PCC_GWQJ
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.runbom.demo.model.Gwqj">
+    insert into PCC_GWQJ (ID, DOCUMENTID, ISDEL, 
+      NUMBER1, WERKS, CARTYPE, 
+      SXFS, QJFD, HK, GWQJ1, 
+      QJSL1, DATAB1, DATBI1, 
+      GWQJ2, QJSL2, DATAB2, 
+      DATBI2, TP, TPSL, BATCH, 
+      CREATORID, CREATORNAME, CREATETIME, 
+      MODIFIERID, MODIFIERNAME, MODIFYTIME, 
+      WLJSL1, WBZSL1, WSTRDATE1, 
+      WENDDATE1, WLJSL2, WBZSL2, 
+      WSTRDATE2, WENDDATE2, WMODIFIERID, 
+      WMODIFIERNAME, WMODIFYTIME, NLJSL1, 
+      NBZSL1, NSTRDATE1, NENDDATE1, 
+      NLJSL2, NBZSL2, NSTRDATE2, 
+      NENDDATE2, NMODIFIERID, NMODIFIERNAME, 
+      NMODIFYTIME)
+    values (#{id,jdbcType=VARCHAR}, #{documentid,jdbcType=VARCHAR}, #{isdel,jdbcType=NUMERIC}, 
+      #{number1,jdbcType=VARCHAR}, #{werks,jdbcType=VARCHAR}, #{cartype,jdbcType=VARCHAR}, 
+      #{sxfs,jdbcType=VARCHAR}, #{qjfd,jdbcType=CHAR}, #{hk,jdbcType=VARCHAR}, #{gwqj1,jdbcType=VARCHAR}, 
+      #{qjsl1,jdbcType=NUMERIC}, #{datab1,jdbcType=VARCHAR}, #{datbi1,jdbcType=VARCHAR}, 
+      #{gwqj2,jdbcType=VARCHAR}, #{qjsl2,jdbcType=NUMERIC}, #{datab2,jdbcType=VARCHAR}, 
+      #{datbi2,jdbcType=VARCHAR}, #{tp,jdbcType=VARCHAR}, #{tpsl,jdbcType=NUMERIC}, #{batch,jdbcType=NUMERIC}, 
+      #{creatorid,jdbcType=VARCHAR}, #{creatorname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{modifierid,jdbcType=VARCHAR}, #{modifiername,jdbcType=VARCHAR}, #{modifytime,jdbcType=TIMESTAMP}, 
+      #{wljsl1,jdbcType=NUMERIC}, #{wbzsl1,jdbcType=NUMERIC}, #{wstrdate1,jdbcType=TIMESTAMP}, 
+      #{wenddate1,jdbcType=TIMESTAMP}, #{wljsl2,jdbcType=NUMERIC}, #{wbzsl2,jdbcType=NUMERIC}, 
+      #{wstrdate2,jdbcType=TIMESTAMP}, #{wenddate2,jdbcType=TIMESTAMP}, #{wmodifierid,jdbcType=VARCHAR}, 
+      #{wmodifiername,jdbcType=VARCHAR}, #{wmodifytime,jdbcType=TIMESTAMP}, #{nljsl1,jdbcType=NUMERIC}, 
+      #{nbzsl1,jdbcType=NUMERIC}, #{nstrdate1,jdbcType=TIMESTAMP}, #{nenddate1,jdbcType=TIMESTAMP}, 
+      #{nljsl2,jdbcType=NUMERIC}, #{nbzsl2,jdbcType=NUMERIC}, #{nstrdate2,jdbcType=TIMESTAMP}, 
+      #{nenddate2,jdbcType=TIMESTAMP}, #{nmodifierid,jdbcType=VARCHAR}, #{nmodifiername,jdbcType=VARCHAR}, 
+      #{nmodifytime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.runbom.demo.model.Gwqj">
+    insert into PCC_GWQJ
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="documentid != null">
+        DOCUMENTID,
+      </if>
+      <if test="isdel != null">
+        ISDEL,
+      </if>
+      <if test="number1 != null">
+        NUMBER1,
+      </if>
+      <if test="werks != null">
+        WERKS,
+      </if>
+      <if test="cartype != null">
+        CARTYPE,
+      </if>
+      <if test="sxfs != null">
+        SXFS,
+      </if>
+      <if test="qjfd != null">
+        QJFD,
+      </if>
+      <if test="hk != null">
+        HK,
+      </if>
+      <if test="gwqj1 != null">
+        GWQJ1,
+      </if>
+      <if test="qjsl1 != null">
+        QJSL1,
+      </if>
+      <if test="datab1 != null">
+        DATAB1,
+      </if>
+      <if test="datbi1 != null">
+        DATBI1,
+      </if>
+      <if test="gwqj2 != null">
+        GWQJ2,
+      </if>
+      <if test="qjsl2 != null">
+        QJSL2,
+      </if>
+      <if test="datab2 != null">
+        DATAB2,
+      </if>
+      <if test="datbi2 != null">
+        DATBI2,
+      </if>
+      <if test="tp != null">
+        TP,
+      </if>
+      <if test="tpsl != null">
+        TPSL,
+      </if>
+      <if test="batch != null">
+        BATCH,
+      </if>
+      <if test="creatorid != null">
+        CREATORID,
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID,
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME,
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME,
+      </if>
+      <if test="wljsl1 != null">
+        WLJSL1,
+      </if>
+      <if test="wbzsl1 != null">
+        WBZSL1,
+      </if>
+      <if test="wstrdate1 != null">
+        WSTRDATE1,
+      </if>
+      <if test="wenddate1 != null">
+        WENDDATE1,
+      </if>
+      <if test="wljsl2 != null">
+        WLJSL2,
+      </if>
+      <if test="wbzsl2 != null">
+        WBZSL2,
+      </if>
+      <if test="wstrdate2 != null">
+        WSTRDATE2,
+      </if>
+      <if test="wenddate2 != null">
+        WENDDATE2,
+      </if>
+      <if test="wmodifierid != null">
+        WMODIFIERID,
+      </if>
+      <if test="wmodifiername != null">
+        WMODIFIERNAME,
+      </if>
+      <if test="wmodifytime != null">
+        WMODIFYTIME,
+      </if>
+      <if test="nljsl1 != null">
+        NLJSL1,
+      </if>
+      <if test="nbzsl1 != null">
+        NBZSL1,
+      </if>
+      <if test="nstrdate1 != null">
+        NSTRDATE1,
+      </if>
+      <if test="nenddate1 != null">
+        NENDDATE1,
+      </if>
+      <if test="nljsl2 != null">
+        NLJSL2,
+      </if>
+      <if test="nbzsl2 != null">
+        NBZSL2,
+      </if>
+      <if test="nstrdate2 != null">
+        NSTRDATE2,
+      </if>
+      <if test="nenddate2 != null">
+        NENDDATE2,
+      </if>
+      <if test="nmodifierid != null">
+        NMODIFIERID,
+      </if>
+      <if test="nmodifiername != null">
+        NMODIFIERNAME,
+      </if>
+      <if test="nmodifytime != null">
+        NMODIFYTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="documentid != null">
+        #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="number1 != null">
+        #{number1,jdbcType=VARCHAR},
+      </if>
+      <if test="werks != null">
+        #{werks,jdbcType=VARCHAR},
+      </if>
+      <if test="cartype != null">
+        #{cartype,jdbcType=VARCHAR},
+      </if>
+      <if test="sxfs != null">
+        #{sxfs,jdbcType=VARCHAR},
+      </if>
+      <if test="qjfd != null">
+        #{qjfd,jdbcType=CHAR},
+      </if>
+      <if test="hk != null">
+        #{hk,jdbcType=VARCHAR},
+      </if>
+      <if test="gwqj1 != null">
+        #{gwqj1,jdbcType=VARCHAR},
+      </if>
+      <if test="qjsl1 != null">
+        #{qjsl1,jdbcType=NUMERIC},
+      </if>
+      <if test="datab1 != null">
+        #{datab1,jdbcType=VARCHAR},
+      </if>
+      <if test="datbi1 != null">
+        #{datbi1,jdbcType=VARCHAR},
+      </if>
+      <if test="gwqj2 != null">
+        #{gwqj2,jdbcType=VARCHAR},
+      </if>
+      <if test="qjsl2 != null">
+        #{qjsl2,jdbcType=NUMERIC},
+      </if>
+      <if test="datab2 != null">
+        #{datab2,jdbcType=VARCHAR},
+      </if>
+      <if test="datbi2 != null">
+        #{datbi2,jdbcType=VARCHAR},
+      </if>
+      <if test="tp != null">
+        #{tp,jdbcType=VARCHAR},
+      </if>
+      <if test="tpsl != null">
+        #{tpsl,jdbcType=NUMERIC},
+      </if>
+      <if test="batch != null">
+        #{batch,jdbcType=NUMERIC},
+      </if>
+      <if test="creatorid != null">
+        #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wljsl1 != null">
+        #{wljsl1,jdbcType=NUMERIC},
+      </if>
+      <if test="wbzsl1 != null">
+        #{wbzsl1,jdbcType=NUMERIC},
+      </if>
+      <if test="wstrdate1 != null">
+        #{wstrdate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wenddate1 != null">
+        #{wenddate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wljsl2 != null">
+        #{wljsl2,jdbcType=NUMERIC},
+      </if>
+      <if test="wbzsl2 != null">
+        #{wbzsl2,jdbcType=NUMERIC},
+      </if>
+      <if test="wstrdate2 != null">
+        #{wstrdate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wenddate2 != null">
+        #{wenddate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wmodifierid != null">
+        #{wmodifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="wmodifiername != null">
+        #{wmodifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="wmodifytime != null">
+        #{wmodifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nljsl1 != null">
+        #{nljsl1,jdbcType=NUMERIC},
+      </if>
+      <if test="nbzsl1 != null">
+        #{nbzsl1,jdbcType=NUMERIC},
+      </if>
+      <if test="nstrdate1 != null">
+        #{nstrdate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nenddate1 != null">
+        #{nenddate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nljsl2 != null">
+        #{nljsl2,jdbcType=NUMERIC},
+      </if>
+      <if test="nbzsl2 != null">
+        #{nbzsl2,jdbcType=NUMERIC},
+      </if>
+      <if test="nstrdate2 != null">
+        #{nstrdate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nenddate2 != null">
+        #{nenddate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nmodifierid != null">
+        #{nmodifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="nmodifiername != null">
+        #{nmodifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="nmodifytime != null">
+        #{nmodifytime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.runbom.demo.model.Gwqj">
+    update PCC_GWQJ
+    <set>
+      <if test="documentid != null">
+        DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        ISDEL = #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="number1 != null">
+        NUMBER1 = #{number1,jdbcType=VARCHAR},
+      </if>
+      <if test="werks != null">
+        WERKS = #{werks,jdbcType=VARCHAR},
+      </if>
+      <if test="cartype != null">
+        CARTYPE = #{cartype,jdbcType=VARCHAR},
+      </if>
+      <if test="sxfs != null">
+        SXFS = #{sxfs,jdbcType=VARCHAR},
+      </if>
+      <if test="qjfd != null">
+        QJFD = #{qjfd,jdbcType=CHAR},
+      </if>
+      <if test="hk != null">
+        HK = #{hk,jdbcType=VARCHAR},
+      </if>
+      <if test="gwqj1 != null">
+        GWQJ1 = #{gwqj1,jdbcType=VARCHAR},
+      </if>
+      <if test="qjsl1 != null">
+        QJSL1 = #{qjsl1,jdbcType=NUMERIC},
+      </if>
+      <if test="datab1 != null">
+        DATAB1 = #{datab1,jdbcType=VARCHAR},
+      </if>
+      <if test="datbi1 != null">
+        DATBI1 = #{datbi1,jdbcType=VARCHAR},
+      </if>
+      <if test="gwqj2 != null">
+        GWQJ2 = #{gwqj2,jdbcType=VARCHAR},
+      </if>
+      <if test="qjsl2 != null">
+        QJSL2 = #{qjsl2,jdbcType=NUMERIC},
+      </if>
+      <if test="datab2 != null">
+        DATAB2 = #{datab2,jdbcType=VARCHAR},
+      </if>
+      <if test="datbi2 != null">
+        DATBI2 = #{datbi2,jdbcType=VARCHAR},
+      </if>
+      <if test="tp != null">
+        TP = #{tp,jdbcType=VARCHAR},
+      </if>
+      <if test="tpsl != null">
+        TPSL = #{tpsl,jdbcType=NUMERIC},
+      </if>
+      <if test="batch != null">
+        BATCH = #{batch,jdbcType=NUMERIC},
+      </if>
+      <if test="creatorid != null">
+        CREATORID = #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wljsl1 != null">
+        WLJSL1 = #{wljsl1,jdbcType=NUMERIC},
+      </if>
+      <if test="wbzsl1 != null">
+        WBZSL1 = #{wbzsl1,jdbcType=NUMERIC},
+      </if>
+      <if test="wstrdate1 != null">
+        WSTRDATE1 = #{wstrdate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wenddate1 != null">
+        WENDDATE1 = #{wenddate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wljsl2 != null">
+        WLJSL2 = #{wljsl2,jdbcType=NUMERIC},
+      </if>
+      <if test="wbzsl2 != null">
+        WBZSL2 = #{wbzsl2,jdbcType=NUMERIC},
+      </if>
+      <if test="wstrdate2 != null">
+        WSTRDATE2 = #{wstrdate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wenddate2 != null">
+        WENDDATE2 = #{wenddate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wmodifierid != null">
+        WMODIFIERID = #{wmodifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="wmodifiername != null">
+        WMODIFIERNAME = #{wmodifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="wmodifytime != null">
+        WMODIFYTIME = #{wmodifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nljsl1 != null">
+        NLJSL1 = #{nljsl1,jdbcType=NUMERIC},
+      </if>
+      <if test="nbzsl1 != null">
+        NBZSL1 = #{nbzsl1,jdbcType=NUMERIC},
+      </if>
+      <if test="nstrdate1 != null">
+        NSTRDATE1 = #{nstrdate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nenddate1 != null">
+        NENDDATE1 = #{nenddate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nljsl2 != null">
+        NLJSL2 = #{nljsl2,jdbcType=NUMERIC},
+      </if>
+      <if test="nbzsl2 != null">
+        NBZSL2 = #{nbzsl2,jdbcType=NUMERIC},
+      </if>
+      <if test="nstrdate2 != null">
+        NSTRDATE2 = #{nstrdate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nenddate2 != null">
+        NENDDATE2 = #{nenddate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nmodifierid != null">
+        NMODIFIERID = #{nmodifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="nmodifiername != null">
+        NMODIFIERNAME = #{nmodifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="nmodifytime != null">
+        NMODIFYTIME = #{nmodifytime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.runbom.demo.model.Gwqj">
+    update PCC_GWQJ
+    set DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      ISDEL = #{isdel,jdbcType=NUMERIC},
+      NUMBER1 = #{number1,jdbcType=VARCHAR},
+      WERKS = #{werks,jdbcType=VARCHAR},
+      CARTYPE = #{cartype,jdbcType=VARCHAR},
+      SXFS = #{sxfs,jdbcType=VARCHAR},
+      QJFD = #{qjfd,jdbcType=CHAR},
+      HK = #{hk,jdbcType=VARCHAR},
+      GWQJ1 = #{gwqj1,jdbcType=VARCHAR},
+      QJSL1 = #{qjsl1,jdbcType=NUMERIC},
+      DATAB1 = #{datab1,jdbcType=VARCHAR},
+      DATBI1 = #{datbi1,jdbcType=VARCHAR},
+      GWQJ2 = #{gwqj2,jdbcType=VARCHAR},
+      QJSL2 = #{qjsl2,jdbcType=NUMERIC},
+      DATAB2 = #{datab2,jdbcType=VARCHAR},
+      DATBI2 = #{datbi2,jdbcType=VARCHAR},
+      TP = #{tp,jdbcType=VARCHAR},
+      TPSL = #{tpsl,jdbcType=NUMERIC},
+      BATCH = #{batch,jdbcType=NUMERIC},
+      CREATORID = #{creatorid,jdbcType=VARCHAR},
+      CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      WLJSL1 = #{wljsl1,jdbcType=NUMERIC},
+      WBZSL1 = #{wbzsl1,jdbcType=NUMERIC},
+      WSTRDATE1 = #{wstrdate1,jdbcType=TIMESTAMP},
+      WENDDATE1 = #{wenddate1,jdbcType=TIMESTAMP},
+      WLJSL2 = #{wljsl2,jdbcType=NUMERIC},
+      WBZSL2 = #{wbzsl2,jdbcType=NUMERIC},
+      WSTRDATE2 = #{wstrdate2,jdbcType=TIMESTAMP},
+      WENDDATE2 = #{wenddate2,jdbcType=TIMESTAMP},
+      WMODIFIERID = #{wmodifierid,jdbcType=VARCHAR},
+      WMODIFIERNAME = #{wmodifiername,jdbcType=VARCHAR},
+      WMODIFYTIME = #{wmodifytime,jdbcType=TIMESTAMP},
+      NLJSL1 = #{nljsl1,jdbcType=NUMERIC},
+      NBZSL1 = #{nbzsl1,jdbcType=NUMERIC},
+      NSTRDATE1 = #{nstrdate1,jdbcType=TIMESTAMP},
+      NENDDATE1 = #{nenddate1,jdbcType=TIMESTAMP},
+      NLJSL2 = #{nljsl2,jdbcType=NUMERIC},
+      NBZSL2 = #{nbzsl2,jdbcType=NUMERIC},
+      NSTRDATE2 = #{nstrdate2,jdbcType=TIMESTAMP},
+      NENDDATE2 = #{nenddate2,jdbcType=TIMESTAMP},
+      NMODIFIERID = #{nmodifierid,jdbcType=VARCHAR},
+      NMODIFIERNAME = #{nmodifiername,jdbcType=VARCHAR},
+      NMODIFYTIME = #{nmodifytime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.runbom.demo.model.Gwqj">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="DOCUMENTID" jdbcType="VARCHAR" property="documentid" />
+    <result column="ISDEL" jdbcType="NUMERIC" property="isdel" />
+    <result column="NUMBER1" jdbcType="VARCHAR" property="number1" />
+    <result column="WERKS" jdbcType="VARCHAR" property="werks" />
+    <result column="CARTYPE" jdbcType="VARCHAR" property="cartype" />
+    <result column="SXFS" jdbcType="VARCHAR" property="sxfs" />
+    <result column="QJFD" jdbcType="CHAR" property="qjfd" />
+    <result column="HK" jdbcType="VARCHAR" property="hk" />
+    <result column="GWQJ1" jdbcType="VARCHAR" property="gwqj1" />
+    <result column="QJSL1" jdbcType="NUMERIC" property="qjsl1" />
+    <result column="DATAB1" jdbcType="VARCHAR" property="datab1" />
+    <result column="DATBI1" jdbcType="VARCHAR" property="datbi1" />
+    <result column="GWQJ2" jdbcType="VARCHAR" property="gwqj2" />
+    <result column="QJSL2" jdbcType="NUMERIC" property="qjsl2" />
+    <result column="DATAB2" jdbcType="VARCHAR" property="datab2" />
+    <result column="DATBI2" jdbcType="VARCHAR" property="datbi2" />
+    <result column="TP" jdbcType="VARCHAR" property="tp" />
+    <result column="TPSL" jdbcType="NUMERIC" property="tpsl" />
+    <result column="BATCH" jdbcType="NUMERIC" property="batch" />
+    <result column="CREATORID" jdbcType="VARCHAR" property="creatorid" />
+    <result column="CREATORNAME" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="MODIFIERID" jdbcType="VARCHAR" property="modifierid" />
+    <result column="MODIFIERNAME" jdbcType="VARCHAR" property="modifiername" />
+    <result column="MODIFYTIME" jdbcType="TIMESTAMP" property="modifytime" />
+    <result column="WLJSL1" jdbcType="NUMERIC" property="wljsl1" />
+    <result column="WBZSL1" jdbcType="NUMERIC" property="wbzsl1" />
+    <result column="WSTRDATE1" jdbcType="TIMESTAMP" property="wstrdate1" />
+    <result column="WENDDATE1" jdbcType="TIMESTAMP" property="wenddate1" />
+    <result column="WLJSL2" jdbcType="NUMERIC" property="wljsl2" />
+    <result column="WBZSL2" jdbcType="NUMERIC" property="wbzsl2" />
+    <result column="WSTRDATE2" jdbcType="TIMESTAMP" property="wstrdate2" />
+    <result column="WENDDATE2" jdbcType="TIMESTAMP" property="wenddate2" />
+    <result column="WMODIFIERID" jdbcType="VARCHAR" property="wmodifierid" />
+    <result column="WMODIFIERNAME" jdbcType="VARCHAR" property="wmodifiername" />
+    <result column="WMODIFYTIME" jdbcType="TIMESTAMP" property="wmodifytime" />
+    <result column="NLJSL1" jdbcType="NUMERIC" property="nljsl1" />
+    <result column="NBZSL1" jdbcType="NUMERIC" property="nbzsl1" />
+    <result column="NSTRDATE1" jdbcType="TIMESTAMP" property="nstrdate1" />
+    <result column="NENDDATE1" jdbcType="TIMESTAMP" property="nenddate1" />
+    <result column="NLJSL2" jdbcType="NUMERIC" property="nljsl2" />
+    <result column="NBZSL2" jdbcType="NUMERIC" property="nbzsl2" />
+    <result column="NSTRDATE2" jdbcType="TIMESTAMP" property="nstrdate2" />
+    <result column="NENDDATE2" jdbcType="TIMESTAMP" property="nenddate2" />
+    <result column="NMODIFIERID" jdbcType="VARCHAR" property="nmodifierid" />
+    <result column="NMODIFIERNAME" jdbcType="VARCHAR" property="nmodifiername" />
+    <result column="NMODIFYTIME" jdbcType="TIMESTAMP" property="nmodifytime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, DOCUMENTID, ISDEL, NUMBER1, WERKS, CARTYPE, SXFS, QJFD, HK, GWQJ1, QJSL1, DATAB1, 
+    DATBI1, GWQJ2, QJSL2, DATAB2, DATBI2, TP, TPSL, BATCH, CREATORID, CREATORNAME, CREATETIME, 
+    MODIFIERID, MODIFIERNAME, MODIFYTIME, WLJSL1, WBZSL1, WSTRDATE1, WENDDATE1, WLJSL2, 
+    WBZSL2, WSTRDATE2, WENDDATE2, WMODIFIERID, WMODIFIERNAME, WMODIFYTIME, NLJSL1, NBZSL1, 
+    NSTRDATE1, NENDDATE1, NLJSL2, NBZSL2, NSTRDATE2, NENDDATE2, NMODIFIERID, NMODIFIERNAME, 
+    NMODIFYTIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PCC_GWQJ
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PCC_GWQJ
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.runbom.demo.model.Gwqj">
+    insert into PCC_GWQJ (ID, DOCUMENTID, ISDEL, 
+      NUMBER1, WERKS, CARTYPE, 
+      SXFS, QJFD, HK, GWQJ1, 
+      QJSL1, DATAB1, DATBI1, 
+      GWQJ2, QJSL2, DATAB2, 
+      DATBI2, TP, TPSL, BATCH, 
+      CREATORID, CREATORNAME, CREATETIME, 
+      MODIFIERID, MODIFIERNAME, MODIFYTIME, 
+      WLJSL1, WBZSL1, WSTRDATE1, 
+      WENDDATE1, WLJSL2, WBZSL2, 
+      WSTRDATE2, WENDDATE2, WMODIFIERID, 
+      WMODIFIERNAME, WMODIFYTIME, NLJSL1, 
+      NBZSL1, NSTRDATE1, NENDDATE1, 
+      NLJSL2, NBZSL2, NSTRDATE2, 
+      NENDDATE2, NMODIFIERID, NMODIFIERNAME, 
+      NMODIFYTIME)
+    values (#{id,jdbcType=VARCHAR}, #{documentid,jdbcType=VARCHAR}, #{isdel,jdbcType=NUMERIC}, 
+      #{number1,jdbcType=VARCHAR}, #{werks,jdbcType=VARCHAR}, #{cartype,jdbcType=VARCHAR}, 
+      #{sxfs,jdbcType=VARCHAR}, #{qjfd,jdbcType=CHAR}, #{hk,jdbcType=VARCHAR}, #{gwqj1,jdbcType=VARCHAR}, 
+      #{qjsl1,jdbcType=NUMERIC}, #{datab1,jdbcType=VARCHAR}, #{datbi1,jdbcType=VARCHAR}, 
+      #{gwqj2,jdbcType=VARCHAR}, #{qjsl2,jdbcType=NUMERIC}, #{datab2,jdbcType=VARCHAR}, 
+      #{datbi2,jdbcType=VARCHAR}, #{tp,jdbcType=VARCHAR}, #{tpsl,jdbcType=NUMERIC}, #{batch,jdbcType=NUMERIC}, 
+      #{creatorid,jdbcType=VARCHAR}, #{creatorname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{modifierid,jdbcType=VARCHAR}, #{modifiername,jdbcType=VARCHAR}, #{modifytime,jdbcType=TIMESTAMP}, 
+      #{wljsl1,jdbcType=NUMERIC}, #{wbzsl1,jdbcType=NUMERIC}, #{wstrdate1,jdbcType=TIMESTAMP}, 
+      #{wenddate1,jdbcType=TIMESTAMP}, #{wljsl2,jdbcType=NUMERIC}, #{wbzsl2,jdbcType=NUMERIC}, 
+      #{wstrdate2,jdbcType=TIMESTAMP}, #{wenddate2,jdbcType=TIMESTAMP}, #{wmodifierid,jdbcType=VARCHAR}, 
+      #{wmodifiername,jdbcType=VARCHAR}, #{wmodifytime,jdbcType=TIMESTAMP}, #{nljsl1,jdbcType=NUMERIC}, 
+      #{nbzsl1,jdbcType=NUMERIC}, #{nstrdate1,jdbcType=TIMESTAMP}, #{nenddate1,jdbcType=TIMESTAMP}, 
+      #{nljsl2,jdbcType=NUMERIC}, #{nbzsl2,jdbcType=NUMERIC}, #{nstrdate2,jdbcType=TIMESTAMP}, 
+      #{nenddate2,jdbcType=TIMESTAMP}, #{nmodifierid,jdbcType=VARCHAR}, #{nmodifiername,jdbcType=VARCHAR}, 
+      #{nmodifytime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.runbom.demo.model.Gwqj">
+    insert into PCC_GWQJ
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="documentid != null">
+        DOCUMENTID,
+      </if>
+      <if test="isdel != null">
+        ISDEL,
+      </if>
+      <if test="number1 != null">
+        NUMBER1,
+      </if>
+      <if test="werks != null">
+        WERKS,
+      </if>
+      <if test="cartype != null">
+        CARTYPE,
+      </if>
+      <if test="sxfs != null">
+        SXFS,
+      </if>
+      <if test="qjfd != null">
+        QJFD,
+      </if>
+      <if test="hk != null">
+        HK,
+      </if>
+      <if test="gwqj1 != null">
+        GWQJ1,
+      </if>
+      <if test="qjsl1 != null">
+        QJSL1,
+      </if>
+      <if test="datab1 != null">
+        DATAB1,
+      </if>
+      <if test="datbi1 != null">
+        DATBI1,
+      </if>
+      <if test="gwqj2 != null">
+        GWQJ2,
+      </if>
+      <if test="qjsl2 != null">
+        QJSL2,
+      </if>
+      <if test="datab2 != null">
+        DATAB2,
+      </if>
+      <if test="datbi2 != null">
+        DATBI2,
+      </if>
+      <if test="tp != null">
+        TP,
+      </if>
+      <if test="tpsl != null">
+        TPSL,
+      </if>
+      <if test="batch != null">
+        BATCH,
+      </if>
+      <if test="creatorid != null">
+        CREATORID,
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID,
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME,
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME,
+      </if>
+      <if test="wljsl1 != null">
+        WLJSL1,
+      </if>
+      <if test="wbzsl1 != null">
+        WBZSL1,
+      </if>
+      <if test="wstrdate1 != null">
+        WSTRDATE1,
+      </if>
+      <if test="wenddate1 != null">
+        WENDDATE1,
+      </if>
+      <if test="wljsl2 != null">
+        WLJSL2,
+      </if>
+      <if test="wbzsl2 != null">
+        WBZSL2,
+      </if>
+      <if test="wstrdate2 != null">
+        WSTRDATE2,
+      </if>
+      <if test="wenddate2 != null">
+        WENDDATE2,
+      </if>
+      <if test="wmodifierid != null">
+        WMODIFIERID,
+      </if>
+      <if test="wmodifiername != null">
+        WMODIFIERNAME,
+      </if>
+      <if test="wmodifytime != null">
+        WMODIFYTIME,
+      </if>
+      <if test="nljsl1 != null">
+        NLJSL1,
+      </if>
+      <if test="nbzsl1 != null">
+        NBZSL1,
+      </if>
+      <if test="nstrdate1 != null">
+        NSTRDATE1,
+      </if>
+      <if test="nenddate1 != null">
+        NENDDATE1,
+      </if>
+      <if test="nljsl2 != null">
+        NLJSL2,
+      </if>
+      <if test="nbzsl2 != null">
+        NBZSL2,
+      </if>
+      <if test="nstrdate2 != null">
+        NSTRDATE2,
+      </if>
+      <if test="nenddate2 != null">
+        NENDDATE2,
+      </if>
+      <if test="nmodifierid != null">
+        NMODIFIERID,
+      </if>
+      <if test="nmodifiername != null">
+        NMODIFIERNAME,
+      </if>
+      <if test="nmodifytime != null">
+        NMODIFYTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="documentid != null">
+        #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="number1 != null">
+        #{number1,jdbcType=VARCHAR},
+      </if>
+      <if test="werks != null">
+        #{werks,jdbcType=VARCHAR},
+      </if>
+      <if test="cartype != null">
+        #{cartype,jdbcType=VARCHAR},
+      </if>
+      <if test="sxfs != null">
+        #{sxfs,jdbcType=VARCHAR},
+      </if>
+      <if test="qjfd != null">
+        #{qjfd,jdbcType=CHAR},
+      </if>
+      <if test="hk != null">
+        #{hk,jdbcType=VARCHAR},
+      </if>
+      <if test="gwqj1 != null">
+        #{gwqj1,jdbcType=VARCHAR},
+      </if>
+      <if test="qjsl1 != null">
+        #{qjsl1,jdbcType=NUMERIC},
+      </if>
+      <if test="datab1 != null">
+        #{datab1,jdbcType=VARCHAR},
+      </if>
+      <if test="datbi1 != null">
+        #{datbi1,jdbcType=VARCHAR},
+      </if>
+      <if test="gwqj2 != null">
+        #{gwqj2,jdbcType=VARCHAR},
+      </if>
+      <if test="qjsl2 != null">
+        #{qjsl2,jdbcType=NUMERIC},
+      </if>
+      <if test="datab2 != null">
+        #{datab2,jdbcType=VARCHAR},
+      </if>
+      <if test="datbi2 != null">
+        #{datbi2,jdbcType=VARCHAR},
+      </if>
+      <if test="tp != null">
+        #{tp,jdbcType=VARCHAR},
+      </if>
+      <if test="tpsl != null">
+        #{tpsl,jdbcType=NUMERIC},
+      </if>
+      <if test="batch != null">
+        #{batch,jdbcType=NUMERIC},
+      </if>
+      <if test="creatorid != null">
+        #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wljsl1 != null">
+        #{wljsl1,jdbcType=NUMERIC},
+      </if>
+      <if test="wbzsl1 != null">
+        #{wbzsl1,jdbcType=NUMERIC},
+      </if>
+      <if test="wstrdate1 != null">
+        #{wstrdate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wenddate1 != null">
+        #{wenddate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wljsl2 != null">
+        #{wljsl2,jdbcType=NUMERIC},
+      </if>
+      <if test="wbzsl2 != null">
+        #{wbzsl2,jdbcType=NUMERIC},
+      </if>
+      <if test="wstrdate2 != null">
+        #{wstrdate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wenddate2 != null">
+        #{wenddate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wmodifierid != null">
+        #{wmodifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="wmodifiername != null">
+        #{wmodifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="wmodifytime != null">
+        #{wmodifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nljsl1 != null">
+        #{nljsl1,jdbcType=NUMERIC},
+      </if>
+      <if test="nbzsl1 != null">
+        #{nbzsl1,jdbcType=NUMERIC},
+      </if>
+      <if test="nstrdate1 != null">
+        #{nstrdate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nenddate1 != null">
+        #{nenddate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nljsl2 != null">
+        #{nljsl2,jdbcType=NUMERIC},
+      </if>
+      <if test="nbzsl2 != null">
+        #{nbzsl2,jdbcType=NUMERIC},
+      </if>
+      <if test="nstrdate2 != null">
+        #{nstrdate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nenddate2 != null">
+        #{nenddate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nmodifierid != null">
+        #{nmodifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="nmodifiername != null">
+        #{nmodifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="nmodifytime != null">
+        #{nmodifytime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.runbom.demo.model.Gwqj">
+    update PCC_GWQJ
+    <set>
+      <if test="documentid != null">
+        DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        ISDEL = #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="number1 != null">
+        NUMBER1 = #{number1,jdbcType=VARCHAR},
+      </if>
+      <if test="werks != null">
+        WERKS = #{werks,jdbcType=VARCHAR},
+      </if>
+      <if test="cartype != null">
+        CARTYPE = #{cartype,jdbcType=VARCHAR},
+      </if>
+      <if test="sxfs != null">
+        SXFS = #{sxfs,jdbcType=VARCHAR},
+      </if>
+      <if test="qjfd != null">
+        QJFD = #{qjfd,jdbcType=CHAR},
+      </if>
+      <if test="hk != null">
+        HK = #{hk,jdbcType=VARCHAR},
+      </if>
+      <if test="gwqj1 != null">
+        GWQJ1 = #{gwqj1,jdbcType=VARCHAR},
+      </if>
+      <if test="qjsl1 != null">
+        QJSL1 = #{qjsl1,jdbcType=NUMERIC},
+      </if>
+      <if test="datab1 != null">
+        DATAB1 = #{datab1,jdbcType=VARCHAR},
+      </if>
+      <if test="datbi1 != null">
+        DATBI1 = #{datbi1,jdbcType=VARCHAR},
+      </if>
+      <if test="gwqj2 != null">
+        GWQJ2 = #{gwqj2,jdbcType=VARCHAR},
+      </if>
+      <if test="qjsl2 != null">
+        QJSL2 = #{qjsl2,jdbcType=NUMERIC},
+      </if>
+      <if test="datab2 != null">
+        DATAB2 = #{datab2,jdbcType=VARCHAR},
+      </if>
+      <if test="datbi2 != null">
+        DATBI2 = #{datbi2,jdbcType=VARCHAR},
+      </if>
+      <if test="tp != null">
+        TP = #{tp,jdbcType=VARCHAR},
+      </if>
+      <if test="tpsl != null">
+        TPSL = #{tpsl,jdbcType=NUMERIC},
+      </if>
+      <if test="batch != null">
+        BATCH = #{batch,jdbcType=NUMERIC},
+      </if>
+      <if test="creatorid != null">
+        CREATORID = #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wljsl1 != null">
+        WLJSL1 = #{wljsl1,jdbcType=NUMERIC},
+      </if>
+      <if test="wbzsl1 != null">
+        WBZSL1 = #{wbzsl1,jdbcType=NUMERIC},
+      </if>
+      <if test="wstrdate1 != null">
+        WSTRDATE1 = #{wstrdate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wenddate1 != null">
+        WENDDATE1 = #{wenddate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wljsl2 != null">
+        WLJSL2 = #{wljsl2,jdbcType=NUMERIC},
+      </if>
+      <if test="wbzsl2 != null">
+        WBZSL2 = #{wbzsl2,jdbcType=NUMERIC},
+      </if>
+      <if test="wstrdate2 != null">
+        WSTRDATE2 = #{wstrdate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wenddate2 != null">
+        WENDDATE2 = #{wenddate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wmodifierid != null">
+        WMODIFIERID = #{wmodifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="wmodifiername != null">
+        WMODIFIERNAME = #{wmodifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="wmodifytime != null">
+        WMODIFYTIME = #{wmodifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nljsl1 != null">
+        NLJSL1 = #{nljsl1,jdbcType=NUMERIC},
+      </if>
+      <if test="nbzsl1 != null">
+        NBZSL1 = #{nbzsl1,jdbcType=NUMERIC},
+      </if>
+      <if test="nstrdate1 != null">
+        NSTRDATE1 = #{nstrdate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nenddate1 != null">
+        NENDDATE1 = #{nenddate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nljsl2 != null">
+        NLJSL2 = #{nljsl2,jdbcType=NUMERIC},
+      </if>
+      <if test="nbzsl2 != null">
+        NBZSL2 = #{nbzsl2,jdbcType=NUMERIC},
+      </if>
+      <if test="nstrdate2 != null">
+        NSTRDATE2 = #{nstrdate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nenddate2 != null">
+        NENDDATE2 = #{nenddate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nmodifierid != null">
+        NMODIFIERID = #{nmodifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="nmodifiername != null">
+        NMODIFIERNAME = #{nmodifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="nmodifytime != null">
+        NMODIFYTIME = #{nmodifytime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.runbom.demo.model.Gwqj">
+    update PCC_GWQJ
+    set DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      ISDEL = #{isdel,jdbcType=NUMERIC},
+      NUMBER1 = #{number1,jdbcType=VARCHAR},
+      WERKS = #{werks,jdbcType=VARCHAR},
+      CARTYPE = #{cartype,jdbcType=VARCHAR},
+      SXFS = #{sxfs,jdbcType=VARCHAR},
+      QJFD = #{qjfd,jdbcType=CHAR},
+      HK = #{hk,jdbcType=VARCHAR},
+      GWQJ1 = #{gwqj1,jdbcType=VARCHAR},
+      QJSL1 = #{qjsl1,jdbcType=NUMERIC},
+      DATAB1 = #{datab1,jdbcType=VARCHAR},
+      DATBI1 = #{datbi1,jdbcType=VARCHAR},
+      GWQJ2 = #{gwqj2,jdbcType=VARCHAR},
+      QJSL2 = #{qjsl2,jdbcType=NUMERIC},
+      DATAB2 = #{datab2,jdbcType=VARCHAR},
+      DATBI2 = #{datbi2,jdbcType=VARCHAR},
+      TP = #{tp,jdbcType=VARCHAR},
+      TPSL = #{tpsl,jdbcType=NUMERIC},
+      BATCH = #{batch,jdbcType=NUMERIC},
+      CREATORID = #{creatorid,jdbcType=VARCHAR},
+      CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      WLJSL1 = #{wljsl1,jdbcType=NUMERIC},
+      WBZSL1 = #{wbzsl1,jdbcType=NUMERIC},
+      WSTRDATE1 = #{wstrdate1,jdbcType=TIMESTAMP},
+      WENDDATE1 = #{wenddate1,jdbcType=TIMESTAMP},
+      WLJSL2 = #{wljsl2,jdbcType=NUMERIC},
+      WBZSL2 = #{wbzsl2,jdbcType=NUMERIC},
+      WSTRDATE2 = #{wstrdate2,jdbcType=TIMESTAMP},
+      WENDDATE2 = #{wenddate2,jdbcType=TIMESTAMP},
+      WMODIFIERID = #{wmodifierid,jdbcType=VARCHAR},
+      WMODIFIERNAME = #{wmodifiername,jdbcType=VARCHAR},
+      WMODIFYTIME = #{wmodifytime,jdbcType=TIMESTAMP},
+      NLJSL1 = #{nljsl1,jdbcType=NUMERIC},
+      NBZSL1 = #{nbzsl1,jdbcType=NUMERIC},
+      NSTRDATE1 = #{nstrdate1,jdbcType=TIMESTAMP},
+      NENDDATE1 = #{nenddate1,jdbcType=TIMESTAMP},
+      NLJSL2 = #{nljsl2,jdbcType=NUMERIC},
+      NBZSL2 = #{nbzsl2,jdbcType=NUMERIC},
+      NSTRDATE2 = #{nstrdate2,jdbcType=TIMESTAMP},
+      NENDDATE2 = #{nenddate2,jdbcType=TIMESTAMP},
+      NMODIFIERID = #{nmodifierid,jdbcType=VARCHAR},
+      NMODIFIERNAME = #{nmodifiername,jdbcType=VARCHAR},
+      NMODIFYTIME = #{nmodifytime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

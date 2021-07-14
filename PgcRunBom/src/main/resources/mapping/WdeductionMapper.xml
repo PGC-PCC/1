@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.runbom.demo.dao.WdeductionMapper">
+  <resultMap id="BaseResultMap" type="com.runbom.demo.model.Wdeduction">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="NO" jdbcType="NUMERIC" property="no" />
+    <result column="NUMBER1" jdbcType="VARCHAR" property="number1" />
+    <result column="QUANTITY" jdbcType="NUMERIC" property="quantity" />
+    <result column="FANLAGE2" jdbcType="VARCHAR" property="fanlage2" />
+    <result column="SITE" jdbcType="VARCHAR" property="site" />
+    <result column="ISDEL" jdbcType="VARCHAR" property="isdel" />
+    <result column="COUNTID" jdbcType="VARCHAR" property="countid" />
+    <result column="QUANTITYN" jdbcType="NUMERIC" property="quantityn" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, NO, NUMBER1, QUANTITY, FANLAGE2, SITE, ISDEL, COUNTID, QUANTITYN
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from W_DEDUCTION
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from W_DEDUCTION
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.runbom.demo.model.Wdeduction">
+    insert into W_DEDUCTION (ID, NO, NUMBER1, 
+      QUANTITY, FANLAGE2, SITE, 
+      ISDEL, COUNTID, QUANTITYN
+      )
+    values (#{id,jdbcType=VARCHAR}, #{no,jdbcType=NUMERIC}, #{number1,jdbcType=VARCHAR}, 
+      #{quantity,jdbcType=NUMERIC}, #{fanlage2,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, 
+      #{isdel,jdbcType=VARCHAR}, #{countid,jdbcType=VARCHAR}, #{quantityn,jdbcType=NUMERIC}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.runbom.demo.model.Wdeduction">
+    insert into W_DEDUCTION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="no != null">
+        NO,
+      </if>
+      <if test="number1 != null">
+        NUMBER1,
+      </if>
+      <if test="quantity != null">
+        QUANTITY,
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2,
+      </if>
+      <if test="site != null">
+        SITE,
+      </if>
+      <if test="isdel != null">
+        ISDEL,
+      </if>
+      <if test="countid != null">
+        COUNTID,
+      </if>
+      <if test="quantityn != null">
+        QUANTITYN,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="no != null">
+        #{no,jdbcType=NUMERIC},
+      </if>
+      <if test="number1 != null">
+        #{number1,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity != null">
+        #{quantity,jdbcType=NUMERIC},
+      </if>
+      <if test="fanlage2 != null">
+        #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="site != null">
+        #{site,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        #{isdel,jdbcType=VARCHAR},
+      </if>
+      <if test="countid != null">
+        #{countid,jdbcType=VARCHAR},
+      </if>
+      <if test="quantityn != null">
+        #{quantityn,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.runbom.demo.model.Wdeduction">
+    update W_DEDUCTION
+    <set>
+      <if test="no != null">
+        NO = #{no,jdbcType=NUMERIC},
+      </if>
+      <if test="number1 != null">
+        NUMBER1 = #{number1,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity != null">
+        QUANTITY = #{quantity,jdbcType=NUMERIC},
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2 = #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="site != null">
+        SITE = #{site,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        ISDEL = #{isdel,jdbcType=VARCHAR},
+      </if>
+      <if test="countid != null">
+        COUNTID = #{countid,jdbcType=VARCHAR},
+      </if>
+      <if test="quantityn != null">
+        QUANTITYN = #{quantityn,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.runbom.demo.model.Wdeduction">
+    update W_DEDUCTION
+    set NO = #{no,jdbcType=NUMERIC},
+      NUMBER1 = #{number1,jdbcType=VARCHAR},
+      QUANTITY = #{quantity,jdbcType=NUMERIC},
+      FANLAGE2 = #{fanlage2,jdbcType=VARCHAR},
+      SITE = #{site,jdbcType=VARCHAR},
+      ISDEL = #{isdel,jdbcType=VARCHAR},
+      COUNTID = #{countid,jdbcType=VARCHAR},
+      QUANTITYN = #{quantityn,jdbcType=NUMERIC}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.runbom.demo.model.Wdeduction">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="NO" jdbcType="NUMERIC" property="no" />
+    <result column="NUMBER1" jdbcType="VARCHAR" property="number1" />
+    <result column="QUANTITY" jdbcType="NUMERIC" property="quantity" />
+    <result column="FANLAGE2" jdbcType="VARCHAR" property="fanlage2" />
+    <result column="SITE" jdbcType="VARCHAR" property="site" />
+    <result column="ISDEL" jdbcType="VARCHAR" property="isdel" />
+    <result column="COUNTID" jdbcType="VARCHAR" property="countid" />
+    <result column="QUANTITYN" jdbcType="NUMERIC" property="quantityn" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, NO, NUMBER1, QUANTITY, FANLAGE2, SITE, ISDEL, COUNTID, QUANTITYN
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from W_DEDUCTION
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from W_DEDUCTION
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.runbom.demo.model.Wdeduction">
+    insert into W_DEDUCTION (ID, NO, NUMBER1, 
+      QUANTITY, FANLAGE2, SITE, 
+      ISDEL, COUNTID, QUANTITYN
+      )
+    values (#{id,jdbcType=VARCHAR}, #{no,jdbcType=NUMERIC}, #{number1,jdbcType=VARCHAR}, 
+      #{quantity,jdbcType=NUMERIC}, #{fanlage2,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, 
+      #{isdel,jdbcType=VARCHAR}, #{countid,jdbcType=VARCHAR}, #{quantityn,jdbcType=NUMERIC}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.runbom.demo.model.Wdeduction">
+    insert into W_DEDUCTION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="no != null">
+        NO,
+      </if>
+      <if test="number1 != null">
+        NUMBER1,
+      </if>
+      <if test="quantity != null">
+        QUANTITY,
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2,
+      </if>
+      <if test="site != null">
+        SITE,
+      </if>
+      <if test="isdel != null">
+        ISDEL,
+      </if>
+      <if test="countid != null">
+        COUNTID,
+      </if>
+      <if test="quantityn != null">
+        QUANTITYN,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="no != null">
+        #{no,jdbcType=NUMERIC},
+      </if>
+      <if test="number1 != null">
+        #{number1,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity != null">
+        #{quantity,jdbcType=NUMERIC},
+      </if>
+      <if test="fanlage2 != null">
+        #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="site != null">
+        #{site,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        #{isdel,jdbcType=VARCHAR},
+      </if>
+      <if test="countid != null">
+        #{countid,jdbcType=VARCHAR},
+      </if>
+      <if test="quantityn != null">
+        #{quantityn,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.runbom.demo.model.Wdeduction">
+    update W_DEDUCTION
+    <set>
+      <if test="no != null">
+        NO = #{no,jdbcType=NUMERIC},
+      </if>
+      <if test="number1 != null">
+        NUMBER1 = #{number1,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity != null">
+        QUANTITY = #{quantity,jdbcType=NUMERIC},
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2 = #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="site != null">
+        SITE = #{site,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        ISDEL = #{isdel,jdbcType=VARCHAR},
+      </if>
+      <if test="countid != null">
+        COUNTID = #{countid,jdbcType=VARCHAR},
+      </if>
+      <if test="quantityn != null">
+        QUANTITYN = #{quantityn,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.runbom.demo.model.Wdeduction">
+    update W_DEDUCTION
+    set NO = #{no,jdbcType=NUMERIC},
+      NUMBER1 = #{number1,jdbcType=VARCHAR},
+      QUANTITY = #{quantity,jdbcType=NUMERIC},
+      FANLAGE2 = #{fanlage2,jdbcType=VARCHAR},
+      SITE = #{site,jdbcType=VARCHAR},
+      ISDEL = #{isdel,jdbcType=VARCHAR},
+      COUNTID = #{countid,jdbcType=VARCHAR},
+      QUANTITYN = #{quantityn,jdbcType=NUMERIC}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

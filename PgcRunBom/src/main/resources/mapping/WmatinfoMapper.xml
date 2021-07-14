@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.runbom.demo.dao.WmatinfoMapper">
+  <resultMap id="BaseResultMap" type="com.runbom.demo.model.Wmatinfo">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="DOCUMENTID" jdbcType="VARCHAR" property="documentid" />
+    <result column="ISDEL" jdbcType="NUMERIC" property="isdel" />
+    <result column="WERKS" jdbcType="VARCHAR" property="werks" />
+    <result column="FANLAGE2" jdbcType="VARCHAR" property="fanlage2" />
+    <result column="NUMBER1" jdbcType="VARCHAR" property="number1" />
+    <result column="YHTYPE" jdbcType="VARCHAR" property="yhtype" />
+    <result column="BATCH" jdbcType="NUMERIC" property="batch" />
+    <result column="CREATORID" jdbcType="VARCHAR" property="creatorid" />
+    <result column="CREATORNAME" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="MODIFIERID" jdbcType="VARCHAR" property="modifierid" />
+    <result column="MODIFIERNAME" jdbcType="VARCHAR" property="modifiername" />
+    <result column="MODIFYTIME" jdbcType="TIMESTAMP" property="modifytime" />
+    <result column="DISCHANGEDESCRIBE" jdbcType="VARCHAR" property="dischangedescribe" />
+    <result column="DISCHANGESTATUS" jdbcType="CHAR" property="dischangestatus" />
+    <result column="PARTSTATIONDESCRIBE" jdbcType="VARCHAR" property="partstationdescribe" />
+    <result column="PARTSTATIONSTATUS" jdbcType="CHAR" property="partstationstatus" />
+    <result column="GWSTATUS" jdbcType="CHAR" property="gwstatus" />
+    <result column="GWDESCRIBE" jdbcType="VARCHAR" property="gwdescribe" />
+    <result column="GWQJSTATUS" jdbcType="CHAR" property="gwqjstatus" />
+    <result column="GWQJDESCRIBE" jdbcType="VARCHAR" property="gwqjdescribe" />
+    <result column="LINESTATUS" jdbcType="CHAR" property="linestatus" />
+    <result column="LINEDESCRIBE" jdbcType="VARCHAR" property="linedescribe" />
+    <result column="DESCRIBE1" jdbcType="VARCHAR" property="describe1" />
+    <result column="STATUS1" jdbcType="CHAR" property="status1" />
+    <result column="DESCRIBE2" jdbcType="VARCHAR" property="describe2" />
+    <result column="STATUS2" jdbcType="VARCHAR" property="status2" />
+    <result column="DELIVERY_SITE" jdbcType="VARCHAR" property="deliverySite" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, DOCUMENTID, ISDEL, WERKS, FANLAGE2, NUMBER1, YHTYPE, BATCH, CREATORID, CREATORNAME, 
+    CREATETIME, MODIFIERID, MODIFIERNAME, MODIFYTIME, DISCHANGEDESCRIBE, DISCHANGESTATUS, 
+    PARTSTATIONDESCRIBE, PARTSTATIONSTATUS, GWSTATUS, GWDESCRIBE, GWQJSTATUS, GWQJDESCRIBE, 
+    LINESTATUS, LINEDESCRIBE, DESCRIBE1, STATUS1, DESCRIBE2, STATUS2, DELIVERY_SITE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PCC_W_MATINFO
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PCC_W_MATINFO
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.runbom.demo.model.Wmatinfo">
+    insert into PCC_W_MATINFO (ID, DOCUMENTID, ISDEL, 
+      WERKS, FANLAGE2, NUMBER1, 
+      YHTYPE, BATCH, CREATORID, 
+      CREATORNAME, CREATETIME, MODIFIERID, 
+      MODIFIERNAME, MODIFYTIME, DISCHANGEDESCRIBE, 
+      DISCHANGESTATUS, PARTSTATIONDESCRIBE, PARTSTATIONSTATUS, 
+      GWSTATUS, GWDESCRIBE, GWQJSTATUS, 
+      GWQJDESCRIBE, LINESTATUS, LINEDESCRIBE, 
+      DESCRIBE1, STATUS1, DESCRIBE2, 
+      STATUS2, DELIVERY_SITE)
+    values (#{id,jdbcType=VARCHAR}, #{documentid,jdbcType=VARCHAR}, #{isdel,jdbcType=NUMERIC}, 
+      #{werks,jdbcType=VARCHAR}, #{fanlage2,jdbcType=VARCHAR}, #{number1,jdbcType=VARCHAR}, 
+      #{yhtype,jdbcType=VARCHAR}, #{batch,jdbcType=NUMERIC}, #{creatorid,jdbcType=VARCHAR}, 
+      #{creatorname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{modifierid,jdbcType=VARCHAR}, 
+      #{modifiername,jdbcType=VARCHAR}, #{modifytime,jdbcType=TIMESTAMP}, #{dischangedescribe,jdbcType=VARCHAR}, 
+      #{dischangestatus,jdbcType=CHAR}, #{partstationdescribe,jdbcType=VARCHAR}, #{partstationstatus,jdbcType=CHAR}, 
+      #{gwstatus,jdbcType=CHAR}, #{gwdescribe,jdbcType=VARCHAR}, #{gwqjstatus,jdbcType=CHAR}, 
+      #{gwqjdescribe,jdbcType=VARCHAR}, #{linestatus,jdbcType=CHAR}, #{linedescribe,jdbcType=VARCHAR}, 
+      #{describe1,jdbcType=VARCHAR}, #{status1,jdbcType=CHAR}, #{describe2,jdbcType=VARCHAR}, 
+      #{status2,jdbcType=VARCHAR}, #{deliverySite,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.runbom.demo.model.Wmatinfo">
+    insert into PCC_W_MATINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="documentid != null">
+        DOCUMENTID,
+      </if>
+      <if test="isdel != null">
+        ISDEL,
+      </if>
+      <if test="werks != null">
+        WERKS,
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2,
+      </if>
+      <if test="number1 != null">
+        NUMBER1,
+      </if>
+      <if test="yhtype != null">
+        YHTYPE,
+      </if>
+      <if test="batch != null">
+        BATCH,
+      </if>
+      <if test="creatorid != null">
+        CREATORID,
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID,
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME,
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME,
+      </if>
+      <if test="dischangedescribe != null">
+        DISCHANGEDESCRIBE,
+      </if>
+      <if test="dischangestatus != null">
+        DISCHANGESTATUS,
+      </if>
+      <if test="partstationdescribe != null">
+        PARTSTATIONDESCRIBE,
+      </if>
+      <if test="partstationstatus != null">
+        PARTSTATIONSTATUS,
+      </if>
+      <if test="gwstatus != null">
+        GWSTATUS,
+      </if>
+      <if test="gwdescribe != null">
+        GWDESCRIBE,
+      </if>
+      <if test="gwqjstatus != null">
+        GWQJSTATUS,
+      </if>
+      <if test="gwqjdescribe != null">
+        GWQJDESCRIBE,
+      </if>
+      <if test="linestatus != null">
+        LINESTATUS,
+      </if>
+      <if test="linedescribe != null">
+        LINEDESCRIBE,
+      </if>
+      <if test="describe1 != null">
+        DESCRIBE1,
+      </if>
+      <if test="status1 != null">
+        STATUS1,
+      </if>
+      <if test="describe2 != null">
+        DESCRIBE2,
+      </if>
+      <if test="status2 != null">
+        STATUS2,
+      </if>
+      <if test="deliverySite != null">
+        DELIVERY_SITE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="documentid != null">
+        #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="werks != null">
+        #{werks,jdbcType=VARCHAR},
+      </if>
+      <if test="fanlage2 != null">
+        #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="number1 != null">
+        #{number1,jdbcType=VARCHAR},
+      </if>
+      <if test="yhtype != null">
+        #{yhtype,jdbcType=VARCHAR},
+      </if>
+      <if test="batch != null">
+        #{batch,jdbcType=NUMERIC},
+      </if>
+      <if test="creatorid != null">
+        #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dischangedescribe != null">
+        #{dischangedescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="dischangestatus != null">
+        #{dischangestatus,jdbcType=CHAR},
+      </if>
+      <if test="partstationdescribe != null">
+        #{partstationdescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="partstationstatus != null">
+        #{partstationstatus,jdbcType=CHAR},
+      </if>
+      <if test="gwstatus != null">
+        #{gwstatus,jdbcType=CHAR},
+      </if>
+      <if test="gwdescribe != null">
+        #{gwdescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="gwqjstatus != null">
+        #{gwqjstatus,jdbcType=CHAR},
+      </if>
+      <if test="gwqjdescribe != null">
+        #{gwqjdescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="linestatus != null">
+        #{linestatus,jdbcType=CHAR},
+      </if>
+      <if test="linedescribe != null">
+        #{linedescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="describe1 != null">
+        #{describe1,jdbcType=VARCHAR},
+      </if>
+      <if test="status1 != null">
+        #{status1,jdbcType=CHAR},
+      </if>
+      <if test="describe2 != null">
+        #{describe2,jdbcType=VARCHAR},
+      </if>
+      <if test="status2 != null">
+        #{status2,jdbcType=VARCHAR},
+      </if>
+      <if test="deliverySite != null">
+        #{deliverySite,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.runbom.demo.model.Wmatinfo">
+    update PCC_W_MATINFO
+    <set>
+      <if test="documentid != null">
+        DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        ISDEL = #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="werks != null">
+        WERKS = #{werks,jdbcType=VARCHAR},
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2 = #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="number1 != null">
+        NUMBER1 = #{number1,jdbcType=VARCHAR},
+      </if>
+      <if test="yhtype != null">
+        YHTYPE = #{yhtype,jdbcType=VARCHAR},
+      </if>
+      <if test="batch != null">
+        BATCH = #{batch,jdbcType=NUMERIC},
+      </if>
+      <if test="creatorid != null">
+        CREATORID = #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dischangedescribe != null">
+        DISCHANGEDESCRIBE = #{dischangedescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="dischangestatus != null">
+        DISCHANGESTATUS = #{dischangestatus,jdbcType=CHAR},
+      </if>
+      <if test="partstationdescribe != null">
+        PARTSTATIONDESCRIBE = #{partstationdescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="partstationstatus != null">
+        PARTSTATIONSTATUS = #{partstationstatus,jdbcType=CHAR},
+      </if>
+      <if test="gwstatus != null">
+        GWSTATUS = #{gwstatus,jdbcType=CHAR},
+      </if>
+      <if test="gwdescribe != null">
+        GWDESCRIBE = #{gwdescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="gwqjstatus != null">
+        GWQJSTATUS = #{gwqjstatus,jdbcType=CHAR},
+      </if>
+      <if test="gwqjdescribe != null">
+        GWQJDESCRIBE = #{gwqjdescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="linestatus != null">
+        LINESTATUS = #{linestatus,jdbcType=CHAR},
+      </if>
+      <if test="linedescribe != null">
+        LINEDESCRIBE = #{linedescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="describe1 != null">
+        DESCRIBE1 = #{describe1,jdbcType=VARCHAR},
+      </if>
+      <if test="status1 != null">
+        STATUS1 = #{status1,jdbcType=CHAR},
+      </if>
+      <if test="describe2 != null">
+        DESCRIBE2 = #{describe2,jdbcType=VARCHAR},
+      </if>
+      <if test="status2 != null">
+        STATUS2 = #{status2,jdbcType=VARCHAR},
+      </if>
+      <if test="deliverySite != null">
+        DELIVERY_SITE = #{deliverySite,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.runbom.demo.model.Wmatinfo">
+    update PCC_W_MATINFO
+    set DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      ISDEL = #{isdel,jdbcType=NUMERIC},
+      WERKS = #{werks,jdbcType=VARCHAR},
+      FANLAGE2 = #{fanlage2,jdbcType=VARCHAR},
+      NUMBER1 = #{number1,jdbcType=VARCHAR},
+      YHTYPE = #{yhtype,jdbcType=VARCHAR},
+      BATCH = #{batch,jdbcType=NUMERIC},
+      CREATORID = #{creatorid,jdbcType=VARCHAR},
+      CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      DISCHANGEDESCRIBE = #{dischangedescribe,jdbcType=VARCHAR},
+      DISCHANGESTATUS = #{dischangestatus,jdbcType=CHAR},
+      PARTSTATIONDESCRIBE = #{partstationdescribe,jdbcType=VARCHAR},
+      PARTSTATIONSTATUS = #{partstationstatus,jdbcType=CHAR},
+      GWSTATUS = #{gwstatus,jdbcType=CHAR},
+      GWDESCRIBE = #{gwdescribe,jdbcType=VARCHAR},
+      GWQJSTATUS = #{gwqjstatus,jdbcType=CHAR},
+      GWQJDESCRIBE = #{gwqjdescribe,jdbcType=VARCHAR},
+      LINESTATUS = #{linestatus,jdbcType=CHAR},
+      LINEDESCRIBE = #{linedescribe,jdbcType=VARCHAR},
+      DESCRIBE1 = #{describe1,jdbcType=VARCHAR},
+      STATUS1 = #{status1,jdbcType=CHAR},
+      DESCRIBE2 = #{describe2,jdbcType=VARCHAR},
+      STATUS2 = #{status2,jdbcType=VARCHAR},
+      DELIVERY_SITE = #{deliverySite,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.runbom.demo.model.Wmatinfo">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="DOCUMENTID" jdbcType="VARCHAR" property="documentid" />
+    <result column="ISDEL" jdbcType="NUMERIC" property="isdel" />
+    <result column="WERKS" jdbcType="VARCHAR" property="werks" />
+    <result column="FANLAGE2" jdbcType="VARCHAR" property="fanlage2" />
+    <result column="NUMBER1" jdbcType="VARCHAR" property="number1" />
+    <result column="YHTYPE" jdbcType="VARCHAR" property="yhtype" />
+    <result column="BATCH" jdbcType="NUMERIC" property="batch" />
+    <result column="CREATORID" jdbcType="VARCHAR" property="creatorid" />
+    <result column="CREATORNAME" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="MODIFIERID" jdbcType="VARCHAR" property="modifierid" />
+    <result column="MODIFIERNAME" jdbcType="VARCHAR" property="modifiername" />
+    <result column="MODIFYTIME" jdbcType="TIMESTAMP" property="modifytime" />
+    <result column="DISCHANGEDESCRIBE" jdbcType="VARCHAR" property="dischangedescribe" />
+    <result column="DISCHANGESTATUS" jdbcType="CHAR" property="dischangestatus" />
+    <result column="PARTSTATIONDESCRIBE" jdbcType="VARCHAR" property="partstationdescribe" />
+    <result column="PARTSTATIONSTATUS" jdbcType="CHAR" property="partstationstatus" />
+    <result column="GWSTATUS" jdbcType="CHAR" property="gwstatus" />
+    <result column="GWDESCRIBE" jdbcType="VARCHAR" property="gwdescribe" />
+    <result column="GWQJSTATUS" jdbcType="CHAR" property="gwqjstatus" />
+    <result column="GWQJDESCRIBE" jdbcType="VARCHAR" property="gwqjdescribe" />
+    <result column="LINESTATUS" jdbcType="CHAR" property="linestatus" />
+    <result column="LINEDESCRIBE" jdbcType="VARCHAR" property="linedescribe" />
+    <result column="DESCRIBE1" jdbcType="VARCHAR" property="describe1" />
+    <result column="STATUS1" jdbcType="CHAR" property="status1" />
+    <result column="DESCRIBE2" jdbcType="VARCHAR" property="describe2" />
+    <result column="STATUS2" jdbcType="VARCHAR" property="status2" />
+    <result column="DELIVERY_SITE" jdbcType="VARCHAR" property="deliverySite" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, DOCUMENTID, ISDEL, WERKS, FANLAGE2, NUMBER1, YHTYPE, BATCH, CREATORID, CREATORNAME, 
+    CREATETIME, MODIFIERID, MODIFIERNAME, MODIFYTIME, DISCHANGEDESCRIBE, DISCHANGESTATUS, 
+    PARTSTATIONDESCRIBE, PARTSTATIONSTATUS, GWSTATUS, GWDESCRIBE, GWQJSTATUS, GWQJDESCRIBE, 
+    LINESTATUS, LINEDESCRIBE, DESCRIBE1, STATUS1, DESCRIBE2, STATUS2, DELIVERY_SITE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PCC_W_MATINFO
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PCC_W_MATINFO
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.runbom.demo.model.Wmatinfo">
+    insert into PCC_W_MATINFO (ID, DOCUMENTID, ISDEL, 
+      WERKS, FANLAGE2, NUMBER1, 
+      YHTYPE, BATCH, CREATORID, 
+      CREATORNAME, CREATETIME, MODIFIERID, 
+      MODIFIERNAME, MODIFYTIME, DISCHANGEDESCRIBE, 
+      DISCHANGESTATUS, PARTSTATIONDESCRIBE, PARTSTATIONSTATUS, 
+      GWSTATUS, GWDESCRIBE, GWQJSTATUS, 
+      GWQJDESCRIBE, LINESTATUS, LINEDESCRIBE, 
+      DESCRIBE1, STATUS1, DESCRIBE2, 
+      STATUS2, DELIVERY_SITE)
+    values (#{id,jdbcType=VARCHAR}, #{documentid,jdbcType=VARCHAR}, #{isdel,jdbcType=NUMERIC}, 
+      #{werks,jdbcType=VARCHAR}, #{fanlage2,jdbcType=VARCHAR}, #{number1,jdbcType=VARCHAR}, 
+      #{yhtype,jdbcType=VARCHAR}, #{batch,jdbcType=NUMERIC}, #{creatorid,jdbcType=VARCHAR}, 
+      #{creatorname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{modifierid,jdbcType=VARCHAR}, 
+      #{modifiername,jdbcType=VARCHAR}, #{modifytime,jdbcType=TIMESTAMP}, #{dischangedescribe,jdbcType=VARCHAR}, 
+      #{dischangestatus,jdbcType=CHAR}, #{partstationdescribe,jdbcType=VARCHAR}, #{partstationstatus,jdbcType=CHAR}, 
+      #{gwstatus,jdbcType=CHAR}, #{gwdescribe,jdbcType=VARCHAR}, #{gwqjstatus,jdbcType=CHAR}, 
+      #{gwqjdescribe,jdbcType=VARCHAR}, #{linestatus,jdbcType=CHAR}, #{linedescribe,jdbcType=VARCHAR}, 
+      #{describe1,jdbcType=VARCHAR}, #{status1,jdbcType=CHAR}, #{describe2,jdbcType=VARCHAR}, 
+      #{status2,jdbcType=VARCHAR}, #{deliverySite,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.runbom.demo.model.Wmatinfo">
+    insert into PCC_W_MATINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="documentid != null">
+        DOCUMENTID,
+      </if>
+      <if test="isdel != null">
+        ISDEL,
+      </if>
+      <if test="werks != null">
+        WERKS,
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2,
+      </if>
+      <if test="number1 != null">
+        NUMBER1,
+      </if>
+      <if test="yhtype != null">
+        YHTYPE,
+      </if>
+      <if test="batch != null">
+        BATCH,
+      </if>
+      <if test="creatorid != null">
+        CREATORID,
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID,
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME,
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME,
+      </if>
+      <if test="dischangedescribe != null">
+        DISCHANGEDESCRIBE,
+      </if>
+      <if test="dischangestatus != null">
+        DISCHANGESTATUS,
+      </if>
+      <if test="partstationdescribe != null">
+        PARTSTATIONDESCRIBE,
+      </if>
+      <if test="partstationstatus != null">
+        PARTSTATIONSTATUS,
+      </if>
+      <if test="gwstatus != null">
+        GWSTATUS,
+      </if>
+      <if test="gwdescribe != null">
+        GWDESCRIBE,
+      </if>
+      <if test="gwqjstatus != null">
+        GWQJSTATUS,
+      </if>
+      <if test="gwqjdescribe != null">
+        GWQJDESCRIBE,
+      </if>
+      <if test="linestatus != null">
+        LINESTATUS,
+      </if>
+      <if test="linedescribe != null">
+        LINEDESCRIBE,
+      </if>
+      <if test="describe1 != null">
+        DESCRIBE1,
+      </if>
+      <if test="status1 != null">
+        STATUS1,
+      </if>
+      <if test="describe2 != null">
+        DESCRIBE2,
+      </if>
+      <if test="status2 != null">
+        STATUS2,
+      </if>
+      <if test="deliverySite != null">
+        DELIVERY_SITE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="documentid != null">
+        #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="werks != null">
+        #{werks,jdbcType=VARCHAR},
+      </if>
+      <if test="fanlage2 != null">
+        #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="number1 != null">
+        #{number1,jdbcType=VARCHAR},
+      </if>
+      <if test="yhtype != null">
+        #{yhtype,jdbcType=VARCHAR},
+      </if>
+      <if test="batch != null">
+        #{batch,jdbcType=NUMERIC},
+      </if>
+      <if test="creatorid != null">
+        #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dischangedescribe != null">
+        #{dischangedescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="dischangestatus != null">
+        #{dischangestatus,jdbcType=CHAR},
+      </if>
+      <if test="partstationdescribe != null">
+        #{partstationdescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="partstationstatus != null">
+        #{partstationstatus,jdbcType=CHAR},
+      </if>
+      <if test="gwstatus != null">
+        #{gwstatus,jdbcType=CHAR},
+      </if>
+      <if test="gwdescribe != null">
+        #{gwdescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="gwqjstatus != null">
+        #{gwqjstatus,jdbcType=CHAR},
+      </if>
+      <if test="gwqjdescribe != null">
+        #{gwqjdescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="linestatus != null">
+        #{linestatus,jdbcType=CHAR},
+      </if>
+      <if test="linedescribe != null">
+        #{linedescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="describe1 != null">
+        #{describe1,jdbcType=VARCHAR},
+      </if>
+      <if test="status1 != null">
+        #{status1,jdbcType=CHAR},
+      </if>
+      <if test="describe2 != null">
+        #{describe2,jdbcType=VARCHAR},
+      </if>
+      <if test="status2 != null">
+        #{status2,jdbcType=VARCHAR},
+      </if>
+      <if test="deliverySite != null">
+        #{deliverySite,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.runbom.demo.model.Wmatinfo">
+    update PCC_W_MATINFO
+    <set>
+      <if test="documentid != null">
+        DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        ISDEL = #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="werks != null">
+        WERKS = #{werks,jdbcType=VARCHAR},
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2 = #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="number1 != null">
+        NUMBER1 = #{number1,jdbcType=VARCHAR},
+      </if>
+      <if test="yhtype != null">
+        YHTYPE = #{yhtype,jdbcType=VARCHAR},
+      </if>
+      <if test="batch != null">
+        BATCH = #{batch,jdbcType=NUMERIC},
+      </if>
+      <if test="creatorid != null">
+        CREATORID = #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dischangedescribe != null">
+        DISCHANGEDESCRIBE = #{dischangedescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="dischangestatus != null">
+        DISCHANGESTATUS = #{dischangestatus,jdbcType=CHAR},
+      </if>
+      <if test="partstationdescribe != null">
+        PARTSTATIONDESCRIBE = #{partstationdescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="partstationstatus != null">
+        PARTSTATIONSTATUS = #{partstationstatus,jdbcType=CHAR},
+      </if>
+      <if test="gwstatus != null">
+        GWSTATUS = #{gwstatus,jdbcType=CHAR},
+      </if>
+      <if test="gwdescribe != null">
+        GWDESCRIBE = #{gwdescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="gwqjstatus != null">
+        GWQJSTATUS = #{gwqjstatus,jdbcType=CHAR},
+      </if>
+      <if test="gwqjdescribe != null">
+        GWQJDESCRIBE = #{gwqjdescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="linestatus != null">
+        LINESTATUS = #{linestatus,jdbcType=CHAR},
+      </if>
+      <if test="linedescribe != null">
+        LINEDESCRIBE = #{linedescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="describe1 != null">
+        DESCRIBE1 = #{describe1,jdbcType=VARCHAR},
+      </if>
+      <if test="status1 != null">
+        STATUS1 = #{status1,jdbcType=CHAR},
+      </if>
+      <if test="describe2 != null">
+        DESCRIBE2 = #{describe2,jdbcType=VARCHAR},
+      </if>
+      <if test="status2 != null">
+        STATUS2 = #{status2,jdbcType=VARCHAR},
+      </if>
+      <if test="deliverySite != null">
+        DELIVERY_SITE = #{deliverySite,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.runbom.demo.model.Wmatinfo">
+    update PCC_W_MATINFO
+    set DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      ISDEL = #{isdel,jdbcType=NUMERIC},
+      WERKS = #{werks,jdbcType=VARCHAR},
+      FANLAGE2 = #{fanlage2,jdbcType=VARCHAR},
+      NUMBER1 = #{number1,jdbcType=VARCHAR},
+      YHTYPE = #{yhtype,jdbcType=VARCHAR},
+      BATCH = #{batch,jdbcType=NUMERIC},
+      CREATORID = #{creatorid,jdbcType=VARCHAR},
+      CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      DISCHANGEDESCRIBE = #{dischangedescribe,jdbcType=VARCHAR},
+      DISCHANGESTATUS = #{dischangestatus,jdbcType=CHAR},
+      PARTSTATIONDESCRIBE = #{partstationdescribe,jdbcType=VARCHAR},
+      PARTSTATIONSTATUS = #{partstationstatus,jdbcType=CHAR},
+      GWSTATUS = #{gwstatus,jdbcType=CHAR},
+      GWDESCRIBE = #{gwdescribe,jdbcType=VARCHAR},
+      GWQJSTATUS = #{gwqjstatus,jdbcType=CHAR},
+      GWQJDESCRIBE = #{gwqjdescribe,jdbcType=VARCHAR},
+      LINESTATUS = #{linestatus,jdbcType=CHAR},
+      LINEDESCRIBE = #{linedescribe,jdbcType=VARCHAR},
+      DESCRIBE1 = #{describe1,jdbcType=VARCHAR},
+      STATUS1 = #{status1,jdbcType=CHAR},
+      DESCRIBE2 = #{describe2,jdbcType=VARCHAR},
+      STATUS2 = #{status2,jdbcType=VARCHAR},
+      DELIVERY_SITE = #{deliverySite,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

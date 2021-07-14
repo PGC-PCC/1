@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.runbom.demo.dao.FanlageMapper">
+  <resultMap id="BaseResultMap" type="com.runbom.demo.model.Fanlage">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="DOCUMENTID" jdbcType="VARCHAR" property="documentid" />
+    <result column="ISDEL" jdbcType="NUMERIC" property="isdel" />
+    <result column="WERKS" jdbcType="VARCHAR" property="werks" />
+    <result column="FANLAGE2" jdbcType="VARCHAR" property="fanlage2" />
+    <result column="CREATORID" jdbcType="VARCHAR" property="creatorid" />
+    <result column="CREATORNAME" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="MODIFIERID" jdbcType="VARCHAR" property="modifierid" />
+    <result column="MODIFIERNAME" jdbcType="VARCHAR" property="modifiername" />
+    <result column="MODIFYTIME" jdbcType="TIMESTAMP" property="modifytime" />
+    <result column="LINETYPE" jdbcType="VARCHAR" property="linetype" />
+    <result column="PORT" jdbcType="VARCHAR" property="port" />
+    <result column="LINEID" jdbcType="VARCHAR" property="lineid" />
+    <result column="HAVERFID" jdbcType="CHAR" property="haverfid" />
+    <result column="CARCOUNT1" jdbcType="NUMERIC" property="carcount1" />
+    <result column="RESERVECOUNT1" jdbcType="NUMERIC" property="reservecount1" />
+    <result column="STRDATE1" jdbcType="TIMESTAMP" property="strdate1" />
+    <result column="ENDDATE1" jdbcType="TIMESTAMP" property="enddate1" />
+    <result column="CARCOUNT2" jdbcType="NUMERIC" property="carcount2" />
+    <result column="RESERVECOUNT2" jdbcType="NUMERIC" property="reservecount2" />
+    <result column="STRDATE2" jdbcType="TIMESTAMP" property="strdate2" />
+    <result column="ENDDATE2" jdbcType="TIMESTAMP" property="enddate2" />
+    <result column="LINECODE" jdbcType="VARCHAR" property="linecode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, DOCUMENTID, ISDEL, WERKS, FANLAGE2, CREATORID, CREATORNAME, CREATETIME, MODIFIERID, 
+    MODIFIERNAME, MODIFYTIME, LINETYPE, PORT, LINEID, HAVERFID, CARCOUNT1, RESERVECOUNT1, 
+    STRDATE1, ENDDATE1, CARCOUNT2, RESERVECOUNT2, STRDATE2, ENDDATE2, LINECODE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PCC_FANLAGE
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PCC_FANLAGE
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.runbom.demo.model.Fanlage">
+    insert into PCC_FANLAGE (ID, DOCUMENTID, ISDEL, 
+      WERKS, FANLAGE2, CREATORID, 
+      CREATORNAME, CREATETIME, MODIFIERID, 
+      MODIFIERNAME, MODIFYTIME, LINETYPE, 
+      PORT, LINEID, HAVERFID, 
+      CARCOUNT1, RESERVECOUNT1, STRDATE1, 
+      ENDDATE1, CARCOUNT2, RESERVECOUNT2, 
+      STRDATE2, ENDDATE2, LINECODE
+      )
+    values (#{id,jdbcType=VARCHAR}, #{documentid,jdbcType=VARCHAR}, #{isdel,jdbcType=NUMERIC}, 
+      #{werks,jdbcType=VARCHAR}, #{fanlage2,jdbcType=VARCHAR}, #{creatorid,jdbcType=VARCHAR}, 
+      #{creatorname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{modifierid,jdbcType=VARCHAR}, 
+      #{modifiername,jdbcType=VARCHAR}, #{modifytime,jdbcType=TIMESTAMP}, #{linetype,jdbcType=VARCHAR}, 
+      #{port,jdbcType=VARCHAR}, #{lineid,jdbcType=VARCHAR}, #{haverfid,jdbcType=CHAR}, 
+      #{carcount1,jdbcType=NUMERIC}, #{reservecount1,jdbcType=NUMERIC}, #{strdate1,jdbcType=TIMESTAMP}, 
+      #{enddate1,jdbcType=TIMESTAMP}, #{carcount2,jdbcType=NUMERIC}, #{reservecount2,jdbcType=NUMERIC}, 
+      #{strdate2,jdbcType=TIMESTAMP}, #{enddate2,jdbcType=TIMESTAMP}, #{linecode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.runbom.demo.model.Fanlage">
+    insert into PCC_FANLAGE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="documentid != null">
+        DOCUMENTID,
+      </if>
+      <if test="isdel != null">
+        ISDEL,
+      </if>
+      <if test="werks != null">
+        WERKS,
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2,
+      </if>
+      <if test="creatorid != null">
+        CREATORID,
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID,
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME,
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME,
+      </if>
+      <if test="linetype != null">
+        LINETYPE,
+      </if>
+      <if test="port != null">
+        PORT,
+      </if>
+      <if test="lineid != null">
+        LINEID,
+      </if>
+      <if test="haverfid != null">
+        HAVERFID,
+      </if>
+      <if test="carcount1 != null">
+        CARCOUNT1,
+      </if>
+      <if test="reservecount1 != null">
+        RESERVECOUNT1,
+      </if>
+      <if test="strdate1 != null">
+        STRDATE1,
+      </if>
+      <if test="enddate1 != null">
+        ENDDATE1,
+      </if>
+      <if test="carcount2 != null">
+        CARCOUNT2,
+      </if>
+      <if test="reservecount2 != null">
+        RESERVECOUNT2,
+      </if>
+      <if test="strdate2 != null">
+        STRDATE2,
+      </if>
+      <if test="enddate2 != null">
+        ENDDATE2,
+      </if>
+      <if test="linecode != null">
+        LINECODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="documentid != null">
+        #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="werks != null">
+        #{werks,jdbcType=VARCHAR},
+      </if>
+      <if test="fanlage2 != null">
+        #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorid != null">
+        #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="linetype != null">
+        #{linetype,jdbcType=VARCHAR},
+      </if>
+      <if test="port != null">
+        #{port,jdbcType=VARCHAR},
+      </if>
+      <if test="lineid != null">
+        #{lineid,jdbcType=VARCHAR},
+      </if>
+      <if test="haverfid != null">
+        #{haverfid,jdbcType=CHAR},
+      </if>
+      <if test="carcount1 != null">
+        #{carcount1,jdbcType=NUMERIC},
+      </if>
+      <if test="reservecount1 != null">
+        #{reservecount1,jdbcType=NUMERIC},
+      </if>
+      <if test="strdate1 != null">
+        #{strdate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate1 != null">
+        #{enddate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="carcount2 != null">
+        #{carcount2,jdbcType=NUMERIC},
+      </if>
+      <if test="reservecount2 != null">
+        #{reservecount2,jdbcType=NUMERIC},
+      </if>
+      <if test="strdate2 != null">
+        #{strdate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate2 != null">
+        #{enddate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="linecode != null">
+        #{linecode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.runbom.demo.model.Fanlage">
+    update PCC_FANLAGE
+    <set>
+      <if test="documentid != null">
+        DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        ISDEL = #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="werks != null">
+        WERKS = #{werks,jdbcType=VARCHAR},
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2 = #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorid != null">
+        CREATORID = #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="linetype != null">
+        LINETYPE = #{linetype,jdbcType=VARCHAR},
+      </if>
+      <if test="port != null">
+        PORT = #{port,jdbcType=VARCHAR},
+      </if>
+      <if test="lineid != null">
+        LINEID = #{lineid,jdbcType=VARCHAR},
+      </if>
+      <if test="haverfid != null">
+        HAVERFID = #{haverfid,jdbcType=CHAR},
+      </if>
+      <if test="carcount1 != null">
+        CARCOUNT1 = #{carcount1,jdbcType=NUMERIC},
+      </if>
+      <if test="reservecount1 != null">
+        RESERVECOUNT1 = #{reservecount1,jdbcType=NUMERIC},
+      </if>
+      <if test="strdate1 != null">
+        STRDATE1 = #{strdate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate1 != null">
+        ENDDATE1 = #{enddate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="carcount2 != null">
+        CARCOUNT2 = #{carcount2,jdbcType=NUMERIC},
+      </if>
+      <if test="reservecount2 != null">
+        RESERVECOUNT2 = #{reservecount2,jdbcType=NUMERIC},
+      </if>
+      <if test="strdate2 != null">
+        STRDATE2 = #{strdate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate2 != null">
+        ENDDATE2 = #{enddate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="linecode != null">
+        LINECODE = #{linecode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.runbom.demo.model.Fanlage">
+    update PCC_FANLAGE
+    set DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      ISDEL = #{isdel,jdbcType=NUMERIC},
+      WERKS = #{werks,jdbcType=VARCHAR},
+      FANLAGE2 = #{fanlage2,jdbcType=VARCHAR},
+      CREATORID = #{creatorid,jdbcType=VARCHAR},
+      CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      LINETYPE = #{linetype,jdbcType=VARCHAR},
+      PORT = #{port,jdbcType=VARCHAR},
+      LINEID = #{lineid,jdbcType=VARCHAR},
+      HAVERFID = #{haverfid,jdbcType=CHAR},
+      CARCOUNT1 = #{carcount1,jdbcType=NUMERIC},
+      RESERVECOUNT1 = #{reservecount1,jdbcType=NUMERIC},
+      STRDATE1 = #{strdate1,jdbcType=TIMESTAMP},
+      ENDDATE1 = #{enddate1,jdbcType=TIMESTAMP},
+      CARCOUNT2 = #{carcount2,jdbcType=NUMERIC},
+      RESERVECOUNT2 = #{reservecount2,jdbcType=NUMERIC},
+      STRDATE2 = #{strdate2,jdbcType=TIMESTAMP},
+      ENDDATE2 = #{enddate2,jdbcType=TIMESTAMP},
+      LINECODE = #{linecode,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.runbom.demo.model.Fanlage">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="DOCUMENTID" jdbcType="VARCHAR" property="documentid" />
+    <result column="ISDEL" jdbcType="NUMERIC" property="isdel" />
+    <result column="WERKS" jdbcType="VARCHAR" property="werks" />
+    <result column="FANLAGE2" jdbcType="VARCHAR" property="fanlage2" />
+    <result column="CREATORID" jdbcType="VARCHAR" property="creatorid" />
+    <result column="CREATORNAME" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="MODIFIERID" jdbcType="VARCHAR" property="modifierid" />
+    <result column="MODIFIERNAME" jdbcType="VARCHAR" property="modifiername" />
+    <result column="MODIFYTIME" jdbcType="TIMESTAMP" property="modifytime" />
+    <result column="LINETYPE" jdbcType="VARCHAR" property="linetype" />
+    <result column="PORT" jdbcType="VARCHAR" property="port" />
+    <result column="LINEID" jdbcType="VARCHAR" property="lineid" />
+    <result column="HAVERFID" jdbcType="CHAR" property="haverfid" />
+    <result column="CARCOUNT1" jdbcType="NUMERIC" property="carcount1" />
+    <result column="RESERVECOUNT1" jdbcType="NUMERIC" property="reservecount1" />
+    <result column="STRDATE1" jdbcType="TIMESTAMP" property="strdate1" />
+    <result column="ENDDATE1" jdbcType="TIMESTAMP" property="enddate1" />
+    <result column="CARCOUNT2" jdbcType="NUMERIC" property="carcount2" />
+    <result column="RESERVECOUNT2" jdbcType="NUMERIC" property="reservecount2" />
+    <result column="STRDATE2" jdbcType="TIMESTAMP" property="strdate2" />
+    <result column="ENDDATE2" jdbcType="TIMESTAMP" property="enddate2" />
+    <result column="LINECODE" jdbcType="VARCHAR" property="linecode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, DOCUMENTID, ISDEL, WERKS, FANLAGE2, CREATORID, CREATORNAME, CREATETIME, MODIFIERID, 
+    MODIFIERNAME, MODIFYTIME, LINETYPE, PORT, LINEID, HAVERFID, CARCOUNT1, RESERVECOUNT1, 
+    STRDATE1, ENDDATE1, CARCOUNT2, RESERVECOUNT2, STRDATE2, ENDDATE2, LINECODE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PCC_FANLAGE
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PCC_FANLAGE
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.runbom.demo.model.Fanlage">
+    insert into PCC_FANLAGE (ID, DOCUMENTID, ISDEL, 
+      WERKS, FANLAGE2, CREATORID, 
+      CREATORNAME, CREATETIME, MODIFIERID, 
+      MODIFIERNAME, MODIFYTIME, LINETYPE, 
+      PORT, LINEID, HAVERFID, 
+      CARCOUNT1, RESERVECOUNT1, STRDATE1, 
+      ENDDATE1, CARCOUNT2, RESERVECOUNT2, 
+      STRDATE2, ENDDATE2, LINECODE
+      )
+    values (#{id,jdbcType=VARCHAR}, #{documentid,jdbcType=VARCHAR}, #{isdel,jdbcType=NUMERIC}, 
+      #{werks,jdbcType=VARCHAR}, #{fanlage2,jdbcType=VARCHAR}, #{creatorid,jdbcType=VARCHAR}, 
+      #{creatorname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{modifierid,jdbcType=VARCHAR}, 
+      #{modifiername,jdbcType=VARCHAR}, #{modifytime,jdbcType=TIMESTAMP}, #{linetype,jdbcType=VARCHAR}, 
+      #{port,jdbcType=VARCHAR}, #{lineid,jdbcType=VARCHAR}, #{haverfid,jdbcType=CHAR}, 
+      #{carcount1,jdbcType=NUMERIC}, #{reservecount1,jdbcType=NUMERIC}, #{strdate1,jdbcType=TIMESTAMP}, 
+      #{enddate1,jdbcType=TIMESTAMP}, #{carcount2,jdbcType=NUMERIC}, #{reservecount2,jdbcType=NUMERIC}, 
+      #{strdate2,jdbcType=TIMESTAMP}, #{enddate2,jdbcType=TIMESTAMP}, #{linecode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.runbom.demo.model.Fanlage">
+    insert into PCC_FANLAGE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="documentid != null">
+        DOCUMENTID,
+      </if>
+      <if test="isdel != null">
+        ISDEL,
+      </if>
+      <if test="werks != null">
+        WERKS,
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2,
+      </if>
+      <if test="creatorid != null">
+        CREATORID,
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID,
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME,
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME,
+      </if>
+      <if test="linetype != null">
+        LINETYPE,
+      </if>
+      <if test="port != null">
+        PORT,
+      </if>
+      <if test="lineid != null">
+        LINEID,
+      </if>
+      <if test="haverfid != null">
+        HAVERFID,
+      </if>
+      <if test="carcount1 != null">
+        CARCOUNT1,
+      </if>
+      <if test="reservecount1 != null">
+        RESERVECOUNT1,
+      </if>
+      <if test="strdate1 != null">
+        STRDATE1,
+      </if>
+      <if test="enddate1 != null">
+        ENDDATE1,
+      </if>
+      <if test="carcount2 != null">
+        CARCOUNT2,
+      </if>
+      <if test="reservecount2 != null">
+        RESERVECOUNT2,
+      </if>
+      <if test="strdate2 != null">
+        STRDATE2,
+      </if>
+      <if test="enddate2 != null">
+        ENDDATE2,
+      </if>
+      <if test="linecode != null">
+        LINECODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="documentid != null">
+        #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="werks != null">
+        #{werks,jdbcType=VARCHAR},
+      </if>
+      <if test="fanlage2 != null">
+        #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorid != null">
+        #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="linetype != null">
+        #{linetype,jdbcType=VARCHAR},
+      </if>
+      <if test="port != null">
+        #{port,jdbcType=VARCHAR},
+      </if>
+      <if test="lineid != null">
+        #{lineid,jdbcType=VARCHAR},
+      </if>
+      <if test="haverfid != null">
+        #{haverfid,jdbcType=CHAR},
+      </if>
+      <if test="carcount1 != null">
+        #{carcount1,jdbcType=NUMERIC},
+      </if>
+      <if test="reservecount1 != null">
+        #{reservecount1,jdbcType=NUMERIC},
+      </if>
+      <if test="strdate1 != null">
+        #{strdate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate1 != null">
+        #{enddate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="carcount2 != null">
+        #{carcount2,jdbcType=NUMERIC},
+      </if>
+      <if test="reservecount2 != null">
+        #{reservecount2,jdbcType=NUMERIC},
+      </if>
+      <if test="strdate2 != null">
+        #{strdate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate2 != null">
+        #{enddate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="linecode != null">
+        #{linecode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.runbom.demo.model.Fanlage">
+    update PCC_FANLAGE
+    <set>
+      <if test="documentid != null">
+        DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        ISDEL = #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="werks != null">
+        WERKS = #{werks,jdbcType=VARCHAR},
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2 = #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorid != null">
+        CREATORID = #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="linetype != null">
+        LINETYPE = #{linetype,jdbcType=VARCHAR},
+      </if>
+      <if test="port != null">
+        PORT = #{port,jdbcType=VARCHAR},
+      </if>
+      <if test="lineid != null">
+        LINEID = #{lineid,jdbcType=VARCHAR},
+      </if>
+      <if test="haverfid != null">
+        HAVERFID = #{haverfid,jdbcType=CHAR},
+      </if>
+      <if test="carcount1 != null">
+        CARCOUNT1 = #{carcount1,jdbcType=NUMERIC},
+      </if>
+      <if test="reservecount1 != null">
+        RESERVECOUNT1 = #{reservecount1,jdbcType=NUMERIC},
+      </if>
+      <if test="strdate1 != null">
+        STRDATE1 = #{strdate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate1 != null">
+        ENDDATE1 = #{enddate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="carcount2 != null">
+        CARCOUNT2 = #{carcount2,jdbcType=NUMERIC},
+      </if>
+      <if test="reservecount2 != null">
+        RESERVECOUNT2 = #{reservecount2,jdbcType=NUMERIC},
+      </if>
+      <if test="strdate2 != null">
+        STRDATE2 = #{strdate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate2 != null">
+        ENDDATE2 = #{enddate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="linecode != null">
+        LINECODE = #{linecode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.runbom.demo.model.Fanlage">
+    update PCC_FANLAGE
+    set DOCUMENTID = #{documentid,jdbcType=VARCHAR},
+      ISDEL = #{isdel,jdbcType=NUMERIC},
+      WERKS = #{werks,jdbcType=VARCHAR},
+      FANLAGE2 = #{fanlage2,jdbcType=VARCHAR},
+      CREATORID = #{creatorid,jdbcType=VARCHAR},
+      CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      MODIFIERID = #{modifierid,jdbcType=VARCHAR},
+      MODIFIERNAME = #{modifiername,jdbcType=VARCHAR},
+      MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      LINETYPE = #{linetype,jdbcType=VARCHAR},
+      PORT = #{port,jdbcType=VARCHAR},
+      LINEID = #{lineid,jdbcType=VARCHAR},
+      HAVERFID = #{haverfid,jdbcType=CHAR},
+      CARCOUNT1 = #{carcount1,jdbcType=NUMERIC},
+      RESERVECOUNT1 = #{reservecount1,jdbcType=NUMERIC},
+      STRDATE1 = #{strdate1,jdbcType=TIMESTAMP},
+      ENDDATE1 = #{enddate1,jdbcType=TIMESTAMP},
+      CARCOUNT2 = #{carcount2,jdbcType=NUMERIC},
+      RESERVECOUNT2 = #{reservecount2,jdbcType=NUMERIC},
+      STRDATE2 = #{strdate2,jdbcType=TIMESTAMP},
+      ENDDATE2 = #{enddate2,jdbcType=TIMESTAMP},
+      LINECODE = #{linecode,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

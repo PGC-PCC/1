@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.runbom.demo.dao.BandPoolMapper">
+  <resultMap id="BaseResultMap" type="com.runbom.demo.model.BandPool">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="DOCUMENTID" jdbcType="VARCHAR" property="documentid" />
+    <result column="ISDEL" jdbcType="NUMERIC" property="isdel" />
+    <result column="FANLAGE2" jdbcType="VARCHAR" property="fanlage2" />
+    <result column="MAXNUM" jdbcType="NUMERIC" property="maxnum" />
+    <result column="KANR" jdbcType="VARCHAR" property="kanr" />
+    <result column="SPJ" jdbcType="VARCHAR" property="spj" />
+    <result column="BAND" jdbcType="VARCHAR" property="band" />
+    <result column="RFIDTIME" jdbcType="TIMESTAMP" property="rfidtime" />
+    <result column="CREATORID" jdbcType="VARCHAR" property="creatorid" />
+    <result column="CREATORNAME" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="MODIFIERID" jdbcType="VARCHAR" property="modifierid" />
+    <result column="MODIFIERNAME" jdbcType="VARCHAR" property="modifiername" />
+    <result column="MODIFYTIME" jdbcType="TIMESTAMP" property="modifytime" />
+    <result column="MJ" jdbcType="VARCHAR" property="mj" />
+    <result column="CCKANR" jdbcType="VARCHAR" property="cckanr" />
+    <result column="CARTYPE" jdbcType="VARCHAR" property="cartype" />
+  </resultMap>
+  <insert id="insert" parameterType="com.runbom.demo.model.BandPool">
+    insert into PCC_BAND_POOL (ID, DOCUMENTID, ISDEL, 
+      FANLAGE2, MAXNUM, KANR, 
+      SPJ, BAND, RFIDTIME, 
+      CREATORID, CREATORNAME, CREATETIME, 
+      MODIFIERID, MODIFIERNAME, MODIFYTIME, 
+      MJ, CCKANR, CARTYPE
+      )
+    values (#{id,jdbcType=VARCHAR}, #{documentid,jdbcType=VARCHAR}, #{isdel,jdbcType=NUMERIC}, 
+      #{fanlage2,jdbcType=VARCHAR}, #{maxnum,jdbcType=NUMERIC}, #{kanr,jdbcType=VARCHAR}, 
+      #{spj,jdbcType=VARCHAR}, #{band,jdbcType=VARCHAR}, #{rfidtime,jdbcType=TIMESTAMP}, 
+      #{creatorid,jdbcType=VARCHAR}, #{creatorname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{modifierid,jdbcType=VARCHAR}, #{modifiername,jdbcType=VARCHAR}, #{modifytime,jdbcType=TIMESTAMP}, 
+      #{mj,jdbcType=VARCHAR}, #{cckanr,jdbcType=VARCHAR}, #{cartype,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.runbom.demo.model.BandPool">
+    insert into PCC_BAND_POOL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="documentid != null">
+        DOCUMENTID,
+      </if>
+      <if test="isdel != null">
+        ISDEL,
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2,
+      </if>
+      <if test="maxnum != null">
+        MAXNUM,
+      </if>
+      <if test="kanr != null">
+        KANR,
+      </if>
+      <if test="spj != null">
+        SPJ,
+      </if>
+      <if test="band != null">
+        BAND,
+      </if>
+      <if test="rfidtime != null">
+        RFIDTIME,
+      </if>
+      <if test="creatorid != null">
+        CREATORID,
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID,
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME,
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME,
+      </if>
+      <if test="mj != null">
+        MJ,
+      </if>
+      <if test="cckanr != null">
+        CCKANR,
+      </if>
+      <if test="cartype != null">
+        CARTYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="documentid != null">
+        #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="fanlage2 != null">
+        #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="maxnum != null">
+        #{maxnum,jdbcType=NUMERIC},
+      </if>
+      <if test="kanr != null">
+        #{kanr,jdbcType=VARCHAR},
+      </if>
+      <if test="spj != null">
+        #{spj,jdbcType=VARCHAR},
+      </if>
+      <if test="band != null">
+        #{band,jdbcType=VARCHAR},
+      </if>
+      <if test="rfidtime != null">
+        #{rfidtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorid != null">
+        #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mj != null">
+        #{mj,jdbcType=VARCHAR},
+      </if>
+      <if test="cckanr != null">
+        #{cckanr,jdbcType=VARCHAR},
+      </if>
+      <if test="cartype != null">
+        #{cartype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.runbom.demo.model.BandPool">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="DOCUMENTID" jdbcType="VARCHAR" property="documentid" />
+    <result column="ISDEL" jdbcType="NUMERIC" property="isdel" />
+    <result column="FANLAGE2" jdbcType="VARCHAR" property="fanlage2" />
+    <result column="MAXNUM" jdbcType="NUMERIC" property="maxnum" />
+    <result column="KANR" jdbcType="VARCHAR" property="kanr" />
+    <result column="SPJ" jdbcType="VARCHAR" property="spj" />
+    <result column="BAND" jdbcType="VARCHAR" property="band" />
+    <result column="RFIDTIME" jdbcType="TIMESTAMP" property="rfidtime" />
+    <result column="CREATORID" jdbcType="VARCHAR" property="creatorid" />
+    <result column="CREATORNAME" jdbcType="VARCHAR" property="creatorname" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="MODIFIERID" jdbcType="VARCHAR" property="modifierid" />
+    <result column="MODIFIERNAME" jdbcType="VARCHAR" property="modifiername" />
+    <result column="MODIFYTIME" jdbcType="TIMESTAMP" property="modifytime" />
+    <result column="MJ" jdbcType="VARCHAR" property="mj" />
+    <result column="CCKANR" jdbcType="VARCHAR" property="cckanr" />
+    <result column="CARTYPE" jdbcType="VARCHAR" property="cartype" />
+  </resultMap>
+  <insert id="insert" parameterType="com.runbom.demo.model.BandPool">
+    insert into PCC_BAND_POOL (ID, DOCUMENTID, ISDEL, 
+      FANLAGE2, MAXNUM, KANR, 
+      SPJ, BAND, RFIDTIME, 
+      CREATORID, CREATORNAME, CREATETIME, 
+      MODIFIERID, MODIFIERNAME, MODIFYTIME, 
+      MJ, CCKANR, CARTYPE
+      )
+    values (#{id,jdbcType=VARCHAR}, #{documentid,jdbcType=VARCHAR}, #{isdel,jdbcType=NUMERIC}, 
+      #{fanlage2,jdbcType=VARCHAR}, #{maxnum,jdbcType=NUMERIC}, #{kanr,jdbcType=VARCHAR}, 
+      #{spj,jdbcType=VARCHAR}, #{band,jdbcType=VARCHAR}, #{rfidtime,jdbcType=TIMESTAMP}, 
+      #{creatorid,jdbcType=VARCHAR}, #{creatorname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{modifierid,jdbcType=VARCHAR}, #{modifiername,jdbcType=VARCHAR}, #{modifytime,jdbcType=TIMESTAMP}, 
+      #{mj,jdbcType=VARCHAR}, #{cckanr,jdbcType=VARCHAR}, #{cartype,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.runbom.demo.model.BandPool">
+    insert into PCC_BAND_POOL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="documentid != null">
+        DOCUMENTID,
+      </if>
+      <if test="isdel != null">
+        ISDEL,
+      </if>
+      <if test="fanlage2 != null">
+        FANLAGE2,
+      </if>
+      <if test="maxnum != null">
+        MAXNUM,
+      </if>
+      <if test="kanr != null">
+        KANR,
+      </if>
+      <if test="spj != null">
+        SPJ,
+      </if>
+      <if test="band != null">
+        BAND,
+      </if>
+      <if test="rfidtime != null">
+        RFIDTIME,
+      </if>
+      <if test="creatorid != null">
+        CREATORID,
+      </if>
+      <if test="creatorname != null">
+        CREATORNAME,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="modifierid != null">
+        MODIFIERID,
+      </if>
+      <if test="modifiername != null">
+        MODIFIERNAME,
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME,
+      </if>
+      <if test="mj != null">
+        MJ,
+      </if>
+      <if test="cckanr != null">
+        CCKANR,
+      </if>
+      <if test="cartype != null">
+        CARTYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="documentid != null">
+        #{documentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        #{isdel,jdbcType=NUMERIC},
+      </if>
+      <if test="fanlage2 != null">
+        #{fanlage2,jdbcType=VARCHAR},
+      </if>
+      <if test="maxnum != null">
+        #{maxnum,jdbcType=NUMERIC},
+      </if>
+      <if test="kanr != null">
+        #{kanr,jdbcType=VARCHAR},
+      </if>
+      <if test="spj != null">
+        #{spj,jdbcType=VARCHAR},
+      </if>
+      <if test="band != null">
+        #{band,jdbcType=VARCHAR},
+      </if>
+      <if test="rfidtime != null">
+        #{rfidtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorid != null">
+        #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null">
+        #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierid != null">
+        #{modifierid,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiername != null">
+        #{modifiername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mj != null">
+        #{mj,jdbcType=VARCHAR},
+      </if>
+      <if test="cckanr != null">
+        #{cckanr,jdbcType=VARCHAR},
+      </if>
+      <if test="cartype != null">
+        #{cartype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
